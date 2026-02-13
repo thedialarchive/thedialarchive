@@ -22,6 +22,21 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+        }
+        
+        .pointer-arrow {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 48px;
+            animation: bounce 1.5s infinite;
+            z-index: 1000;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-10px) translateX(10px); }
         }
         
         .instruction-card {
@@ -39,6 +54,7 @@
             height: 80px;
             margin: 0 auto 24px;
             display: block;
+            border-radius: 50%;
         }
         
         h1 {
@@ -116,10 +132,36 @@
             font-size: 14px;
             color: #86868b;
         }
+        
+        .loading {
+            display: none;
+        }
+        
+        .loading.active {
+            display: block;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #f5f5f7;
+            border-top-color: #000;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-    <div class="instruction-card">
+    <div class="pointer-arrow">↗️</div>
+    
+    <div class="instruction-card" id="instructions">
         <img src="https://i.imgur.com/SZ3Tn1Q.png" alt="The Dial Archive" class="logo">
         
         <h1>Open in Amazon App</h1>
@@ -130,7 +172,7 @@
                 <div class="step-number">1</div>
                 <div class="step-content">
                     <h3>Tap the Menu</h3>
-                    <p>Click the <strong>•••</strong> button in the top right corner</p>
+                    <p>Click the <strong>•••</strong> button in the top right corner ↗️</p>
                 </div>
             </div>
             
@@ -158,12 +200,25 @@
         <p class="footer-text">The Dial Archive • Watches Worth Knowing</p>
     </div>
     
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Opening Amazon...</p>
+    </div>
+    
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const asin = urlParams.get('asin');
         const tag = urlParams.get('tag') || 'thedialarchiv-20';
         
-        if (asin) {
+        const isStandaloneBrowser = window.navigator.standalone || 
+                                   !window.navigator.userAgent.includes('TikTok') &&
+                                   (window.navigator.userAgent.includes('Safari') || 
+                                    window.navigator.userAgent.includes('Chrome'));
+        
+        if (asin && isStandaloneBrowser) {
+            document.getElementById('instructions').style.display = 'none';
+            document.getElementById('loading').classList.add('active');
+            
             const amazonAppUrl = `amazon://www.amazon.com/dp/${asin}?tag=${tag}`;
             const amazonWebUrl = `https://www.amazon.com/dp/${asin}?tag=${tag}`;
             
