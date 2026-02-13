@@ -171,144 +171,6 @@
             font-size: 14px;
             font-weight: 400;
             color: var(--text-secondary);
-        }.loading-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            padding: 20px;
-        }
-        
-        .loading-modal.active {
-            display: flex;
-            opacity: 1;
-        }
-        
-        .loading-content {
-            background: var(--bg-primary);
-            border-radius: 24px;
-            padding: 40px 32px;
-            text-align: center;
-            max-width: 420px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-        
-        .instruction-header {
-            margin-bottom: 12px;
-        }
-        
-        .check-icon {
-            width: 56px;
-            height: 56px;
-            color: var(--accent);
-            margin: 0 auto 16px;
-        }
-        
-        .loading-content h2 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 0;
-            color: var(--text-primary);
-        }
-        
-        .instruction-subtext {
-            font-size: 15px;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-        }
-        
-        .instruction-steps {
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 32px;
-            text-align: left;
-        }
-        
-        .step-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        
-        .step-number {
-            width: 32px;
-            height: 32px;
-            background: var(--accent);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-        
-        .step-text {
-            font-size: 15px;
-            line-height: 1.5;
-            color: var(--text-primary);
-        }
-        
-        .step-text strong {
-            font-weight: 600;
-            color: var(--accent);
-        }
-        
-        .step-arrow {
-            text-align: center;
-            font-size: 20px;
-            color: var(--text-secondary);
-            margin: 8px 0;
-        }
-        
-        .btn-primary-large {
-            width: 100%;
-            padding: 16px 32px;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: inherit;
-            margin-bottom: 12px;
-        }
-        
-        .btn-primary-large:hover {
-            background: #333;
-            transform: translateY(-1px);
-        }
-        
-        .btn-primary-large:active {
-            transform: translateY(0);
-        }
-        
-        .btn-secondary-link {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 15px;
-            cursor: pointer;
-            padding: 8px;
-            font-family: inherit;
-        }
-        
-        .btn-secondary-link:hover {
-            color: var(--text-primary);
         }
         
         .empty-state {
@@ -330,72 +192,9 @@
     </style>
 </head>
 <body>
-    <div class="loading-modal" id="loadingModal">
-        <div class="loading-content">
-            <div class="instruction-header">
-                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 11l3 3L22 4"></path>
-                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
-                </svg>
-                <h2>Open in Amazon App</h2>
-            </div>
-            
-            <p class="instruction-subtext">For the best shopping experience</p>
-            
-            <div class="instruction-steps">
-                <div class="step-item">
-                    <div class="step-number">1</div>
-                    <div class="step-text">Tap the <strong>•••</strong> menu (top right)</div>
-                </div>
-                <div class="step-arrow">↓</div>
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <div class="step-text">Select <strong>"Open in Browser"</strong></div>
-                </div>
-                <div class="step-arrow">↓</div>
-                <div class="step-item">
-                    <div class="step-number">3</div>
-                    <div class="step-text">Amazon app will open automatically</div>
-                </div>
-            </div>
-            
-            <button class="btn-primary-large" id="continueBtn">Continue to Amazon</button>
-            <button class="btn-secondary-link" id="closeBtn">Go Back</button>
-        </div>
-    </div>
-
     <header class="header">
         <div class="logo-container">
-            <svg class="logo" viewBox="0 0 317.5 317.5" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="158.75" cy="158.75" rx="126.362" ry="126.013" fill="#000"/>
-                <ellipse cx="158.75" cy="158.75" rx="118.892" ry="116.899" fill="#fff"/>
-                <ellipse cx="158.75" cy="158.75" rx="101.138" ry="99.443" fill="#fafafa"/>
-                <path d="M87.193 294.394c0 4.312-.985 8.179-2.954 11.6-4.811 9.297-10.684 11.42-24.474 11.506h-16.327v-46.305h16.793c3.773 0 7.028.321 9.765.964 2.737.622 5.038 1.513 6.904 2.674 3.193 1.949 5.701 4.582 7.526 7.899 1.845 3.296 2.768 7.184 2.768 11.662zm-12.346-.093c0-3.048-.56-5.65-1.679-7.806-1.099-2.177-2.851-3.877-5.256-5.1-1.223-.601-2.477-1.006-3.763-1.213-1.265-.228-3.182-.342-5.753-.342h-3.096v28.983h3.017c2.84 0 4.924-.124 6.25-.373 1.327-.27 2.623-.746 3.888-1.43 2.177-1.244 3.773-2.903 4.789-4.976 1.016-2.094 1.524-4.675 1.524-7.743z" transform="matrix(1.15 0 0 1.15 -11.538 -182.441)" fill="#000"/>
-                <path d="M116.526 317.5h-12.346l-3.203-9.361c-32.673.162-30.131 2.515-15.3-36.945h13.745zm-18.441-17.85l-5.691-16.606-5.691 16.606z" fill="#000"/>
-                <ellipse cx="158.75" cy="158.75" rx="6.246" ry="6.141" fill="#808080"/>
-                <ellipse cx="158.75" cy="61.173" rx="3.252" ry="14.882" fill="#808080"/>
-                <g fill="#808080">
-                    <ellipse cx="158.75" cy="-256.652" rx="3.198" ry="15.136" transform="rotate(90)"/>
-                    <ellipse cx="219.098" cy="-47.416" rx="3.236" ry="14.956" transform="matrix(.847 .531 -.544 .839 0 0)"/>
-                    <ellipse cx="45.576" cy="-319.56" rx="3.236" ry="14.956" transform="matrix(.847 -.531 -.544 -.839 0 0)"/>
-                    <ellipse cx="-44.58" cy="118.28" rx="3.236" ry="14.956" transform="matrix(-.847 .531 .544 .839 0 0)"/>
-                    <ellipse cx="-228.944" cy="-147" rx="3.236" ry="14.956" transform="matrix(-.847 -.531 .544 -.839 0 0)"/>
-                    <ellipse cx="237.538" cy="-125.861" rx="3.217" ry="15.045" transform="matrix(.606 .795 -.805 .593 0 0)"/>
-                    <ellipse cx="-22.177" cy="-318.845" rx="3.217" ry="15.045" transform="matrix(.606 -.795 -.805 -.593 0 0)"/>
-                    <ellipse cx="49.637" cy="126.823" rx="3.217" ry="15.045" transform="matrix(-.606 .795 .805 .593 0 0)"/>
-                    <ellipse cx="-214.233" cy="-65.946" rx="3.217" ry="15.045" transform="matrix(-.606 -.795 .805 -.593 0 0)"/>
-                    <ellipse cx="158.75" cy="-59.06" rx="3.198" ry="15.136" transform="rotate(90)"/>
-                    <ellipse cx="158.75" cy="256.035" rx="3.252" ry="14.882"/>
-                </g>
-                <g transform="matrix(1.066 -1.018 .611 .618 21.69 79.354)" fill="#808080">
-                    <rect width="4.43" height="96.253" x="25.975" y="80.034"/>
-                    <path d="M99.464 308.442l-18.118-.168 9.204-15.607z" transform="matrix(.245 -.01 .002 1.347 5.513 -334.276)"/>
-                </g>
-                <g transform="matrix(-.815 -.705 -.467 .428 263.414 104.073)" fill="#808080">
-                    <rect width="4.43" height="96.253" x="25.975" y="80.034"/>
-                    <path d="M99.464 308.442l-18.118-.168 9.204-15.607z" transform="matrix(.245 -.01 .002 1.347 5.513 -334.276)"/>
-                </g>
-            </svg>
+            <img src="https://i.imgur.com/SZ3Tn1Q.png" alt="The Dial Archive" class="logo">
             <h1 class="brand-name">The Dial Archive</h1>
         </div>
         <p class="tagline">Watches Worth Knowing</p>
@@ -422,48 +221,14 @@
             }
         ];
         
-        const loadingModal = document.getElementById('loadingModal');
         const watchGrid = document.getElementById('watchGrid');
-        const continueBtn = document.getElementById('continueBtn');
-        const closeBtn = document.getElementById('closeBtn');
-        let currentAsin = null;
-        
-        function showInstructions(asin) {
-            currentAsin = asin;
-            loadingModal.classList.add('active');
-        }
-        
-        function openAmazonApp() {
-            if (!currentAsin) return;
-            
-            const amazonAppUrl = `amazon://www.amazon.com/dp/${currentAsin}?tag=${YOUR_ASSOCIATE_ID}`;
-            const amazonWebUrl = `https://www.amazon.com/dp/${currentAsin}?tag=${YOUR_ASSOCIATE_ID}`;
-            
-            window.location.href = amazonAppUrl;
-            
-            setTimeout(() => {
-                window.location.href = amazonWebUrl;
-            }, 1500);
-        }
-        
-        continueBtn.addEventListener('click', openAmazonApp);
-        
-        closeBtn.addEventListener('click', () => {
-            loadingModal.classList.remove('active');
-            currentAsin = null;
-        });
-        
-        loadingModal.addEventListener('click', (e) => {
-            if (e.target === loadingModal) {
-                loadingModal.classList.remove('active');
-                currentAsin = null;
-            }
-        });
         
         function createWatchCard(watch) {
             const card = document.createElement('div');
             card.className = 'watch-card';
-            card.onclick = () => showInstructions(watch.asin);
+            card.onclick = () => {
+                window.location.href = `redirect.html?asin=${watch.asin}&tag=${YOUR_ASSOCIATE_ID}`;
+            };
             
             const refHtml = watch.ref ? `<div class="watch-ref">${watch.ref}</div>` : '';
             const priceHtml = watch.price ? `<div class="watch-price">${watch.price}</div>` : '';
