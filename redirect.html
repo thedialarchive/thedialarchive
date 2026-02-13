@@ -22,21 +22,6 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            position: relative;
-        }
-        
-        .pointer-arrow {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            font-size: 48px;
-            animation: bounce 1.5s infinite;
-            z-index: 1000;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            50% { transform: translateY(-10px) translateX(10px); }
         }
         
         .instruction-card {
@@ -54,7 +39,6 @@
             height: 80px;
             margin: 0 auto 24px;
             display: block;
-            border-radius: 50%;
         }
         
         h1 {
@@ -68,6 +52,29 @@
             font-size: 16px;
             color: #86868b;
             margin-bottom: 40px;
+        }
+        
+        .pointer-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .pointer-arrow {
+            font-size: 64px;
+            animation: bounce 1.5s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-10px) translateX(10px); }
+        }
+        
+        .pointer-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #000;
+            margin-top: 12px;
         }
         
         .steps {
@@ -132,47 +139,23 @@
             font-size: 14px;
             color: #86868b;
         }
-        
-        .loading {
-            display: none;
-        }
-        
-        .loading.active {
-            display: block;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid #f5f5f7;
-            border-top-color: #000;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin: 0 auto 16px;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body>
-    <div class="pointer-arrow">↗️</div>
-    
-    <div class="instruction-card" id="instructions">
+    <div class="instruction-card">
         <img src="https://i.imgur.com/SZ3Tn1Q.png" alt="The Dial Archive" class="logo">
         
-        <h1>Open in Amazon App</h1>
-        <p class="subtext">Follow these steps to continue</p>
+        <div class="pointer-container">
+            <div class="pointer-arrow">↗️</div>
+            <div class="pointer-text">Tap the ••• menu above</div>
+        </div>
         
         <div class="steps">
             <div class="step">
                 <div class="step-number">1</div>
                 <div class="step-content">
                     <h3>Tap the Menu</h3>
-                    <p>Click the <strong>•••</strong> button in the top right corner ↗️</p>
+                    <p>Click the <strong>•••</strong> button in the top right corner</p>
                 </div>
             </div>
             
@@ -181,8 +164,8 @@
             <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                    <h3>Open in Browser</h3>
-                    <p>Select <strong>"Open in Browser"</strong> from the menu</p>
+                    <h3>Select "Open in Browser"</h3>
+                    <p>Choose <strong>"Open in Browser"</strong> or <strong>"Open in Safari"</strong> from the menu</p>
                 </div>
             </div>
             
@@ -191,8 +174,8 @@
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                    <h3>Done!</h3>
-                    <p>Amazon app will open automatically</p>
+                    <h3>Amazon Opens!</h3>
+                    <p>The Amazon app will open automatically</p>
                 </div>
             </div>
         </div>
@@ -200,33 +183,18 @@
         <p class="footer-text">The Dial Archive • Watches Worth Knowing</p>
     </div>
     
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-        <p>Opening Amazon...</p>
-    </div>
-    
     <script>
+        // Get ASIN and pass it to amazon page when opened in browser
         const urlParams = new URLSearchParams(window.location.search);
         const asin = urlParams.get('asin');
-        const tag = urlParams.get('tag') || 'thedialarchiv-20';
+        const tag = urlParams.get('tag');
         
-        const isStandaloneBrowser = window.navigator.standalone || 
-                                   !window.navigator.userAgent.includes('TikTok') &&
-                                   (window.navigator.userAgent.includes('Safari') || 
-                                    window.navigator.userAgent.includes('Chrome'));
+        // Detect if opened in Safari/Chrome (not TikTok)
+        const isBrowser = !navigator.userAgent.includes('TikTok');
         
-        if (asin && isStandaloneBrowser) {
-            document.getElementById('instructions').style.display = 'none';
-            document.getElementById('loading').classList.add('active');
-            
-            const amazonAppUrl = `amazon://www.amazon.com/dp/${asin}?tag=${tag}`;
-            const amazonWebUrl = `https://www.amazon.com/dp/${asin}?tag=${tag}`;
-            
-            window.location.href = amazonAppUrl;
-            
-            setTimeout(() => {
-                window.location.href = amazonWebUrl;
-            }, 1500);
+        if (isBrowser && asin) {
+            // Redirect to amazon page
+            window.location.href = `amazon.html?asin=${asin}&tag=${tag}`;
         }
     </script>
 </body>
