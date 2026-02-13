@@ -171,15 +171,13 @@
             font-size: 14px;
             font-weight: 400;
             color: var(--text-secondary);
-        }
-        
-        .loading-modal {
+        }.loading-modal {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(10px);
             display: none;
             justify-content: center;
@@ -187,6 +185,7 @@
             z-index: 1000;
             opacity: 0;
             transition: opacity 0.3s ease;
+            padding: 20px;
         }
         
         .loading-modal.active {
@@ -196,37 +195,120 @@
         
         .loading-content {
             background: var(--bg-primary);
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 24px;
+            padding: 40px 32px;
             text-align: center;
-            max-width: 320px;
+            max-width: 420px;
+            width: 100%;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
         
-        .spinner {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 24px;
-            border: 3px solid var(--border-color);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+        .instruction-header {
+            margin-bottom: 12px;
         }
         
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .check-icon {
+            width: 56px;
+            height: 56px;
+            color: var(--accent);
+            margin: 0 auto 16px;
         }
         
         .loading-content h2 {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 0;
             color: var(--text-primary);
         }
         
-        .loading-content p {
-            font-size: 14px;
+        .instruction-subtext {
+            font-size: 15px;
             color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .instruction-steps {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+        
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        
+        .step-text {
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+        
+        .step-text strong {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .step-arrow {
+            text-align: center;
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin: 8px 0;
+        }
+        
+        .btn-primary-large {
+            width: 100%;
+            padding: 16px 32px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            margin-bottom: 12px;
+        }
+        
+        .btn-primary-large:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+        
+        .btn-primary-large:active {
+            transform: translateY(0);
+        }
+        
+        .btn-secondary-link {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 15px;
+            cursor: pointer;
+            padding: 8px;
+            font-family: inherit;
+        }
+        
+        .btn-secondary-link:hover {
+            color: var(--text-primary);
         }
         
         .empty-state {
@@ -250,9 +332,35 @@
 <body>
     <div class="loading-modal" id="loadingModal">
         <div class="loading-content">
-            <div class="spinner"></div>
-            <h2>Opening Amazon</h2>
-            <p>Taking you to the watch now</p>
+            <div class="instruction-header">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 11l3 3L22 4"></path>
+                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+                </svg>
+                <h2>Open in Amazon App</h2>
+            </div>
+            
+            <p class="instruction-subtext">For the best shopping experience</p>
+            
+            <div class="instruction-steps">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Tap the <strong>•••</strong> menu (top right)</div>
+                </div>
+                <div class="step-arrow">↓</div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Select <strong>"Open in Browser"</strong></div>
+                </div>
+                <div class="step-arrow">↓</div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Amazon app will open automatically</div>
+                </div>
+            </div>
+            
+            <button class="btn-primary-large" id="continueBtn">Continue to Amazon</button>
+            <button class="btn-secondary-link" id="closeBtn">Go Back</button>
         </div>
     </div>
 
@@ -301,9 +409,7 @@
 
     <div class="container">
         <div class="watch-grid" id="watchGrid"></div>
-    </div>
-
-    <script>
+    </div><script>
         const YOUR_ASSOCIATE_ID = "thedialarchiv-20";
         
         const watches = [
@@ -318,12 +424,20 @@
         
         const loadingModal = document.getElementById('loadingModal');
         const watchGrid = document.getElementById('watchGrid');
+        const continueBtn = document.getElementById('continueBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        let currentAsin = null;
         
-        function openAmazonApp(asin) {
+        function showInstructions(asin) {
+            currentAsin = asin;
             loadingModal.classList.add('active');
+        }
+        
+        function openAmazonApp() {
+            if (!currentAsin) return;
             
-            const amazonAppUrl = `amazon://www.amazon.com/dp/${asin}?tag=${YOUR_ASSOCIATE_ID}`;
-            const amazonWebUrl = `https://www.amazon.com/dp/${asin}?tag=${YOUR_ASSOCIATE_ID}`;
+            const amazonAppUrl = `amazon://www.amazon.com/dp/${currentAsin}?tag=${YOUR_ASSOCIATE_ID}`;
+            const amazonWebUrl = `https://www.amazon.com/dp/${currentAsin}?tag=${YOUR_ASSOCIATE_ID}`;
             
             window.location.href = amazonAppUrl;
             
@@ -332,10 +446,24 @@
             }, 1500);
         }
         
+        continueBtn.addEventListener('click', openAmazonApp);
+        
+        closeBtn.addEventListener('click', () => {
+            loadingModal.classList.remove('active');
+            currentAsin = null;
+        });
+        
+        loadingModal.addEventListener('click', (e) => {
+            if (e.target === loadingModal) {
+                loadingModal.classList.remove('active');
+                currentAsin = null;
+            }
+        });
+        
         function createWatchCard(watch) {
             const card = document.createElement('div');
             card.className = 'watch-card';
-            card.onclick = () => openAmazonApp(watch.asin);
+            card.onclick = () => showInstructions(watch.asin);
             
             const refHtml = watch.ref ? `<div class="watch-ref">${watch.ref}</div>` : '';
             const priceHtml = watch.price ? `<div class="watch-price">${watch.price}</div>` : '';
