@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dial Archive - Watches Worth Knowing</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --border-color: #d2d2d7;
+            --accent: #000000;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .header {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 24px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .logo {
+            width: 48px;
+            height: 48px;
+        }
+        
+        .brand-name {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+        
+        .tagline {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 20px;
+        }
+        
+        .watch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .watch-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+        
+        .watch-card {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+        }
+        
+        .watch-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+        
+        .watch-card:active {
+            transform: translateY(-2px);
+        }
+        
+        .watch-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            background: var(--bg-secondary);
+            overflow: hidden;
+        }
+        
+        .watch-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .watch-card:hover .watch-image {
+            transform: scale(1.05);
+        }
+        
+        .watch-info {
+            padding: 16px;
+        }
+        
+        .watch-name {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            line-height: 1.3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        .watch-ref {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+        }
+        
+        .watch-price {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+        
+        .loading-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .loading-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .loading-content {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 320px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 24px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .loading-content h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .loading-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .empty-state h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .empty-state p {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-modal" id="loadingModal">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h2>Opening Amazon</h2>
+            <p>Taking you to the watch now</p>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo-container">
+            <svg class="logo" viewBox="0 0 317.5 317.5" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="158.75" cy="158.75" rx="126.362" ry="126.013" fill="#000"/>
+                <ellipse cx="158.75" cy="158.75" rx="118.892" ry="116.899" fill="#fff"/>
+                <ellipse cx="158.75" cy="158.75" rx="101.138" ry="99.443" fill="#fafafa"/>
+                <path d="M87.193 294.394c0 4.312-.985 8.179-2.954 11.6-4.811 9.297-10.684 11.42-24.474 11.506h-16.327v-46.305h16.793c3.773 0 7.028.321 9.765.964 2.737.622 5.038 1.513 6.904 2.674 3.193 1.949 5.701 4.582 7.526 7.899 1.845 3.296 2.768 7.184 2.768 11.662zm-12.346-.093c0-3.048-.56-5.65-1.679-7.806-1.099-2.177-2.851-3.877-5.256-5.1-1.223-.601-2.477-1.006-3.763-1.213-1.265-.228-3.182-.342-5.753-.342h-3.096v28.983h3.017c2.84 0 4.924-.124 6.25-.373 1.327-.27 2.623-.746 3.888-1.43 2.177-1.244 3.773-2.903 4.789-4.976 1.016-2.094 1.524-4.675 1.524-7.743z" transform="matrix(1.15 0 0 1.15 -11.538 -182.441)" fill="#000"/>
+                <path d="M116.526 317.5h-12.346l-3.203-9.361c-32.673.162-30.131 2.515-15.3-36.945h13.745zm-18.441-17.85l-5.691-16.606-5.691 16.606z" fill="#000"/>
+                <ellipse cx="158.75" cy="158.75" rx="6.246" ry="6.141" fill="#808080"/>
+                <ellipse cx="158.75" cy="61.173" rx="3.252" ry="14.882" fill="#808080"/>
+                <g fill="#808080">
+                    <ellipse cx="158.75" cy="-256.652" rx="3.198" ry="15.136" transform="rotate(90)"/>
+                    <ellipse cx="219.098" cy="-47.416" rx="3.236" ry="14.956" transform="matrix(.847 .531 -.544 .839 0 0)"/>
+                    <ellipse cx="45.576" cy="-319.56" rx="3.236" ry="14.956" transform="matrix(.847 -.531 -.544 -.839 0 0)"/>
+                    <ellipse cx="-44.58" cy="118.28" rx="3.236" ry="14.956" transform="matrix(-.847 .531 .544 .839 0 0)"/>
+                    <ellipse cx="-228.944" cy="-147" rx="3.236" ry="14.956" transform="matrix(-.847 -.531 .544 -.839 0 0)"/>
+                    <ellipse cx="237.538" cy="-125.861" rx="3.217" ry="15.045" transform="matrix(.606 .795 -.805 .593 0 0)"/>
+                    <ellipse cx="-22.177" cy="-318.845" rx="3.217" ry="15.045" transform="matrix(.606 -.795 -.805 -.593 0 0)"/>
+                    <ellipse cx="49.637" cy="126.823" rx="3.217" ry="15.045" transform="matrix(-.606 .795 .805 .593 0 0)"/>
+                    <ellipse cx="-214.233" cy="-65.946" rx="3.217" ry="15.045" transform="matrix(-.606 -.795 .805 -.593 0 0)"/>
+                    <ellipse cx="158.75" cy="-59.06" rx="3.198" ry="15.136" transform="rotate(90)"/>
+                    <ellipse cx="158.75" cy="256.035" rx="3.252" ry="14.882"/>
+                </g>
+                <g transform="matrix(1.066 -1.018 .611 .618 21.69 79.354)" fill="#808080">
+                    <rect width="4.43" height="96.253" x="25.975" y="80.034"/>
+                    <path d="M99.464 308.442l-18.118-.168 9.204-15.607z" transform="matrix(.245 -.01 .002 1.347 5.513 -334.276)"/>
+                </g>
+                <g transform="matrix(-.815 -.705 -.467 .428 263.414 104.073)" fill="#808080">
+                    <rect width="4.43" height="96.253" x="25.975" y="80.034"/>
+                    <path d="M99.464 308.442l-18.118-.168 9.204-15.607z" transform="matrix(.245 -.01 .002 1.347 5.513 -334.276)"/>
+                </g>
+            </svg>
+            <h1 class="brand-name">The Dial Archive</h1>
+        </div>
+        <p class="tagline">Watches Worth Knowing</p>
+        <a href="https://tiktok.com/@dialarchive" target="_blank" class="social-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+            </svg>
+            @dialarchive
+        </a>
+    </header>
+
+    <div class="container">
+        <div class="watch-grid" id="watchGrid"></div>
+    </div>
+
+    <script>
+        const YOUR_ASSOCIATE_ID = "thedialarchiv-20";
+        
+        const watches = [
+            { 
+                name: "Casio Digi-Dial Black", 
+                asin: "B000J39T2S",
+                ref: "AQ-230A",
+                price: "$50",
+                image: "https://i.imgur.com/9JIvhEp.jpeg" 
+            }
+        ];
+        
+        const loadingModal = document.getElementById('loadingModal');
+        const watchGrid = document.getElementById('watchGrid');
+        
+        function openAmazonApp(asin) {
+            loadingModal.classList.add('active');
+            
+            const amazonAppUrl = `amazon://www.amazon.com/dp/${asin}?tag=${YOUR_ASSOCIATE_ID}`;
+            const amazonWebUrl = `https://www.amazon.com/dp/${asin}?tag=${YOUR_ASSOCIATE_ID}`;
+            
+            window.location.href = amazonAppUrl;
+            
+            setTimeout(() => {
+                window.location.href = amazonWebUrl;
+            }, 1500);
+        }
+        
+        function createWatchCard(watch) {
+            const card = document.createElement('div');
+            card.className = 'watch-card';
+            card.onclick = () => openAmazonApp(watch.asin);
+            
+            const refHtml = watch.ref ? `<div class="watch-ref">${watch.ref}</div>` : '';
+            const priceHtml = watch.price ? `<div class="watch-price">${watch.price}</div>` : '';
+            
+            card.innerHTML = `
+                <div class="watch-image-container">
+                    <img src="${watch.image}" alt="${watch.name}" class="watch-image" loading="lazy">
+                </div>
+                <div class="watch-info">
+                    <div class="watch-name">${watch.name}</div>
+                    ${refHtml}
+                    ${priceHtml}
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        function loadWatches() {
+            if (watches.length === 0) {
+                watchGrid.innerHTML = `
+                    <div class="empty-state">
+                        <h2>No watches yet</h2>
+                        <p>Add your first watch to get started</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            watches.forEach(watch => {
+                watchGrid.appendChild(createWatchCard(watch));
+            });
+        }
+        
+        loadWatches();
+    </script>
+</body>
+</html>
