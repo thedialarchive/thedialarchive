@@ -218,7 +218,6 @@
         const tag = urlParams.get('tag') || 'thedialarchiv-20';
         
         // Check if we're in Safari (not TikTok's browser)
-        // TikTok's user agent includes "TikTok"
         const userAgent = navigator.userAgent.toLowerCase();
         const isTikTok = userAgent.includes('tiktok') || userAgent.includes('musical_ly');
         
@@ -227,16 +226,10 @@
             document.getElementById('instructions').style.display = 'none';
             document.getElementById('loading').classList.add('active');
             
-            const amazonAppUrl = `amazon://www.amazon.com/dp/${asin}?tag=${tag}`;
+            // Go directly to Amazon web URL
+            // iOS will show "Open in Amazon?" prompt automatically
             const amazonWebUrl = `https://www.amazon.com/dp/${asin}?tag=${tag}`;
-            
-            // Try to open Amazon app
-            window.location.href = amazonAppUrl;
-            
-            // Fallback to web after 1.5 seconds
-            setTimeout(() => {
-                window.location.href = amazonWebUrl;
-            }, 1500);
+            window.location.href = amazonWebUrl;
         }
     </script>
 </body>
