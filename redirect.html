@@ -165,7 +165,7 @@
                 <div class="step-number">2</div>
                 <div class="step-content">
                     <h3>Select "Open in Browser"</h3>
-                    <p>Choose <strong>"Open in Browser"</strong> or <strong>"Open in Safari"</strong> from the menu</p>
+                    <p>Choose <strong>"Open in Browser"</strong> from the menu</p>
                 </div>
             </div>
             
@@ -182,30 +182,5 @@
         
         <p class="footer-text">The Dial Archive • Watches Worth Knowing</p>
     </div>
-    
-    <script>
-        // Get ASIN and tag from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const asin = urlParams.get('asin');
-        const tag = urlParams.get('tag');
-        
-        // Detect if we're in TikTok's in-app browser
-        const userAgent = navigator.userAgent.toLowerCase();
-        const isInAppBrowser = 
-            userAgent.includes('tiktok') ||
-            userAgent.includes('bytedance') ||
-            userAgent.includes('musical_ly') ||
-            userAgent.includes('instagram') ||
-            userAgent.includes('fban') ||
-            userAgent.includes('fbav');
-        
-        // Only redirect if NOT in an in-app browser AND we have an ASIN
-        if (!isInAppBrowser && asin) {
-            // We're in a real browser (Safari/Chrome), redirect to Amazon
-            window.location.href = `amazon.html?asin=${asin}&tag=${tag}`;
-        }
-        
-        // Otherwise, stay on this instruction page
-    </script>
 </body>
 </html>
