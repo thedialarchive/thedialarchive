@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFJ18RFH3J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NFJ18RFH3J');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dial Archive - Watches Worth Knowing</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
         * {
             margin: 0;
@@ -15,62 +24,46 @@
         
         :root {
             --bg-primary: #ffffff;
-            --bg-secondary: #f5f5f7;
+            --bg-secondary: #f9f9f9;
+            --bg-card: #ffffff;
             --text-primary: #1d1d1f;
-            --text-secondary: #86868b;
-            --border-color: #d2d2d7;
-            --accent: #000000;
+            --text-secondary: #6e6e73;
+            --accent-gold: #c9a961;
+            --accent-blue: #007aff;
+            --border-color: #e5e5e7;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
             --font-bold: 'Arial Black', Arial, sans-serif;
-            --font-normal: Arial, sans-serif;
+            --font-normal: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
         body {
             font-family: var(--font-normal);
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             color: var(--text-primary);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
         
         .header {
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border-color);
-            padding: 24px 20px;
-            text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(20px);
             background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 20px 18px;
+            text-align: center;
+            position: relative;
         }
         
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 8px;
-        }
-        
-        .logo {
-            width: 48px;
-            height: 48px;
-        }
-        
-        .brand-name {
-            font-size: 28px;
-            font-weight: 900;
-            font-family: var(--font-bold);
-            letter-spacing: -0.5px;
-            color: var(--text-primary);
-        }
-        
-        .tagline {
-            font-size: 14px;
-            font-weight: 400;
-            font-family: var(--font-normal);
-            color: var(--text-secondary);
-            margin-bottom: 12px;
+        .tiktok-corner {
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
         
         .social-link {
@@ -79,93 +72,452 @@
             gap: 6px;
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12px;
+            font-weight: 500;
             font-family: var(--font-normal);
-            padding: 6px 12px;
+            padding: 8px 14px;
             border-radius: 20px;
-            transition: all 0.2s ease;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--bg-card);
         }
         
         .social-link:hover {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
         
-        .intro-banner {
-            background: var(--bg-primary);
-            padding: 32px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 6px;
+            animation: fadeInDown 0.8s ease-out;
         }
         
-        .intro-banner p {
-            font-size: 24px;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo {
+            width: 44px;
+            height: 44px;
+            filter: drop-shadow(0 2px 8px rgba(201, 169, 97, 0.3));
+        }
+        
+        .brand-name {
+            font-size: 28px;
             font-weight: 900;
             font-family: var(--font-bold);
-            line-height: 1.3;
-            color: var(--text-primary);
-            max-width: 600px;
-            margin: 0 auto 16px;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #1d1d1f 0%, #6e6e73 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .intro-banner .cta-text {
+        .tagline {
+            font-size: 15px;
+            font-weight: 600;
+            font-family: var(--font-normal);
+            color: var(--text-secondary);
+            letter-spacing: 0.3px;
+        }
+        
+        /* Compact Hero Banner */
+        .hero-banner {
+            background: linear-gradient(180deg, #f9f9f9 0%, #ffffff 100%);
+            padding: 28px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 30px;
+            font-weight: 900;
+            font-family: var(--font-bold);
+            line-height: 1.2;
+            background: linear-gradient(135deg, #1d1d1f 0%, #6e6e73 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+        
+        .hero-cta {
             font-size: 18px;
-            font-weight: 400;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+        
+        .hero-cta .amazon-highlight {
+            color: var(--accent-gold);
+            font-weight: 800;
+        }
+        
+        /* Compact Featured Section */
+        .featured-section {
+            max-width: 100%;
+            padding: 36px 20px 28px;
+            background: var(--bg-secondary);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: rgba(201, 169, 97, 0.1);
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 800;
             font-family: var(--font-normal);
             color: var(--text-primary);
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
         }
         
-        .container {
-            max-width: 1200px;
+        .section-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            max-width: 500px;
             margin: 0 auto;
-            padding: 32px 20px;
-            min-height: calc(100vh - 400px);
         }
         
-        .watch-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+        /* Horizontal Scrollable Featured Grid */
+        .featured-scroll {
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
         
-        @media (max-width: 768px) {
-            .watch-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-            
-            .intro-banner p {
-                font-size: 20px;
-            }
-            
-            .intro-banner .cta-text {
-                font-size: 16px;
-            }
+        .featured-scroll::-webkit-scrollbar {
+            display: none;
         }
         
-        .watch-card {
-            background: var(--bg-primary);
+        .featured-grid {
+            display: flex;
+            gap: 16px;
+            padding: 0 20px 8px;
+            min-width: min-content;
+        }
+        
+        .featured-card {
+            flex: 0 0 200px;
+            background: var(--bg-card);
             border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .featured-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(201, 169, 97, 0.3);
+        }
+        
+        .featured-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            overflow: hidden;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .featured-card:hover .featured-image {
+            transform: scale(1.05);
+        }
+        
+        .featured-info {
+            padding: 12px;
+        }
+        
+        .featured-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        /* Amazon Trust Banner */
+        .amazon-banner {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.08) 0%, rgba(201, 169, 97, 0.03) 100%);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin: 0 auto 28px;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .amazon-banner-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .amazon-logo-icon {
+            font-size: 20px;
+        }
+        
+        .amazon-banner-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 24px;
+            }
+            
+            .hero-cta {
+                font-size: 16px;
+            }
+            
+            .featured-card {
+                flex: 0 0 160px;
+            }
+            
+            .featured-grid {
+                padding: 0 16px 8px;
+            }
+            
+            .tiktok-corner {
+                top: 16px;
+                right: 16px;
+            }
+            
+            .social-link {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+            
+            .amazon-banner {
+                padding: 16px 20px;
+                margin-bottom: 20px;
+            }
+        }
+        
+        /* Controls */
+        .controls {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 28px 20px 20px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 13px 16px 13px 46px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            color: var(--text-primary);
+            font-family: var(--font-normal);
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 4px rgba(201, 169, 97, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            pointer-events: none;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            color: var(--text-secondary);
+            font-family: var(--font-normal);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.2px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .filter-btn.active {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: white;
+            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+        
+        .watch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .watch-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                padding: 20px 20px 16px;
+            }
+            
+            .search-box {
+                max-width: 100%;
+            }
+        }
+        
+        /* Watch Cards */
+        .watch-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
         }
         
         .watch-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(201, 169, 97, 0.3);
         }
         
         .watch-card:active {
-            transform: translateY(-2px);
+            transform: translateY(-4px);
         }
         
         .watch-image-container {
             position: relative;
             width: 100%;
             aspect-ratio: 1;
-            background: var(--bg-secondary);
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
             overflow: hidden;
         }
         
@@ -173,24 +525,24 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .watch-card:hover .watch-image {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
         
         .watch-info {
-            padding: 16px;
+            padding: 20px;
         }
         
         .watch-name {
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             font-family: var(--font-normal);
             color: var(--text-primary);
-            margin-bottom: 4px;
-            line-height: 1.3;
+            margin-bottom: 6px;
+            line-height: 1.4;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
@@ -200,89 +552,920 @@
         
         .watch-ref {
             font-size: 12px;
-            font-weight: 400;
-            color: var(--text-secondary);
+            font-weight: 500;
+            color: var(--accent-gold);
             font-family: 'Monaco', 'Courier New', monospace;
+            letter-spacing: 0.3px;
         }
         
         .footer {
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
             border-top: 1px solid var(--border-color);
-            padding: 32px 20px;
+            padding: 48px 20px;
             text-align: center;
         }
         
         .footer p {
-            font-size: 13px;
+            font-size: 14px;
             font-family: var(--font-normal);
-            color: var(--text-primary);
+            color: var(--text-secondary);
             line-height: 1.6;
         }
         
         .empty-state {
             text-align: center;
             padding: 80px 20px;
+            color: var(--text-secondary);
         }
         
         .empty-state h2 {
             font-size: 24px;
-            font-weight: 600;
-            font-family: var(--font-bold);
+            font-weight: 700;
             margin-bottom: 8px;
             color: var(--text-primary);
         }
         
         .empty-state p {
             font-size: 16px;
-            font-family: var(--font-normal);
+        }
+        
+        .results-count {
+            text-align: center;
             color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <header class="header">
+        <div class="tiktok-corner">
+            <a href="https://tiktok.com/@dialarchive" target="_blank" class="social-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
+                @dialarchive
+            </a>
+        </div>
         <div class="logo-container">
             <img src="https://i.imgur.com/SZ3Tn1Q.png" alt="The Dial Archive" class="logo">
             <h1 class="brand-name">The Dial Archive</h1>
         </div>
         <p class="tagline">Watches Worth Knowing.</p>
-        <a href="https://tiktok.com/@dialarchive" target="_blank" class="social-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-            </svg>
-            @dialarchive
-        </a>
     </header>
 
-    <div class="intro-banner">
-        <p>Welcome to the Archive.</p>
-        <p class="cta-text">Tap a watch to open it in your Amazon app!</p>
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h2 class="hero-title">Welcome to the Archive.</h2>
+            <p class="hero-cta">Tap any watch to explore on <span class="amazon-highlight">your Amazon app</span></p>
+        </div>
+    </div>
+
+    <section class="featured-section">
+        <div class="section-header">
+            <span class="section-tag">Start Here</span>
+            <h3 class="section-title">Essential Watches</h3>
+            <p class="section-description">Handpicked timepieces that offer exceptional value—perfect entry points into serious watch collecting.</p>
+        </div>
+        <div class="featured-scroll">
+            <div class="featured-grid" id="featuredGrid"></div>
+        </div>
+    </section>
+
+    <div class="controls">
+        <div class="search-box">
+            <svg class="search-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search watches...">
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-brand="all">All Watches</button>
+            <button class="filter-btn" data-brand="timex">Timex</button>
+            <button class="filter-btn" data-brand="seiko">Seiko</button>
+            <button class="filter-btn" data-brand="orient">Orient</button>
+            <button class="filter-btn" data-brand="hamilton">Hamilton</button>
+            <button class="filter-btn" data-brand="citizen">Citizen</button>
+            <button class="filter-btn" data-brand="casio">Casio</button>
+            <button class="filter-btn" data-brand="bulova">Bulova</button>
+        </div>
     </div>
 
     <div class="container">
+        <div class="amazon-banner">
+            <div class="amazon-banner-title">
+                <span class="amazon-logo-icon">📦</span>
+                Shop Safely with Amazon
+            </div>
+            <p class="amazon-banner-text">
+                All watches open directly in your Amazon app. Secure checkout, fast shipping, and easy returns—just like any Amazon purchase.
+            </p>
+        </div>
+        
+        <div class="results-count" id="resultsCount"></div>
         <div class="watch-grid" id="watchGrid"></div>
     </div>
 
     <footer class="footer">
         <p>As an Amazon Associate I earn from qualifying purchases.</p>
-    </footer><script>
+    </footer>
+
+    <script>
         const YOUR_ASSOCIATE_ID = "thedialarchiv-20";
         
-        const watches = [
-            { 
-                name: "Casio Digi-Dial Black", 
-                asin: "B000J39T2S",
-                ref: "AQ-230A",
-                image: "https://i.imgur.com/9JIvhEp.jpeg" 
-            }
+        const featuredWatches = [
+    { 
+        name: "Timex Waterbury Chronograph", 
+        asin: "B0FJMSFT7W",
+        ref: "TW2Y23600",
+        image: "https://i.imgur.com/2JMCOty.png" 
+    },
+    { 
+        name: "Timex Easy Reader", 
+        asin: "B000AYSH2E",
+        ref: "T2H311",
+        image: "https://i.imgur.com/XbmI9rw.png" 
+    },
+    { 
+        name: "Seiko 5 Sports", 
+        asin: "B089FQ4R4X",
+        ref: "SRPE55",
+        image: "https://i.imgur.com/hL3ro7A.jpeg" 
+    },
+    { 
+        name: "Seiko 5 SNK805", 
+        asin: "B000LTAY1U",
+        ref: "SNK805",
+        image: "https://i.imgur.com/CWTlGEc.jpeg" 
+    },
+    { 
+        name: "Orient TriStar", 
+        asin: "B07ZL63R2D",
+        ref: "RA-AB0F09L19A",
+        image: "https://i.imgur.com/mKacM5R.png" 
+    },
+    { 
+        name: "Orient Bambino I", 
+        asin: "B01MXPSU8R",
+        ref: "FAC00005W0",
+        image: "https://i.imgur.com/An7QL5Q.jpeg" 
+    },
+    { 
+        name: "Citizen Garrison Eco-Drive", 
+        asin: "B000EQS1JW",
+        ref: "BM8180-03E",
+        image: "https://i.imgur.com/mmYvBK0.png" 
+    },
+    { 
+        name: "Casio 'Duro' Marlin", 
+        asin: "B009KYJAJY",
+        ref: "MDV106-1A",
+        image: "https://i.imgur.com/y4KlntO.png" 
+    }
         ];
         
+        const watches = [
+    { 
+        name: "Timex Q 1978", 
+        asin: "B0F4L5G3W8",
+        ref: "TW2W44700ZV",
+        image: "https://i.imgur.com/ezJNncJ.png" 
+    },
+    { 
+        name: "Timex M79 Automatic", 
+        asin: "B08YQSP7CP",
+        ref: "TW2U29500",
+        image: "https://i.imgur.com/4jEg07Z.png" 
+    },
+    { 
+        name: "Timex Expedition Solar", 
+        asin: "B09F91MVCG",
+        ref: "TW2V00200",
+        image: "https://i.imgur.com/WgIiNtV.png" 
+    },
+    { 
+        name: "Series 5 Automatic", 
+        asin: "B0009MYUZU",
+        ref: "SNK381",
+        image: "https://i.imgur.com/WWuY6C1.jpeg" 
+    },
+    { 
+        name: "Seiko SRPD55", 
+        asin: "B07WGML3VN",
+        ref: "SRPD55",
+        image: "https://i.imgur.com/J2pNTul.png" 
+    },
+    { 
+        name: "Seiko SKX Root Beer GMT", 
+        asin: "B0DH8M1GNT",
+        ref: "SSK036",
+        image: "https://i.imgur.com/xCbPhU9.png" 
+    },
+    { 
+        name: "Seiko Presage 'Skydiving'", 
+        asin: "B0711T8CSS",
+        ref: "SRPB43",
+        image: "https://i.imgur.com/iY23JP8.png" 
+    },
+    { 
+        name: "Seiko Presage 'Cocktail Time'", 
+        asin: "B08HKPG6P3",
+        ref: "SRPE41",
+        image: "https://i.imgur.com/DyTlBOw.png" 
+    },
+    { 
+        name: "Seiko Presage 'Cocktail Time'", 
+        asin: "B0CBVTZPCV",
+        ref: "SSA459",
+        image: "https://i.imgur.com/QzFryVn.png" 
+    },
+    { 
+        name: "Seiko Presage 'Manhattan'", 
+        asin: "B071FB8VVR",
+        ref: "SRPB46",
+        image: "https://i.imgur.com/9A1vT9s.png" 
+    },
+    { 
+        name: "Seiko Presage 'Cocktail Time'", 
+        asin: "B074KL28XK",
+        ref: "SRPB43",
+        image: "https://i.imgur.com/iY23JP8.png" 
+    },
+    { 
+        name: "Seiko Essentials Tank", 
+        asin: "B0954RVHB6",
+        ref: "SWR053",
+        image: "https://i.imgur.com/bXPBIlb.jpeg" 
+    },
+    { 
+        name: "Seiko Essentials Tank", 
+        asin: "B093565212",
+        ref: "SWR054",
+        image: "https://i.imgur.com/U3G7l7G.png" 
+    },
+    { 
+        name: "Seiko Core 'Two-Tone'", 
+        asin: "B09GW4GXRM",
+        ref: "SUR460P1",
+        image: "https://i.imgur.com/s4kjZCu.png" 
+    },
+    { 
+        name: "Seiko Alpinist", 
+        asin: "B0B33H4V74",
+        ref: "SPB121",
+        image: "https://i.imgur.com/TiodK9V.png" 
+    },
+    { 
+        name: "Seiko 5 Yellow Gold", 
+        asin: "B00PK7I63Q",
+        ref: "SNXS80",
+        image: "https://i.imgur.com/LxGjXk5.png" 
+    },
+    { 
+        name: "Seiko 5 Yellow Gold", 
+        asin: "B000ZAW3C8",
+        ref: "SNXL72",
+        image: "https://i.imgur.com/PsXupZ9.png" 
+    },
+    { 
+        name: "Seiko 5 Sports 'SNXS'", 
+        asin: "B000G12Y8O",
+        ref: "SNXS79K",
+        image: "https://i.imgur.com/NFcvZtz.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Sports 'SKX'", 
+        asin: "B0FNDMP9K2",
+        ref: "SRPL79",
+        image: "https://i.imgur.com/UJrA4Tz.png" 
+    },
+    { 
+        name: "Seiko 5 Sports 'Midi'", 
+        asin: "B0C3W99175",
+        ref: "SRPK31",
+        image: "https://i.imgur.com/zC6NxaQ.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Sports GMT 'Blueberry'", 
+        asin: "B0B6JVCYMN",
+        ref: "SSK003",
+        image: "https://i.imgur.com/iCuxiFr.png" 
+    },
+    { 
+        name: "Seiko 5 Sports GMT", 
+        asin: "B0B6KWJ4KJ",
+        ref: "SSK001",
+        image: "https://i.imgur.com/ak9MDBz.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Sports", 
+        asin: "B09LRMR5VX",
+        ref: "SRPH31",
+        image: "https://i.imgur.com/KBe9kRk.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Sports Automatic Silver Orange", 
+        asin: "B0CGXD25S8",
+        ref: "SRPK09K1",
+        image: "https://i.imgur.com/9i9gaLG.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Sports", 
+        asin: "B07WGMTVRL",
+        ref: "SRPL59K1",
+        image: "https://i.imgur.com/q2YORdu.png" 
+    },
+    { 
+        name: "Seiko 5 Sports 'Midi' Blue", 
+        asin: "B0C73P925W",
+        ref: "SRPK33",
+        image: "https://i.imgur.com/ti0lDan.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Sports 'Hulk'", 
+        asin: "B07ZJTSZP1",
+        ref: "SRPD63",
+        image: "https://i.imgur.com/zbB1lJ2.png" 
+    },
+    { 
+        name: "Seiko 5 Sports 'DressKX'", 
+        asin: "B08BMXHR4T",
+        ref: "SRPE51",
+        image: "https://i.imgur.com/KbJJx2U.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Sports 'Checkerboard'", 
+        asin: "B0D67HFHND",
+        ref: "SRPK67K1",
+        image: "https://i.imgur.com/onBvuZJ.png" 
+    },
+    { 
+        name: "Seiko 5 Sports", 
+        asin: "B07WFNRR69",
+        ref: "SRPD51",
+        image: "https://i.imgur.com/Mjm1Qzr.png" 
+    },
+    { 
+        name: "Seiko 5 SKX White Blue", 
+        asin: "B0DNNSBCNP",
+        ref: "SSK033",
+        image: "https://i.imgur.com/zBRtpjL.png" 
+    },
+    { 
+        name: "Seiko 5 SKX 'Mint'", 
+        asin: "B0C73P925W",
+        ref: "SRPK33",
+        image: "https://i.imgur.com/IdtXc8n.jpeg" 
+    },
+    { 
+        name: "Seiko 5", 
+        asin: "B000U3GUSS",
+        ref: "SNK617",
+        image: "https://i.imgur.com/4DeNqQt.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Midfield", 
+        asin: "B0CN1KTXTP",
+        ref: "SRPJ81",
+        image: "https://i.imgur.com/Gj0cBV4.png" 
+    },
+    { 
+        name: "Seiko 5 Field", 
+        asin: "B09LRKYH46",
+        ref: "SRPH29",
+        image: "https://i.imgur.com/Nb6QMB6.jpeg" 
+    },
+    { 
+        name: "Seiko 5 GMT 'Orange'", 
+        asin: "B0B6KT1649",
+        ref: "SSK005",
+        image: "https://i.imgur.com/4HfsCA0.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Field Mechanical", 
+        asin: "B096YG529N",
+        ref: "SRPG27",
+        image: "https://i.imgur.com/9aLLkIY.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Field 'Blackout'", 
+        asin: "B0971HNK3J",
+        ref: "SRPG41",
+        image: "https://i.imgur.com/SKF4GuU.png" 
+    },
+    { 
+        name: "Seiko 5 'Classic Black'", 
+        asin: "B009GCRM0Y",
+        ref: "SNKL45",
+        image: "https://i.imgur.com/QpbeJ9D.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Blue Dial Yellow", 
+        asin: "B000NM0REE",
+        ref: "SNK615",
+        image: "https://i.imgur.com/SUoGw7p.jpeg" 
+    },
+    { 
+        name: "Seiko 5 Arabic", 
+        asin: "B07RB27XT3",
+        ref: "SNKP22J1",
+        image: "https://i.imgur.com/JhrvgeC.jpeg" 
+    },
+    { 
+        name: "Seiko 5", 
+        asin: "B002SLBZH6",
+        ref: "SNK607",
+        image: "https://i.imgur.com/uMKf6Y4.png" 
+    },
+    { 
+        name: "Orient Symphony III", 
+        asin: "B07XSQ5W1V",
+        ref: "RA-AC0F02S30B",
+        image: "https://i.imgur.com/Zg08Gs4.jpeg" 
+    },
+    { 
+        name: "Orient Sun and Moon", 
+        asin: "B09D9L13Z9",
+        ref: "RA-AK0011D10B",
+        image: "https://i.imgur.com/bO3xAIb.png" 
+    },
+    { 
+        name: "Orient Ray II", 
+        asin: "B07FD7TWY8",
+        ref: "FAA02006M9",
+        image: "https://i.imgur.com/Xeijyg0.png" 
+    },
+    { 
+        name: "Orient Neo Classic", 
+        asin: "B094DP5538",
+        ref: "RA-AA0E03L",
+        image: "https://i.imgur.com/plZb9pz.jpeg" 
+    },
+    { 
+        name: "Orient Mako III", 
+        asin: "B09KYLBSJM",
+        ref: "RA-AA0811E19B",
+        image: "https://i.imgur.com/hD5S3Zm.jpeg" 
+    },
+    { 
+        name: "Orient Mako II", 
+        asin: "B01AK5TQRM",
+        ref: "FAA02002D9",
+        image: "https://i.imgur.com/CeFflvN.jpeg" 
+    },
+    { 
+        name: "Orient Mako II", 
+        asin: "B01AK5TQQ8",
+        ref: "FAA02001B9",
+        image: "https://i.imgur.com/YjguyVY.png" 
+    },
+    { 
+        name: "Orient Kano", 
+        asin: "B07JF61WNW",
+        ref: "RA-AA0011B19B",
+        image: "https://i.imgur.com/8QOfwhF.jpeg" 
+    },
+    { 
+        name: "Orient Kamasu", 
+        asin: "B07JGMM8FC",
+        ref: "RA-AA0004E19B",
+        image: "https://i.imgur.com/xIlEMOk.jpeg" 
+    },
+    { 
+        name: "Orient Kamasu", 
+        asin: "B07QBBKVJ6",
+        ref: "RA-AA0001B19A",
+        image: "https://i.imgur.com/PNyEsro.png" 
+    },
+    { 
+        name: "Orient Chronograph", 
+        asin: "B0DFWQ4TJF",
+        ref: "RATX0304L10B",
+        image: "https://i.imgur.com/nwjbWqJ.jpeg" 
+    },
+    { 
+        name: "Orient Bambino", 
+        asin: "B0C8F8BSTT",
+        ref: "RA-AK0701S10B",
+        image: "https://i.imgur.com/U9U570u.jpeg" 
+    },
+    { 
+        name: "Orient Bambino", 
+        asin: "B09DTPZGKN",
+        ref: "RA-AC0020G30B",
+        image: "https://i.imgur.com/3eoup2p.png" 
+    },
+    { 
+        name: "Orient Bambino IV", 
+        asin: "B0FPT1J9VH",
+        ref: "FAC08003W0",
+        image: "https://i.imgur.com/EsoiqAa.jpeg" 
+    },
+    { 
+        name: "Orient Bambino I", 
+        asin: "B01NAAQLYY",
+        ref: "TAC00004B0",
+        image: "https://i.imgur.com/VTtjHgK.jpeg" 
+    },
+    { 
+        name: "Orient Bambino IV 'Salmon'", 
+        asin: "B0DQYCCFZW",
+        ref: "RA-AC0M15Y30B",
+        image: "https://i.imgur.com/X5eFP4E.jpeg" 
+    },
+    { 
+        name: "Orient Bambino III", 
+        asin: "B082X1TQBP",
+        ref: "FAC0000CA0",
+        image: "https://i.imgur.com/RykTGol.jpeg" 
+    },
+    { 
+        name: "Orient Bambino 'Small Seconds'", 
+        asin: "B0D7Y196MP",
+        ref: "RA-AP0101B30B",
+        image: "https://i.imgur.com/pw5XOLy.jpeg" 
+    },
+    { 
+        name: "Orient Bambino 'Open Heart'", 
+        asin: "B07B4BD9HY",
+        ref: "RA-AG0005L30B",
+        image: "https://i.imgur.com/V25aiHe.png" 
+    },
+    { 
+        name: "Orient Bambino", 
+        asin: "B0DB6NPS3P",
+        ref: "RA-AK0705R10B",
+        image: "https://i.imgur.com/dNnPYl5.png" 
+    },
+    { 
+        name: "Orient Bambino 'Small Seconds'", 
+        asin: "B0D7Y196MP",
+        ref: "RA-AP0101B30B",
+        image: "https://i.imgur.com/VVXoAve.png" 
+    },
+    { 
+        name: "Orient Bambino", 
+        asin: "B01N5RFHLF",
+        ref: "FAC08003A0",
+        image: "https://i.imgur.com/JF60DPz.png" 
+    },
+    { 
+        name: "Orient Bambino II", 
+        asin: "B01MTS5BFN",
+        ref: "FAC00009N0",
+        image: "https://i.imgur.com/KEA6CBu.jpeg" 
+    },
+    { 
+        name: "Orient Bambino II", 
+        asin: "B072K5C5G1",
+        ref: "TAC0000DD0",
+        image: "https://i.imgur.com/JJ0h2fg.png" 
+    },
+    { 
+        name: "Orient Bambino II", 
+        asin: "B01N0IEGK0",
+        ref: "FAC00002W0",
+        image: "https://i.imgur.com/GWfTMcD.png" 
+    },
+    { 
+        name: "Hamilton Khaki Field", 
+        asin: "B0DQST69QB",
+        ref: "H68201143",
+        image: "https://i.imgur.com/ueJPBI8.png" 
+    },
+    { 
+        name: "Hamilton Khaki Field Mechanical", 
+        asin: "B0982W1QSQ",
+        ref: "H69439931",
+        image: "https://i.imgur.com/d8iIQc8.png" 
+    },
+    { 
+        name: "Citizen Tsuyosa", 
+        asin: "B0CDDDJ6H6",
+        ref: "NJ0150-56Z",
+        image: "https://i.imgur.com/dmjeNU7.png" 
+    },
+    { 
+        name: "Citizen Quartz Blue Dial Two Tone", 
+        asin: "B09JGH1521",
+        ref: "BI1036-57L",
+        image: "https://i.imgur.com/JzZjzJm.png" 
+    },
+    { 
+        name: "Citizen Promaster", 
+        asin: "B0C8L8J621",
+        ref: "NY0120-52X",
+        image: "https://i.imgur.com/oIIHzMx.png" 
+    },
+    { 
+        name: "Citizen Promaster Diver", 
+        asin: "B016R90VBK",
+        ref: "BN0150-28E",
+        image: "https://i.imgur.com/1Mqwokj.png" 
+    },
+    { 
+        name: "Citizen Promaster 'Fugu'", 
+        asin: "B0BTJTRDDH",
+        ref: "NY0150-51L",
+        image: "https://i.imgur.com/JcuLhnA.png" 
+    },
+    { 
+        name: "Citizen Nighthawk", 
+        asin: "B00074KYC8",
+        ref: "BJ7000-52E",
+        image: "https://i.imgur.com/GTz9PSD.png" 
+    },
+    { 
+        name: "Citizen Eco-Drive Chronograph", 
+        asin: "B0FL92P63V",
+        ref: "CA4630-53A",
+        image: "https://i.imgur.com/xR1dGcR.png" 
+    },
+    { 
+        name: "Citizen Eco-Drive Chrono Sport", 
+        asin: "B07CGPZD27",
+        ref: "CA0648-09L",
+        image: "https://i.imgur.com/9ovcDzn.png" 
+    },
+    { 
+        name: "Citizen Eco-Drive Axiom", 
+        asin: "B00CB9A47W",
+        ref: "AU1065-58E",
+        image: "https://i.imgur.com/pgnwMj8.png" 
+    },
+    { 
+        name: "Citizen Diver", 
+        asin: "B0C7M3F7MB",
+        ref: "NY0129-58L",
+        image: "https://i.imgur.com/Jza4MkT.png" 
+    },
+    { 
+        name: "Citizen Corso", 
+        asin: "B07N1XKFBT",
+        ref: "BM7100-59E",
+        image: "https://i.imgur.com/HGxYBxJ.png" 
+    },
+    { 
+        name: "Citizen Chandler Military", 
+        asin: "B07SKKR5CX",
+        ref: "BM6838-17L",
+        image: "https://i.imgur.com/1ICNWl0.jpeg" 
+    },
+    { 
+        name: "Citizen Chandler Chronograph", 
+        asin: "B01KUFIHAE",
+        ref: "CA0621-05L",
+        image: "https://i.imgur.com/zRCL6ws.png" 
+    },
+    { 
+        name: "Citizen Calendrier", 
+        asin: "B00PXVUMCM",
+        ref: "BU2020-02A",
+        image: "https://i.imgur.com/HwKDAt8.jpeg" 
+    },
+    { 
+        name: "Citizen Brycen Chronograph", 
+        asin: "B06XYYF4BG",
+        ref: "CA0649-06X",
+        image: "https://i.imgur.com/Lg6mwVR.jpeg" 
+    },
+    { 
+        name: "Casio Vintage", 
+        asin: "B0CVTS7LGT",
+        ref: "MTPB145DC-3AV",
+        image: "https://i.imgur.com/hNzSexm.png" 
+    },
+    { 
+        name: "Casio 'Tony Soprano'", 
+        asin: "B0CJRQ8CW6",
+        ref: "MTPB145GC-9AV",
+        image: "https://i.imgur.com/GxMlKpr.png" 
+    },
+    { 
+        name: "Casio 'Vintage Digital'", 
+        asin: "B000LAKYW8",
+        ref: "A168WA-1",
+        image: "https://i.imgur.com/aGcHVxH.png" 
+    },
+    { 
+        name: "Casio Classic IV", 
+        asin: "B015ZXPZUG",
+        ref: "MTP-V006D-7B",
+        image: "https://i.imgur.com/RWd99Op.jpeg" 
+    },
+    { 
+        name: "Casio Illuminator", 
+        asin: "B08VNR3NRW",
+        ref: "AE-1500WH-1AV",
+        image: "https://i.imgur.com/3YEubT6.png" 
+    },
+    { 
+        name: "Casio G-Shock ", 
+        asin: "B08X2GHL8W",
+        ref: "GA2100-7A",
+        image: "https://i.imgur.com/H8DmmbR.png" 
+    },
+    { 
+        name: "Casio G-Shock", 
+        asin: "B092BVGQ1S",
+        ref: "GST-B400-1A",
+        image: "https://i.imgur.com/0ikAcov.png" 
+    },
+    { 
+        name: "Casio G-Shock", 
+        asin: "B000GAYQKY",
+        ref: "DW5600E-1V",
+        image: "https://i.imgur.com/i0HUvTl.jpeg" 
+    },
+    { 
+        name: "Casio G-Shock 'Mudmaster'", 
+        asin: "B07W43VGYC",
+        ref: "GG-B100-1A",
+        image: "https://i.imgur.com/gRhppQZ.png" 
+    },
+    { 
+        name: "Casio G-Shock 'CasiOak'", 
+        asin: "B07WJFS6LH",
+        ref: "GA2100-1A1",
+        image: "https://i.imgur.com/u8VCOHr.png" 
+    },
+    { 
+        name: "Casio Edifice", 
+        asin: "B000GB0G1G",
+        ref: "EF305-1AV",
+        image: "https://i.imgur.com/wockAke.png" 
+    },
+    { 
+        name: "Casio Edifice", 
+        asin: "B0DDWH285K",
+        ref: "EFB-730D-1AV",
+        image: "https://i.imgur.com/tf410oI.png" 
+    },
+    { 
+        name: "Casio Digi-Dial", 
+        asin: "B000J39T2S",
+        ref: "AQ-230A",
+        image: "https://i.imgur.com/3BOmVqd.png" 
+    },
+    { 
+        name: "Casio Digi-Dial", 
+        asin: "B0CL2DGVL2",
+        ref: "AQ230A-7AVT",
+        image: "https://i.imgur.com/Qyrick6.png" 
+    },
+    { 
+        name: "Casio Day-Date", 
+        asin: "B0F1WVFWLP",
+        ref: "MTP1302D-2AVT",
+        image: "https://i.imgur.com/roaMANH.png" 
+    },
+    { 
+        name: "Casio Day-Date", 
+        asin: "B0039UT5OK",
+        ref: "MTP1302D-1A1VT",
+        image: "https://i.imgur.com/jId74M8.png" 
+    },
+    { 
+        name: "Casio 'Royale' World Time", 
+        asin: "B0099M2IQY",
+        ref: "AE1200WHD-1A",
+        image: "https://i.imgur.com/ZJULrDJ.jpeg" 
+    },
+    { 
+        name: "Bulova 'Sutton'", 
+        asin: "B09K5NHCPT",
+        ref: "96A268",
+        image: "https://i.imgur.com/usxAJ0D.png" 
+    },
+    { 
+        name: "Bulova 'Surveyor'", 
+        asin: "B0D93VQX4R",
+        ref: "98B422",
+        image: "https://i.imgur.com/lBJGQks.png" 
+    },
+    { 
+        name: "Bulova 'Surveyor'", 
+        asin: "B0D93RCWNT",
+        ref: "96B427",
+        image: "https://i.imgur.com/2cMWs9V.png" 
+    },
+    { 
+        name: "Bulova 'Robie House'", 
+        asin: "B09Z3957RN",
+        ref: "96A287",
+        image: "https://i.imgur.com/SgTfR9G.png" 
+    },
+    { 
+        name: "Bulova Precisionist", 
+        asin: "B007006UA2",
+        ref: "96B158",
+        image: "https://i.imgur.com/tTv9q06.jpeg" 
+    },
+    { 
+        name: "Bulova 'My Way' Sinatra", 
+        asin: "B08NS427DV",
+        ref: "98A261",
+        image: "https://i.imgur.com/fg1sRWx.png" 
+    },
+    { 
+        name: "Bulova 'My Way' Sinatra", 
+        asin: "B08FFLJCD1",
+        ref: "97A158",
+        image: "https://i.imgur.com/0500hCW.png" 
+    },
+    { 
+        name: "Bulova Marine Star", 
+        asin: "B0733PT6VC",
+        ref: "96B272",
+        image: "https://i.imgur.com/Z4Yu3nQ.png" 
+    },
+    { 
+        name: "Bulova Marine Star", 
+        asin: "B0713STW5H",
+        ref: "98B301",
+        image: "https://i.imgur.com/jhH8wQ0.png" 
+    },
+    { 
+        name: "Bulova Hack", 
+        asin: "B0BHX8DQLS",
+        ref: "96A282",
+        image: "https://i.imgur.com/dEVbr12.png" 
+    },
+    { 
+        name: "Bulova Hack Automatic", 
+        asin: "B0845X1PYX",
+        ref: "96A246",
+        image: "https://i.imgur.com/KRHAJPc.png" 
+    },
+    { 
+        name: "Bulova Classic Day-Date", 
+        asin: "B0716DMPM1",
+        ref: "96C125",
+        image: "https://i.imgur.com/DOWybVE.png" 
+    }
+        ];
+        
+        const allWatches = [...featuredWatches, ...watches];
+        
+        const featuredGrid = document.getElementById('featuredGrid');
         const watchGrid = document.getElementById('watchGrid');
+        const searchInput = document.getElementById('searchInput');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const resultsCount = document.getElementById('resultsCount');
+        
+        let currentFilter = 'all';
+        let currentSearch = '';
+        
+        function getBrandFromName(name) {
+            const lowerName = name.toLowerCase();
+            if (lowerName.includes('timex')) return 'timex';
+            if (lowerName.includes('seiko')) return 'seiko';
+            if (lowerName.includes('orient')) return 'orient';
+            if (lowerName.includes('hamilton')) return 'hamilton';
+            if (lowerName.includes('citizen')) return 'citizen';
+            if (lowerName.includes('casio')) return 'casio';
+            if (lowerName.includes('bulova')) return 'bulova';
+            return 'other';
+        }
+        
+        function createFeaturedCard(watch) {
+            const card = document.createElement('div');
+            card.className = 'featured-card';
+            card.onclick = () => {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'featured_watch_click', {
+                        'watch_name': watch.name,
+                        'watch_asin': watch.asin
+                    });
+                }
+                window.location.href = `redirect.html?asin=${watch.asin}&tag=${YOUR_ASSOCIATE_ID}`;
+            };
+            
+            card.innerHTML = `
+                <div class="featured-image-container">
+                    <img src="${watch.image}" alt="${watch.name}" class="featured-image" loading="lazy">
+                </div>
+                <div class="featured-info">
+                    <div class="featured-name">${watch.name}</div>
+                </div>
+            `;
+            
+            return card;
+        }
         
         function createWatchCard(watch) {
             const card = document.createElement('div');
             card.className = 'watch-card';
             card.onclick = () => {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'watch_click', {
+                        'watch_name': watch.name,
+                        'watch_asin': watch.asin,
+                        'watch_brand': getBrandFromName(watch.name)
+                    });
+                }
                 window.location.href = `redirect.html?asin=${watch.asin}&tag=${YOUR_ASSOCIATE_ID}`;
             };
             
@@ -301,23 +1484,74 @@
             return card;
         }
         
-        function loadWatches() {
-            if (watches.length === 0) {
+        function loadFeaturedWatches() {
+            featuredWatches.forEach(watch => {
+                featuredGrid.appendChild(createFeaturedCard(watch));
+            });
+        }
+        
+        function filterWatches() {
+            const filteredWatches = watches.filter(watch => {
+                const matchesSearch = currentSearch === '' || 
+                    watch.name.toLowerCase().includes(currentSearch) ||
+                    (watch.ref && watch.ref.toLowerCase().includes(currentSearch));
+                
+                const matchesBrand = currentFilter === 'all' || 
+                    getBrandFromName(watch.name) === currentFilter;
+                
+                return matchesSearch && matchesBrand;
+            });
+            
+            return filteredWatches;
+        }
+        
+        function renderWatches() {
+            watchGrid.innerHTML = '';
+            const filteredWatches = filterWatches();
+            
+            if (filteredWatches.length === 0) {
                 watchGrid.innerHTML = `
                     <div class="empty-state">
-                        <h2>No watches yet</h2>
-                        <p>Add your first watch to get started</p>
+                        <h2>No watches found</h2>
+                        <p>Try adjusting your filters or search</p>
                     </div>
                 `;
+                resultsCount.textContent = '';
                 return;
             }
             
-            watches.forEach(watch => {
+            resultsCount.textContent = `Showing ${filteredWatches.length} of ${watches.length} watches`;
+            
+            filteredWatches.forEach(watch => {
                 watchGrid.appendChild(createWatchCard(watch));
             });
         }
         
-        loadWatches();
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value.toLowerCase();
+            renderWatches();
+        });
+        
+        // Filter functionality
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.brand;
+                renderWatches();
+                
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'filter_click', {
+                        'filter_brand': currentFilter
+                    });
+                }
+            });
+        });
+        
+        // Initial render
+        loadFeaturedWatches();
+        renderWatches();
     </script>
 </body>
 </html>
