@@ -44,9 +44,97 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
+            position: relative;
         }
         
-        /* Ultra-Compact Header */
+        /* Animated Clock Background */
+        .clock-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+        }
+        
+        .clock-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent-gold);
+            border-radius: 50%;
+        }
+        
+        .clock-hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            background: var(--accent-gold);
+        }
+        
+        .hour-hand {
+            width: 4px;
+            height: 140px;
+            margin-left: -2px;
+            animation: rotateHour 43200s linear infinite;
+        }
+        
+        .minute-hand {
+            width: 3px;
+            height: 200px;
+            margin-left: -1.5px;
+            animation: rotateMinute 3600s linear infinite;
+        }
+        
+        .second-hand {
+            width: 2px;
+            height: 240px;
+            margin-left: -1px;
+            background: rgba(201, 169, 97, 0.6);
+            animation: rotateSecond 60s linear infinite;
+        }
+        
+        @keyframes rotateHour {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes rotateMinute {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes rotateSecond {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Subtle texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(201, 169, 97, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* All content above background */
+        .header, .hero-banner, .featured-section, .controls, .container, .footer {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
         .header {
             position: sticky;
             top: 0;
@@ -70,6 +158,7 @@
         .logo {
             width: 40px;
             height: 40px;
+            border-radius: 50%;
         }
         
         .brand-name {
@@ -91,12 +180,13 @@
             letter-spacing: 0.3px;
         }
         
-        /* Micro Hero Banner */
+        /* Hero Banner */
         .hero-banner {
             background: linear-gradient(180deg, #f9f9f9 0%, #ffffff 100%);
             padding: 20px 20px 18px;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
         
         .hero-content {
@@ -130,7 +220,7 @@
             white-space: nowrap;
         }
         
-        /* Compact Featured Section */
+        /* Featured Section */
         .featured-section {
             padding: 24px 0 20px;
             background: var(--bg-secondary);
@@ -216,6 +306,7 @@
         .featured-card:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-md);
+            border-color: rgba(201, 169, 97, 0.3);
         }
         
         .featured-image-container {
@@ -229,6 +320,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .featured-card:hover .featured-image {
+            transform: scale(1.05);
         }
         
         .featured-info {
@@ -247,7 +343,7 @@
             -webkit-box-orient: vertical;
         }
         
-        /* Compact Controls */
+        /* Controls */
         .controls {
             max-width: 1200px;
             margin: 0 auto;
@@ -331,6 +427,7 @@
             border-color: var(--accent-gold);
             color: var(--accent-gold);
             transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
         }
         
         .filter-btn.active {
@@ -340,7 +437,7 @@
             box-shadow: 0 3px 10px rgba(201, 169, 97, 0.3);
         }
         
-        /* Compact Amazon Banner */
+        /* Amazon Banner */
         .amazon-banner {
             background: linear-gradient(135deg, rgba(201, 169, 97, 0.06) 0%, rgba(201, 169, 97, 0.02) 100%);
             border: 1px solid rgba(201, 169, 97, 0.15);
@@ -387,6 +484,11 @@
         }
         
         @media (max-width: 768px) {
+            .clock-background {
+                width: 400px;
+                height: 400px;
+            }
+            
             .hero-title {
                 font-size: 22px;
             }
@@ -418,7 +520,7 @@
             }
         }
         
-        /* Watch Cards */
+        /* Watch Cards with enhanced hover */
         .watch-card {
             background: var(--bg-card);
             border-radius: 18px;
@@ -427,12 +529,30 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        
+        .watch-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0) 0%, rgba(201, 169, 97, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
         }
         
         .watch-card:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-lg);
             border-color: rgba(201, 169, 97, 0.3);
+        }
+        
+        .watch-card:hover::after {
+            opacity: 1;
         }
         
         .watch-image-container {
@@ -456,6 +576,7 @@
         
         .watch-info {
             padding: 18px;
+            position: relative;
         }
         
         .watch-name {
@@ -510,9 +631,17 @@
     </style>
 </head>
 <body>
+    <!-- Animated Clock Background -->
+    <div class="clock-background">
+        <div class="clock-face"></div>
+        <div class="clock-hand hour-hand"></div>
+        <div class="clock-hand minute-hand"></div>
+        <div class="clock-hand second-hand"></div>
+    </div>
+
     <header class="header">
         <div class="logo-container">
-            <img src="https://i.imgur.com/SZ3Tn1Q.png" alt="The Dial Archive" class="logo">
+            <img src="https://i.imgur.com/i4SBYhd.png" alt="The Dial Archive" class="logo">
             <h1 class="brand-name">The Dial Archive</h1>
         </div>
         <p class="tagline">Watches Worth Knowing.</p>
