@@ -13,11 +13,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dial Archive - Watches Worth Knowing</title>
+    <meta name="description" content="Curated timepieces for enthusiasts and collectors. Explore 113+ watches from Seiko, Orient, Timex, Citizen, and more.">
     
-    <!-- Favicon -->
+    <!-- Favicon - Multiple formats for better compatibility -->
+    <link rel="icon" type="image/png" sizes="192x192" href="https://i.imgur.com/ZgFYofO.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://i.imgur.com/ZgFYofO.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://i.imgur.com/ZgFYofO.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://i.imgur.com/ZgFYofO.png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/ZgFYofO.png">
+    <link rel="shortcut icon" href="https://i.imgur.com/ZgFYofO.png">
+    
+    <!-- Open Graph / Facebook / iMessage Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dialarchive.com/">
+    <meta property="og:title" content="The Dial Archive">
+    <meta property="og:description" content="Watches Worth Knowing">
+    <meta property="og:image" content="https://i.imgur.com/ZgFYofO.png">
+    
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://dialarchive.com/">
+    <meta property="twitter:title" content="The Dial Archive">
+    <meta property="twitter:description" content="Watches Worth Knowing">
+    <meta property="twitter:image" content="https://i.imgur.com/ZgFYofO.png">
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -159,10 +176,11 @@
             white-space: nowrap;
         }
         
-        /* Featured Section */
+        /* Featured Section - CENTERED FIX */
         .featured-section {
             padding: 24px 0 20px;
             background: var(--bg-secondary);
+            max-width: 100%;
         }
         
         .section-header {
@@ -212,12 +230,14 @@
             border: 1px solid rgba(201, 169, 97, 0.2);
         }
         
-        /* Featured Carousel */
+        /* Featured Carousel - CENTERED FIX */
         .featured-scroll {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
             -ms-overflow-style: none;
+            display: flex;
+            justify-content: center;
         }
         
         .featured-scroll::-webkit-scrollbar {
@@ -228,7 +248,15 @@
             display: flex;
             gap: 12px;
             padding: 0 20px 6px;
-            min-width: min-content;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+        
+        @media (min-width: 1400px) {
+            .featured-grid {
+                flex-wrap: wrap;
+                max-width: 1400px;
+            }
         }
         
         .featured-card {
@@ -451,6 +479,10 @@
             .amazon-banner {
                 padding: 12px 16px;
                 margin: 0 16px 16px;
+            }
+            
+            .featured-grid {
+                justify-content: flex-start;
             }
         }
         
