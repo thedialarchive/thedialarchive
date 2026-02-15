@@ -13,6 +13,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dial Archive - Watches Worth Knowing</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.imgur.com/ZgFYofO.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.imgur.com/ZgFYofO.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.imgur.com/ZgFYofO.png">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -44,73 +50,6 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* Animated Clock Background */
-        .clock-background {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 600px;
-            height: 600px;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.03;
-        }
-        
-        .clock-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--accent-gold);
-            border-radius: 50%;
-        }
-        
-        .clock-hand {
-            position: absolute;
-            bottom: 50%;
-            left: 50%;
-            transform-origin: bottom center;
-            background: var(--accent-gold);
-        }
-        
-        .hour-hand {
-            width: 4px;
-            height: 140px;
-            margin-left: -2px;
-            animation: rotateHour 43200s linear infinite;
-        }
-        
-        .minute-hand {
-            width: 3px;
-            height: 200px;
-            margin-left: -1.5px;
-            animation: rotateMinute 3600s linear infinite;
-        }
-        
-        .second-hand {
-            width: 2px;
-            height: 240px;
-            margin-left: -1px;
-            background: rgba(201, 169, 97, 0.6);
-            animation: rotateSecond 60s linear infinite;
-        }
-        
-        @keyframes rotateHour {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        @keyframes rotateMinute {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        @keyframes rotateSecond {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
         }
         
         /* Subtle texture overlay */
@@ -122,8 +61,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 20% 50%, rgba(201, 169, 97, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.03) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(201, 169, 97, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.04) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
@@ -484,11 +423,6 @@
         }
         
         @media (max-width: 768px) {
-            .clock-background {
-                width: 400px;
-                height: 400px;
-            }
-            
             .hero-title {
                 font-size: 22px;
             }
@@ -520,7 +454,7 @@
             }
         }
         
-        /* Watch Cards with enhanced hover */
+        /* Watch Cards */
         .watch-card {
             background: var(--bg-card);
             border-radius: 18px;
@@ -631,17 +565,9 @@
     </style>
 </head>
 <body>
-    <!-- Animated Clock Background -->
-    <div class="clock-background">
-        <div class="clock-face"></div>
-        <div class="clock-hand hour-hand"></div>
-        <div class="clock-hand minute-hand"></div>
-        <div class="clock-hand second-hand"></div>
-    </div>
-
     <header class="header">
         <div class="logo-container">
-            <img src="https://i.imgur.com/i4SBYhd.png" alt="The Dial Archive" class="logo">
+            <img src="https://i.imgur.com/ZgFYofO.png" alt="The Dial Archive" class="logo">
             <h1 class="brand-name">The Dial Archive</h1>
         </div>
         <p class="tagline">Watches Worth Knowing.</p>
