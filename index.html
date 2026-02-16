@@ -1,1541 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFJ18RFH3J"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-NFJ18RFH3J');
-    </script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Dial Archive - Watches Worth Knowing</title>
-    <meta name="description" content="Curated timepieces for enthusiasts and collectors. Explore 113+ watches from Seiko, Orient, Timex, Citizen, and more.">
-    
-    <!-- Favicon - Multiple formats for better compatibility -->
-    <link rel="icon" type="image/png" sizes="192x192" href="https://i.imgur.com/ZgFYofO.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://i.imgur.com/ZgFYofO.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://i.imgur.com/ZgFYofO.png">
-    <link rel="apple-touch-icon" href="https://i.imgur.com/ZgFYofO.png">
-    <link rel="shortcut icon" href="https://i.imgur.com/ZgFYofO.png">
-    
-    <!-- Open Graph / Facebook / iMessage Preview -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dialarchive.com/">
-    <meta property="og:title" content="The Dial Archive">
-    <meta property="og:description" content="Watches Worth Knowing">
-    <meta property="og:image" content="https://i.imgur.com/ZgFYofO.png">
-    
-    <!-- Twitter Card -->
-    <meta property="twitter:card" content="summary">
-    <meta property="twitter:url" content="https://dialarchive.com/">
-    <meta property="twitter:title" content="The Dial Archive">
-    <meta property="twitter:description" content="Watches Worth Knowing">
-    <meta property="twitter:image" content="https://i.imgur.com/ZgFYofO.png">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f9f9f9;
-            --bg-card: #ffffff;
-            --text-primary: #1d1d1f;
-            --text-secondary: #6e6e73;
-            --accent-gold: #c9a961;
-            --border-color: #e5e5e7;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
-            --font-bold: 'Arial Black', Arial, sans-serif;
-            --font-normal: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        
-        body {
-            font-family: var(--font-normal);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
-        }
-        
-        /* Subtle texture overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(201, 169, 97, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.04) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        /* All content above background */
-        .header, .hero-banner, .featured-section, .controls, .container, .footer {
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Header */
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid var(--border-color);
-            padding: 16px 20px 14px;
-            text-align: center;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 4px;
-        }
-        
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-        
-        .brand-name {
-            font-size: 26px;
-            font-weight: 900;
-            font-family: var(--font-bold);
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, #1d1d1f 0%, #6e6e73 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .tagline {
-            font-size: 14px;
-            font-weight: 600;
-            font-family: var(--font-normal);
-            color: var(--text-secondary);
-            letter-spacing: 0.3px;
-        }
-        
-        /* Hero Banner */
-        .hero-banner {
-            background: linear-gradient(180deg, #f9f9f9 0%, #ffffff 100%);
-            padding: 20px 20px 18px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .hero-title {
-            font-size: 26px;
-            font-weight: 900;
-            font-family: var(--font-bold);
-            line-height: 1.2;
-            background: linear-gradient(135deg, #1d1d1f 0%, #6e6e73 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-        
-        .hero-cta {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-            line-height: 1.4;
-        }
-        
-        .hero-cta .amazon-highlight {
-            color: var(--accent-gold);
-            font-weight: 800;
-            white-space: nowrap;
-        }
-        
-        /* Featured Section - CENTERED FIX */
-        .featured-section {
-            padding: 24px 0 20px;
-            background: var(--bg-secondary);
-            max-width: 100%;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 16px;
-            padding: 0 20px;
-        }
-        
-        .section-tag {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            background: rgba(201, 169, 97, 0.1);
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 6px;
-        }
-        
-        .section-title {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            letter-spacing: -0.3px;
-        }
-        
-        .section-description {
-            font-size: 13px;
-            color: var(--text-secondary);
-            max-width: 450px;
-            margin: 0 auto;
-            line-height: 1.4;
-        }
-        
-        .new-watches-badge {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--accent-gold);
-            background: rgba(201, 169, 97, 0.08);
-            padding: 4px 12px;
-            border-radius: 12px;
-            margin-top: 6px;
-            border: 1px solid rgba(201, 169, 97, 0.2);
-        }
-        
-        /* Featured Carousel - CENTERED FIX */
-        .featured-scroll {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .featured-scroll::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .featured-grid {
-            display: flex;
-            gap: 12px;
-            padding: 0 20px 6px;
-            justify-content: center;
-            flex-wrap: nowrap;
-        }
-        
-        @media (min-width: 1400px) {
-            .featured-grid {
-                flex-wrap: wrap;
-                max-width: 1400px;
-            }
-        }
-        
-        .featured-card {
-            flex: 0 0 150px;
-            background: var(--bg-card);
-            border-radius: 14px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .featured-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-            border-color: rgba(201, 169, 97, 0.3);
-        }
-        
-        .featured-image-container {
-            width: 100%;
-            aspect-ratio: 1;
-            background: #fafafa;
-            overflow: hidden;
-        }
-        
-        .featured-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        
-        .featured-card:hover .featured-image {
-            transform: scale(1.05);
-        }
-        
-        .featured-info {
-            padding: 10px;
-        }
-        
-        .featured-name {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-primary);
-            line-height: 1.3;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-        
-        /* Controls */
-        .controls {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 20px 16px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            justify-content: center;
-        }
-        
-        .search-box {
-            flex: 1;
-            min-width: 250px;
-            max-width: 400px;
-            position: relative;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 12px 16px 12px 44px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            color: var(--text-primary);
-            font-family: var(--font-normal);
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
-        }
-        
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-secondary);
-            pointer-events: none;
-        }
-        
-        .results-count {
-            width: 100%;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 13px;
-            font-weight: 600;
-            margin-top: 8px;
-            margin-bottom: 12px;
-        }
-        
-        .filter-buttons {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
-        }
-        
-        .filter-btn {
-            padding: 8px 16px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            color: var(--text-secondary);
-            font-family: var(--font-normal);
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .filter-btn:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .filter-btn.active {
-            background: var(--accent-gold);
-            border-color: var(--accent-gold);
-            color: white;
-            box-shadow: 0 3px 10px rgba(201, 169, 97, 0.3);
-        }
-        
-        /* Amazon Banner */
-        .amazon-banner {
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0.06) 0%, rgba(201, 169, 97, 0.02) 100%);
-            border: 1px solid rgba(201, 169, 97, 0.15);
-            border-radius: 12px;
-            padding: 14px 18px;
-            margin: 0 20px 20px;
-            max-width: 1160px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        
-        .amazon-banner-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-        
-        .amazon-logo-icon {
-            font-size: 16px;
-        }
-        
-        .amazon-banner-text {
-            font-size: 12px;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
-        }
-        
-        .watch-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 22px;
-            }
-            
-            .hero-cta {
-                font-size: 15px;
-            }
-            
-            .watch-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
-            }
-            
-            .controls {
-                padding: 16px 20px 12px;
-            }
-            
-            .search-box {
-                max-width: 100%;
-            }
-            
-            .featured-card {
-                flex: 0 0 140px;
-            }
-            
-            .amazon-banner {
-                padding: 12px 16px;
-                margin: 0 16px 16px;
-            }
-            
-            .featured-grid {
-                justify-content: flex-start;
-            }
-        }
-        
-        /* Watch Cards */
-        .watch-card {
-            background: var(--bg-card);
-            border-radius: 18px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-            position: relative;
-        }
-        
-        .watch-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(201, 169, 97, 0) 0%, rgba(201, 169, 97, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
-        
-        .watch-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(201, 169, 97, 0.3);
-        }
-        
-        .watch-card:hover::after {
-            opacity: 1;
-        }
-        
-        .watch-image-container {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1;
-            background: #fafafa;
-            overflow: hidden;
-        }
-        
-        .watch-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .watch-card:hover .watch-image {
-            transform: scale(1.06);
-        }
-        
-        .watch-info {
-            padding: 18px;
-            position: relative;
-        }
-        
-        .watch-name {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 5px;
-            line-height: 1.3;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-        
-        .watch-ref {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--accent-gold);
-            font-family: 'Monaco', monospace;
-            letter-spacing: 0.3px;
-        }
-        
-        .footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-            padding: 40px 20px;
-            text-align: center;
-        }
-        
-        .footer p {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-        
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-        }
-        
-        .empty-state h2 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-        
-        .empty-state p {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-    </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NFJ18RFH3J"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NFJ18RFH3J');</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dial Archive - Watches Worth Knowing</title>
+<meta name="description" content="Curated timepieces. Explore 164+ watches from Seiko, Orient, Timex, Citizen, Casio, and more.">
+<link rel="icon" href="https://i.imgur.com/ZgFYofO.png">
+<link rel="apple-touch-icon" href="https://i.imgur.com/ZgFYofO.png">
+<meta property="og:type" content="website"><meta property="og:url" content="https://dialarchive.com/">
+<meta property="og:title" content="The Dial Archive"><meta property="og:description" content="Watches Worth Knowing">
+<meta property="og:image" content="https://i.imgur.com/ZgFYofO.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#fff;--bg2:#f9f9f9;--text:#1d1d1f;--text2:#6e6e73;--gold:#c9a961;--border:#e5e5e7}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 50%,rgba(201,169,97,0.04) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(201,169,97,0.04) 0%,transparent 50%);pointer-events:none;z-index:0}
+.header,.hero-banner,.featured-section,.controls,.container,.footer{position:relative;z-index:1}
+.header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 20px 14px;text-align:center}
+.logo-container{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:4px}
+.logo{width:40px;height:40px;border-radius:50%}
+.brand-name{font-size:26px;font-weight:900;font-family:'Arial Black',Arial,sans-serif;letter-spacing:-1px;background:linear-gradient(135deg,#1d1d1f 0%,#6e6e73 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.tagline{font-size:14px;font-weight:600;color:var(--text2);letter-spacing:0.3px}
+.hero-banner{background:linear-gradient(180deg,#f9f9f9 0%,#ffffff 100%);padding:20px;text-align:center}
+.hero-content{max-width:600px;margin:0 auto}
+.hero-title{font-size:26px;font-weight:900;font-family:'Arial Black',Arial;line-height:1.2;background:linear-gradient(135deg,#1d1d1f 0%,#6e6e73 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;letter-spacing:-0.5px}
+.hero-cta{font-size:16px;font-weight:600;color:var(--text)}
+.amazon-highlight{color:var(--gold);font-weight:800;white-space:nowrap}
+.featured-section{padding:24px 0 20px;background:var(--bg2)}
+.section-header{text-align:center;margin-bottom:16px;padding:0 20px}
+.section-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);background:rgba(201,169,97,0.1);padding:4px 12px;border-radius:20px;margin-bottom:6px}
+.section-title{font-size:20px;font-weight:800;margin-bottom:4px}
+.section-description{font-size:13px;color:var(--text2);max-width:450px;margin:0 auto}
+.new-watches-badge{display:inline-block;font-size:11px;font-weight:600;color:var(--gold);background:rgba(201,169,97,0.08);padding:4px 12px;border-radius:12px;margin-top:6px;border:1px solid rgba(201,169,97,0.2)}
+.featured-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;justify-content:center}
+.featured-scroll::-webkit-scrollbar{display:none}
+.featured-grid{display:flex;gap:12px;padding:0 20px 6px;justify-content:center}
+.featured-card{flex:0 0 150px;background:var(--bg);border-radius:14px;overflow:hidden;cursor:pointer;transition:all 0.3s;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.featured-card:hover{transform:translateY(-3px);box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+.featured-image-container{width:100%;aspect-ratio:1;background:#fafafa;overflow:hidden}
+.featured-image{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.featured-card:hover .featured-image{transform:scale(1.05)}
+.featured-info{padding:10px}
+.featured-name{font-size:12px;font-weight:600;line-height:1.3;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.controls{max-width:1200px;margin:0 auto;padding:20px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.search-box{flex:1;min-width:250px;max-width:400px;position:relative}
+.search-input{width:100%;padding:12px 16px 12px 44px;background:var(--bg);border:1px solid var(--border);border-radius:14px;font-size:14px;font-weight:500;transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.search-input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,97,0.1)}
+.search-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--text2);pointer-events:none}
+.results-count{width:100%;text-align:center;color:var(--text2);font-size:13px;font-weight:600;margin:8px 0 12px}
+.filter-row{width:100%;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+select.filter-select{padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:20px;color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+select.filter-select:hover{border-color:var(--gold)}
+select.filter-select:focus{outline:none;border-color:var(--gold)}
+.amazon-banner{background:linear-gradient(135deg,rgba(201,169,97,0.06),rgba(201,169,97,0.02));border:1px solid rgba(201,169,97,0.15);border-radius:12px;padding:14px 18px;margin:0 20px 20px;max-width:1160px;margin-left:auto;margin-right:auto;text-align:center}
+.amazon-banner-title{font-size:14px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:6px}
+.amazon-banner-text{font-size:12px;color:var(--text2)}
+.container{max-width:1200px;margin:0 auto;padding:0 20px 80px}
+.watch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.watch-card{background:var(--bg);border-radius:18px;overflow:hidden;cursor:pointer;transition:all 0.4s;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,0.04);position:relative}
+.watch-card::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(201,169,97,0),rgba(201,169,97,0.05));opacity:0;transition:opacity 0.4s;pointer-events:none}
+.watch-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(0,0,0,0.12);border-color:rgba(201,169,97,0.3)}
+.watch-card:hover::after{opacity:1}
+.watch-image-container{width:100%;aspect-ratio:1;background:#fafafa;overflow:hidden}
+.watch-image{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+.watch-card:hover .watch-image{transform:scale(1.06)}
+.watch-info{padding:18px}
+.watch-name{font-size:15px;font-weight:600;margin-bottom:5px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.watch-ref{font-size:11px;font-weight:500;color:var(--gold);font-family:'Monaco',monospace}
+.footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 20px;text-align:center}
+.footer p{font-size:13px;color:var(--text2)}
+@media (max-width:768px){.watch-grid{grid-template-columns:repeat(2,1fr);gap:14px}.featured-card{flex:0 0 140px}.featured-grid{justify-content:flex-start}}
+</style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo-container">
-            <img src="https://i.imgur.com/ZgFYofO.png" alt="The Dial Archive" class="logo">
-            <h1 class="brand-name">The Dial Archive</h1>
-        </div>
-        <p class="tagline">Watches Worth Knowing.</p>
-    </header>
-
-    <div class="hero-banner">
-        <div class="hero-content">
-            <h2 class="hero-title">Welcome to the Archive.</h2>
-            <p class="hero-cta">Tap any watch to explore<br>on <span class="amazon-highlight">your Amazon app</span></p>
-        </div>
-    </div>
-
-    <section class="featured-section">
-        <div class="section-header">
-            <span class="section-tag">Start Here</span>
-            <h3 class="section-title">Essential Watches</h3>
-            <p class="section-description">Handpicked timepieces that offer exceptional value—perfect entry points into watch collecting.</p>
-            <div class="new-watches-badge">✨ New watches added weekly</div>
-        </div>
-        <div class="featured-scroll">
-            <div class="featured-grid" id="featuredGrid"></div>
-        </div>
-    </section>
-
-    <div class="controls">
-        <div class="search-box">
-            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-            </svg>
-            <input type="text" class="search-input" id="searchInput" placeholder="Search watches...">
-        </div>
-        <div class="results-count" id="resultsCount"></div>
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-brand="all">All Watches</button>
-            <button class="filter-btn" data-brand="timex">Timex</button>
-            <button class="filter-btn" data-brand="seiko">Seiko</button>
-            <button class="filter-btn" data-brand="orient">Orient</button>
-            <button class="filter-btn" data-brand="hamilton">Hamilton</button>
-            <button class="filter-btn" data-brand="citizen">Citizen</button>
-            <button class="filter-btn" data-brand="casio">Casio</button>
-            <button class="filter-btn" data-brand="bulova">Bulova</button>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="amazon-banner">
-            <div class="amazon-banner-title">
-                <span class="amazon-logo-icon">📦</span>
-                Shop Safely with Amazon
-            </div>
-            <p class="amazon-banner-text">
-                All watches open in your Amazon app. Secure checkout, fast shipping, easy returns.
-            </p>
-        </div>
-        
-        <div class="watch-grid" id="watchGrid"></div>
-    </div>
-
-    <footer class="footer">
-        <p>As an Amazon Associate I earn from qualifying purchases.</p>
-    </footer>
-
-    <script>
-        const YOUR_ASSOCIATE_ID = "thedialarchiv-20";
-        
-        const featuredWatches = [
-    { 
-        name: "Timex Waterbury Chronograph", 
-        asin: "B0FJMSFT7W",
-        ref: "TW2Y23600",
-        image: "https://i.imgur.com/2JMCOty.png" 
-    },
-    { 
-        name: "Timex Easy Reader", 
-        asin: "B000AYSH2E",
-        ref: "T2H311",
-        image: "https://i.imgur.com/XbmI9rw.png" 
-    },
-    { 
-        name: "Seiko 5 Sports", 
-        asin: "B089FQ4R4X",
-        ref: "SRPE55",
-        image: "https://i.imgur.com/hL3ro7A.jpeg" 
-    },
-    { 
-        name: "Seiko 5 SNK805", 
-        asin: "B000LTAY1U",
-        ref: "SNK805",
-        image: "https://i.imgur.com/CWTlGEc.jpeg" 
-    },
-    { 
-        name: "Orient TriStar", 
-        asin: "B07ZL63R2D",
-        ref: "RA-AB0F09L19A",
-        image: "https://i.imgur.com/mKacM5R.png" 
-    },
-    { 
-        name: "Orient Bambino I", 
-        asin: "B01MXPSU8R",
-        ref: "FAC00005W0",
-        image: "https://i.imgur.com/An7QL5Q.jpeg" 
-    },
-    { 
-        name: "Citizen Garrison Eco-Drive", 
-        asin: "B000EQS1JW",
-        ref: "BM8180-03E",
-        image: "https://i.imgur.com/mmYvBK0.png" 
-    },
-    { 
-        name: "Casio 'Duro' Marlin", 
-        asin: "B009KYJAJY",
-        ref: "MDV106-1A",
-        image: "https://i.imgur.com/y4KlntO.png" 
-    }
-        ];
-        
-        const watches = [
-    { 
-        name: "Timex Q 1978", 
-        asin: "B0F4L5G3W8",
-        ref: "TW2W44700ZV",
-        image: "https://i.imgur.com/ezJNncJ.png" 
-    },
-    { 
-        name: "Timex M79 Automatic", 
-        asin: "B08YQSP7CP",
-        ref: "TW2U29500",
-        image: "https://i.imgur.com/4jEg07Z.png" 
-    },
-    { 
-        name: "Timex Expedition Solar", 
-        asin: "B09F91MVCG",
-        ref: "TW2V00200",
-        image: "https://i.imgur.com/WgIiNtV.png" 
-    },
-    { 
-        name: "Series 5 Automatic", 
-        asin: "B0009MYUZU",
-        ref: "SNK381",
-        image: "https://i.imgur.com/WWuY6C1.jpeg" 
-    },
-    { 
-        name: "Seiko SRPD55", 
-        asin: "B07WGML3VN",
-        ref: "SRPD55",
-        image: "https://i.imgur.com/J2pNTul.png" 
-    },
-    { 
-        name: "Seiko SKX Root Beer GMT", 
-        asin: "B0DH8M1GNT",
-        ref: "SSK036",
-        image: "https://i.imgur.com/xCbPhU9.png" 
-    },
-    { 
-        name: "Seiko Presage 'Skydiving'", 
-        asin: "B0711T8CSS",
-        ref: "SRPB43",
-        image: "https://i.imgur.com/iY23JP8.png" 
-    },
-    { 
-        name: "Seiko Presage 'Cocktail Time'", 
-        asin: "B08HKPG6P3",
-        ref: "SRPE41",
-        image: "https://i.imgur.com/DyTlBOw.png" 
-    },
-    { 
-        name: "Seiko Presage 'Cocktail Time'", 
-        asin: "B0CBVTZPCV",
-        ref: "SSA459",
-        image: "https://i.imgur.com/QzFryVn.png" 
-    },
-    { 
-        name: "Seiko Presage 'Manhattan'", 
-        asin: "B071FB8VVR",
-        ref: "SRPB46",
-        image: "https://i.imgur.com/9A1vT9s.png" 
-    },
-    { 
-        name: "Seiko Presage 'Cocktail Time'", 
-        asin: "B074KL28XK",
-        ref: "SRPB43",
-        image: "https://i.imgur.com/iY23JP8.png" 
-    },
-    { 
-        name: "Seiko Essentials Tank", 
-        asin: "B0954RVHB6",
-        ref: "SWR053",
-        image: "https://i.imgur.com/bXPBIlb.jpeg" 
-    },
-    { 
-        name: "Seiko Essentials Tank", 
-        asin: "B093565212",
-        ref: "SWR054",
-        image: "https://i.imgur.com/U3G7l7G.png" 
-    },
-    { 
-        name: "Seiko Core 'Two-Tone'", 
-        asin: "B09GW4GXRM",
-        ref: "SUR460P1",
-        image: "https://i.imgur.com/s4kjZCu.png" 
-    },
-    { 
-        name: "Seiko Alpinist", 
-        asin: "B0B33H4V74",
-        ref: "SPB121",
-        image: "https://i.imgur.com/TiodK9V.png" 
-    },
-    { 
-        name: "Seiko 5 Yellow Gold", 
-        asin: "B00PK7I63Q",
-        ref: "SNXS80",
-        image: "https://i.imgur.com/LxGjXk5.png" 
-    },
-    { 
-        name: "Seiko 5 Yellow Gold", 
-        asin: "B000ZAW3C8",
-        ref: "SNXL72",
-        image: "https://i.imgur.com/PsXupZ9.png" 
-    },
-    { 
-        name: "Seiko 5 Sports 'SNXS'", 
-        asin: "B000G12Y8O",
-        ref: "SNXS79K",
-        image: "https://i.imgur.com/NFcvZtz.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Sports 'SKX'", 
-        asin: "B0FNDMP9K2",
-        ref: "SRPL79",
-        image: "https://i.imgur.com/UJrA4Tz.png" 
-    },
-    { 
-        name: "Seiko 5 Sports 'Midi'", 
-        asin: "B0C3W99175",
-        ref: "SRPK31",
-        image: "https://i.imgur.com/zC6NxaQ.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Sports GMT 'Blueberry'", 
-        asin: "B0B6JVCYMN",
-        ref: "SSK003",
-        image: "https://i.imgur.com/iCuxiFr.png" 
-    },
-    { 
-        name: "Seiko 5 Sports GMT", 
-        asin: "B0B6KWJ4KJ",
-        ref: "SSK001",
-        image: "https://i.imgur.com/ak9MDBz.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Sports", 
-        asin: "B09LRMR5VX",
-        ref: "SRPH31",
-        image: "https://i.imgur.com/KBe9kRk.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Sports Automatic Silver Orange", 
-        asin: "B0CGXD25S8",
-        ref: "SRPK09K1",
-        image: "https://i.imgur.com/9i9gaLG.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Sports", 
-        asin: "B07WGMTVRL",
-        ref: "SRPL59K1",
-        image: "https://i.imgur.com/q2YORdu.png" 
-    },
-    { 
-        name: "Seiko 5 Sports 'Midi' Blue", 
-        asin: "B0C73P925W",
-        ref: "SRPK33",
-        image: "https://i.imgur.com/ti0lDan.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Sports 'Hulk'", 
-        asin: "B07ZJTSZP1",
-        ref: "SRPD63",
-        image: "https://i.imgur.com/zbB1lJ2.png" 
-    },
-    { 
-        name: "Seiko 5 Sports 'DressKX'", 
-        asin: "B08BMXHR4T",
-        ref: "SRPE51",
-        image: "https://i.imgur.com/KbJJx2U.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Sports 'Checkerboard'", 
-        asin: "B0D67HFHND",
-        ref: "SRPK67K1",
-        image: "https://i.imgur.com/onBvuZJ.png" 
-    },
-    { 
-        name: "Seiko 5 Sports", 
-        asin: "B07WFNRR69",
-        ref: "SRPD51",
-        image: "https://i.imgur.com/Mjm1Qzr.png" 
-    },
-    { 
-        name: "Seiko 5 SKX White Blue", 
-        asin: "B0DNNSBCNP",
-        ref: "SSK033",
-        image: "https://i.imgur.com/zBRtpjL.png" 
-    },
-    { 
-        name: "Seiko 5 SKX 'Mint'", 
-        asin: "B0C73P925W",
-        ref: "SRPK33",
-        image: "https://i.imgur.com/IdtXc8n.jpeg" 
-    },
-    { 
-        name: "Seiko 5", 
-        asin: "B000U3GUSS",
-        ref: "SNK617",
-        image: "https://i.imgur.com/4DeNqQt.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Midfield", 
-        asin: "B0CN1KTXTP",
-        ref: "SRPJ81",
-        image: "https://i.imgur.com/Gj0cBV4.png" 
-    },
-    { 
-        name: "Seiko 5 Field", 
-        asin: "B09LRKYH46",
-        ref: "SRPH29",
-        image: "https://i.imgur.com/Nb6QMB6.jpeg" 
-    },
-    { 
-        name: "Seiko 5 GMT 'Orange'", 
-        asin: "B0B6KT1649",
-        ref: "SSK005",
-        image: "https://i.imgur.com/4HfsCA0.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Field Mechanical", 
-        asin: "B096YG529N",
-        ref: "SRPG27",
-        image: "https://i.imgur.com/9aLLkIY.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Field 'Blackout'", 
-        asin: "B0971HNK3J",
-        ref: "SRPG41",
-        image: "https://i.imgur.com/SKF4GuU.png" 
-    },
-    { 
-        name: "Seiko 5 'Classic Black'", 
-        asin: "B009GCRM0Y",
-        ref: "SNKL45",
-        image: "https://i.imgur.com/QpbeJ9D.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Blue Dial Yellow", 
-        asin: "B000NM0REE",
-        ref: "SNK615",
-        image: "https://i.imgur.com/SUoGw7p.jpeg" 
-    },
-    { 
-        name: "Seiko 5 Arabic", 
-        asin: "B07RB27XT3",
-        ref: "SNKP22J1",
-        image: "https://i.imgur.com/JhrvgeC.jpeg" 
-    },
-    { 
-        name: "Seiko 5", 
-        asin: "B002SLBZH6",
-        ref: "SNK607",
-        image: "https://i.imgur.com/uMKf6Y4.png" 
-    },
-    { 
-        name: "Orient Symphony III", 
-        asin: "B07XSQ5W1V",
-        ref: "RA-AC0F02S30B",
-        image: "https://i.imgur.com/Zg08Gs4.jpeg" 
-    },
-    { 
-        name: "Orient Sun and Moon", 
-        asin: "B09D9L13Z9",
-        ref: "RA-AK0011D10B",
-        image: "https://i.imgur.com/bO3xAIb.png" 
-    },
-    { 
-        name: "Orient Ray II", 
-        asin: "B07FD7TWY8",
-        ref: "FAA02006M9",
-        image: "https://i.imgur.com/Xeijyg0.png" 
-    },
-    { 
-        name: "Orient Neo Classic", 
-        asin: "B094DP5538",
-        ref: "RA-AA0E03L",
-        image: "https://i.imgur.com/plZb9pz.jpeg" 
-    },
-    { 
-        name: "Orient Mako III", 
-        asin: "B09KYLBSJM",
-        ref: "RA-AA0811E19B",
-        image: "https://i.imgur.com/hD5S3Zm.jpeg" 
-    },
-    { 
-        name: "Orient Mako II", 
-        asin: "B01AK5TQRM",
-        ref: "FAA02002D9",
-        image: "https://i.imgur.com/CeFflvN.jpeg" 
-    },
-    { 
-        name: "Orient Mako II", 
-        asin: "B01AK5TQQ8",
-        ref: "FAA02001B9",
-        image: "https://i.imgur.com/YjguyVY.png" 
-    },
-    { 
-        name: "Orient Kano", 
-        asin: "B07JF61WNW",
-        ref: "RA-AA0011B19B",
-        image: "https://i.imgur.com/8QOfwhF.jpeg" 
-    },
-    { 
-        name: "Orient Kamasu", 
-        asin: "B07JGMM8FC",
-        ref: "RA-AA0004E19B",
-        image: "https://i.imgur.com/xIlEMOk.jpeg" 
-    },
-    { 
-        name: "Orient Kamasu", 
-        asin: "B07QBBKVJ6",
-        ref: "RA-AA0001B19A",
-        image: "https://i.imgur.com/PNyEsro.png" 
-    },
-    { 
-        name: "Orient Chronograph", 
-        asin: "B0DFWQ4TJF",
-        ref: "RATX0304L10B",
-        image: "https://i.imgur.com/nwjbWqJ.jpeg" 
-    },
-    { 
-        name: "Orient Bambino", 
-        asin: "B0C8F8BSTT",
-        ref: "RA-AK0701S10B",
-        image: "https://i.imgur.com/U9U570u.jpeg" 
-    },
-    { 
-        name: "Orient Bambino", 
-        asin: "B09DTPZGKN",
-        ref: "RA-AC0020G30B",
-        image: "https://i.imgur.com/3eoup2p.png" 
-    },
-    { 
-        name: "Orient Bambino IV", 
-        asin: "B0FPT1J9VH",
-        ref: "FAC08003W0",
-        image: "https://i.imgur.com/EsoiqAa.jpeg" 
-    },
-    { 
-        name: "Orient Bambino I", 
-        asin: "B01NAAQLYY",
-        ref: "TAC00004B0",
-        image: "https://i.imgur.com/VTtjHgK.jpeg" 
-    },
-    { 
-        name: "Orient Bambino IV 'Salmon'", 
-        asin: "B0DQYCCFZW",
-        ref: "RA-AC0M15Y30B",
-        image: "https://i.imgur.com/X5eFP4E.jpeg" 
-    },
-    { 
-        name: "Orient Bambino III", 
-        asin: "B082X1TQBP",
-        ref: "FAC0000CA0",
-        image: "https://i.imgur.com/RykTGol.jpeg" 
-    },
-    { 
-        name: "Orient Bambino 'Small Seconds'", 
-        asin: "B0D7Y196MP",
-        ref: "RA-AP0101B30B",
-        image: "https://i.imgur.com/pw5XOLy.jpeg" 
-    },
-    { 
-        name: "Orient Bambino 'Open Heart'", 
-        asin: "B07B4BD9HY",
-        ref: "RA-AG0005L30B",
-        image: "https://i.imgur.com/V25aiHe.png" 
-    },
-    { 
-        name: "Orient Bambino", 
-        asin: "B0DB6NPS3P",
-        ref: "RA-AK0705R10B",
-        image: "https://i.imgur.com/dNnPYl5.png" 
-    },
-    { 
-        name: "Orient Bambino 'Small Seconds'", 
-        asin: "B0D7Y196MP",
-        ref: "RA-AP0101B30B",
-        image: "https://i.imgur.com/VVXoAve.png" 
-    },
-    { 
-        name: "Orient Bambino", 
-        asin: "B01N5RFHLF",
-        ref: "FAC08003A0",
-        image: "https://i.imgur.com/JF60DPz.png" 
-    },
-    { 
-        name: "Orient Bambino II", 
-        asin: "B01MTS5BFN",
-        ref: "FAC00009N0",
-        image: "https://i.imgur.com/KEA6CBu.jpeg" 
-    },
-    { 
-        name: "Orient Bambino II", 
-        asin: "B072K5C5G1",
-        ref: "TAC0000DD0",
-        image: "https://i.imgur.com/JJ0h2fg.png" 
-    },
-    { 
-        name: "Orient Bambino II", 
-        asin: "B01N0IEGK0",
-        ref: "FAC00002W0",
-        image: "https://i.imgur.com/GWfTMcD.png" 
-    },
-    { 
-        name: "Hamilton Khaki Field", 
-        asin: "B0DQST69QB",
-        ref: "H68201143",
-        image: "https://i.imgur.com/ueJPBI8.png" 
-    },
-    { 
-        name: "Hamilton Khaki Field Mechanical", 
-        asin: "B0982W1QSQ",
-        ref: "H69439931",
-        image: "https://i.imgur.com/d8iIQc8.png" 
-    },
-    { 
-        name: "Citizen Tsuyosa", 
-        asin: "B0CDDDJ6H6",
-        ref: "NJ0150-56Z",
-        image: "https://i.imgur.com/dmjeNU7.png" 
-    },
-    { 
-        name: "Citizen Quartz Blue Dial Two Tone", 
-        asin: "B09JGH1521",
-        ref: "BI1036-57L",
-        image: "https://i.imgur.com/JzZjzJm.png" 
-    },
-    { 
-        name: "Citizen Promaster", 
-        asin: "B0C8L8J621",
-        ref: "NY0120-52X",
-        image: "https://i.imgur.com/oIIHzMx.png" 
-    },
-    { 
-        name: "Citizen Promaster Diver", 
-        asin: "B016R90VBK",
-        ref: "BN0150-28E",
-        image: "https://i.imgur.com/1Mqwokj.png" 
-    },
-    { 
-        name: "Citizen Promaster 'Fugu'", 
-        asin: "B0BTJTRDDH",
-        ref: "NY0150-51L",
-        image: "https://i.imgur.com/JcuLhnA.png" 
-    },
-    { 
-        name: "Citizen Nighthawk", 
-        asin: "B00074KYC8",
-        ref: "BJ7000-52E",
-        image: "https://i.imgur.com/GTz9PSD.png" 
-    },
-    { 
-        name: "Citizen Eco-Drive Chronograph", 
-        asin: "B0FL92P63V",
-        ref: "CA4630-53A",
-        image: "https://i.imgur.com/xR1dGcR.png" 
-    },
-    { 
-        name: "Citizen Eco-Drive Chrono Sport", 
-        asin: "B07CGPZD27",
-        ref: "CA0648-09L",
-        image: "https://i.imgur.com/9ovcDzn.png" 
-    },
-    { 
-        name: "Citizen Eco-Drive Axiom", 
-        asin: "B00CB9A47W",
-        ref: "AU1065-58E",
-        image: "https://i.imgur.com/pgnwMj8.png" 
-    },
-    { 
-        name: "Citizen Diver", 
-        asin: "B0C7M3F7MB",
-        ref: "NY0129-58L",
-        image: "https://i.imgur.com/Jza4MkT.png" 
-    },
-    { 
-        name: "Citizen Corso", 
-        asin: "B07N1XKFBT",
-        ref: "BM7100-59E",
-        image: "https://i.imgur.com/HGxYBxJ.png" 
-    },
-    { 
-        name: "Citizen Chandler Military", 
-        asin: "B07SKKR5CX",
-        ref: "BM6838-17L",
-        image: "https://i.imgur.com/1ICNWl0.jpeg" 
-    },
-    { 
-        name: "Citizen Chandler Chronograph", 
-        asin: "B01KUFIHAE",
-        ref: "CA0621-05L",
-        image: "https://i.imgur.com/zRCL6ws.png" 
-    },
-    { 
-        name: "Citizen Calendrier", 
-        asin: "B00PXVUMCM",
-        ref: "BU2020-02A",
-        image: "https://i.imgur.com/HwKDAt8.jpeg" 
-    },
-    { 
-        name: "Citizen Brycen Chronograph", 
-        asin: "B06XYYF4BG",
-        ref: "CA0649-06X",
-        image: "https://i.imgur.com/Lg6mwVR.jpeg" 
-    },
-    { 
-        name: "Casio Vintage", 
-        asin: "B0CVTS7LGT",
-        ref: "MTPB145DC-3AV",
-        image: "https://i.imgur.com/hNzSexm.png" 
-    },
-    { 
-        name: "Casio 'Tony Soprano'", 
-        asin: "B0CJRQ8CW6",
-        ref: "MTPB145GC-9AV",
-        image: "https://i.imgur.com/GxMlKpr.png" 
-    },
-    { 
-        name: "Casio 'Vintage Digital'", 
-        asin: "B000LAKYW8",
-        ref: "A168WA-1",
-        image: "https://i.imgur.com/aGcHVxH.png" 
-    },
-    { 
-        name: "Casio Classic IV", 
-        asin: "B015ZXPZUG",
-        ref: "MTP-V006D-7B",
-        image: "https://i.imgur.com/RWd99Op.jpeg" 
-    },
-    { 
-        name: "Casio Illuminator", 
-        asin: "B08VNR3NRW",
-        ref: "AE-1500WH-1AV",
-        image: "https://i.imgur.com/3YEubT6.png" 
-    },
-    { 
-        name: "Casio G-Shock ", 
-        asin: "B08X2GHL8W",
-        ref: "GA2100-7A",
-        image: "https://i.imgur.com/H8DmmbR.png" 
-    },
-    { 
-        name: "Casio G-Shock", 
-        asin: "B092BVGQ1S",
-        ref: "GST-B400-1A",
-        image: "https://i.imgur.com/0ikAcov.png" 
-    },
-    { 
-        name: "Casio G-Shock", 
-        asin: "B000GAYQKY",
-        ref: "DW5600E-1V",
-        image: "https://i.imgur.com/i0HUvTl.jpeg" 
-    },
-    { 
-        name: "Casio G-Shock 'Mudmaster'", 
-        asin: "B07W43VGYC",
-        ref: "GG-B100-1A",
-        image: "https://i.imgur.com/gRhppQZ.png" 
-    },
-    { 
-        name: "Casio G-Shock 'CasiOak'", 
-        asin: "B07WJFS6LH",
-        ref: "GA2100-1A1",
-        image: "https://i.imgur.com/u8VCOHr.png" 
-    },
-    { 
-        name: "Casio Edifice", 
-        asin: "B000GB0G1G",
-        ref: "EF305-1AV",
-        image: "https://i.imgur.com/wockAke.png" 
-    },
-    { 
-        name: "Casio Edifice", 
-        asin: "B0DDWH285K",
-        ref: "EFB-730D-1AV",
-        image: "https://i.imgur.com/tf410oI.png" 
-    },
-    { 
-        name: "Casio Digi-Dial", 
-        asin: "B000J39T2S",
-        ref: "AQ-230A",
-        image: "https://i.imgur.com/3BOmVqd.png" 
-    },
-    { 
-        name: "Casio Digi-Dial", 
-        asin: "B0CL2DGVL2",
-        ref: "AQ230A-7AVT",
-        image: "https://i.imgur.com/Qyrick6.png" 
-    },
-    { 
-        name: "Casio Day-Date", 
-        asin: "B0F1WVFWLP",
-        ref: "MTP1302D-2AVT",
-        image: "https://i.imgur.com/roaMANH.png" 
-    },
-    { 
-        name: "Casio Day-Date", 
-        asin: "B0039UT5OK",
-        ref: "MTP1302D-1A1VT",
-        image: "https://i.imgur.com/jId74M8.png" 
-    },
-    { 
-        name: "Casio 'Royale' World Time", 
-        asin: "B0099M2IQY",
-        ref: "AE1200WHD-1A",
-        image: "https://i.imgur.com/ZJULrDJ.jpeg" 
-    },
-    { 
-        name: "Bulova 'Sutton'", 
-        asin: "B09K5NHCPT",
-        ref: "96A268",
-        image: "https://i.imgur.com/usxAJ0D.png" 
-    },
-    { 
-        name: "Bulova 'Surveyor'", 
-        asin: "B0D93VQX4R",
-        ref: "98B422",
-        image: "https://i.imgur.com/lBJGQks.png" 
-    },
-    { 
-        name: "Bulova 'Surveyor'", 
-        asin: "B0D93RCWNT",
-        ref: "96B427",
-        image: "https://i.imgur.com/2cMWs9V.png" 
-    },
-    { 
-        name: "Bulova 'Robie House'", 
-        asin: "B09Z3957RN",
-        ref: "96A287",
-        image: "https://i.imgur.com/SgTfR9G.png" 
-    },
-    { 
-        name: "Bulova Precisionist", 
-        asin: "B007006UA2",
-        ref: "96B158",
-        image: "https://i.imgur.com/tTv9q06.jpeg" 
-    },
-    { 
-        name: "Bulova 'My Way' Sinatra", 
-        asin: "B08NS427DV",
-        ref: "98A261",
-        image: "https://i.imgur.com/fg1sRWx.png" 
-    },
-    { 
-        name: "Bulova 'My Way' Sinatra", 
-        asin: "B08FFLJCD1",
-        ref: "97A158",
-        image: "https://i.imgur.com/0500hCW.png" 
-    },
-    { 
-        name: "Bulova Marine Star", 
-        asin: "B0733PT6VC",
-        ref: "96B272",
-        image: "https://i.imgur.com/Z4Yu3nQ.png" 
-    },
-    { 
-        name: "Bulova Marine Star", 
-        asin: "B0713STW5H",
-        ref: "98B301",
-        image: "https://i.imgur.com/jhH8wQ0.png" 
-    },
-    { 
-        name: "Bulova Hack", 
-        asin: "B0BHX8DQLS",
-        ref: "96A282",
-        image: "https://i.imgur.com/dEVbr12.png" 
-    },
-    { 
-        name: "Bulova Hack Automatic", 
-        asin: "B0845X1PYX",
-        ref: "96A246",
-        image: "https://i.imgur.com/KRHAJPc.png" 
-    },
-    { 
-        name: "Bulova Classic Day-Date", 
-        asin: "B0716DMPM1",
-        ref: "96C125",
-        image: "https://i.imgur.com/DOWybVE.png" 
-    }
-        ];
-        
-        const featuredGrid = document.getElementById('featuredGrid');
-        const watchGrid = document.getElementById('watchGrid');
-        const searchInput = document.getElementById('searchInput');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const resultsCount = document.getElementById('resultsCount');
-        
-        let currentFilter = 'all';
-        let currentSearch = '';
-        
-        function getBrandFromName(name) {
-            const lowerName = name.toLowerCase();
-            if (lowerName.includes('timex')) return 'timex';
-            if (lowerName.includes('seiko')) return 'seiko';
-            if (lowerName.includes('orient')) return 'orient';
-            if (lowerName.includes('hamilton')) return 'hamilton';
-            if (lowerName.includes('citizen')) return 'citizen';
-            if (lowerName.includes('casio')) return 'casio';
-            if (lowerName.includes('bulova')) return 'bulova';
-            return 'other';
-        }
-        
-        function createFeaturedCard(watch) {
-            const card = document.createElement('div');
-            card.className = 'featured-card';
-            card.onclick = () => {
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'featured_watch_click', {
-                        'watch_name': watch.name,
-                        'watch_asin': watch.asin
-                    });
-                }
-                window.location.href = `redirect.html?asin=${watch.asin}&tag=${YOUR_ASSOCIATE_ID}`;
-            };
-            
-            card.innerHTML = `
-                <div class="featured-image-container">
-                    <img src="${watch.image}" alt="${watch.name}" class="featured-image" loading="lazy">
-                </div>
-                <div class="featured-info">
-                    <div class="featured-name">${watch.name}</div>
-                </div>
-            `;
-            
-            return card;
-        }
-        
-        function createWatchCard(watch) {
-            const card = document.createElement('div');
-            card.className = 'watch-card';
-            card.onclick = () => {
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'watch_click', {
-                        'watch_name': watch.name,
-                        'watch_asin': watch.asin,
-                        'watch_brand': getBrandFromName(watch.name)
-                    });
-                }
-                window.location.href = `redirect.html?asin=${watch.asin}&tag=${YOUR_ASSOCIATE_ID}`;
-            };
-            
-            const refHtml = watch.ref ? `<div class="watch-ref">${watch.ref}</div>` : '';
-            
-            card.innerHTML = `
-                <div class="watch-image-container">
-                    <img src="${watch.image}" alt="${watch.name}" class="watch-image" loading="lazy">
-                </div>
-                <div class="watch-info">
-                    <div class="watch-name">${watch.name}</div>
-                    ${refHtml}
-                </div>
-            `;
-            
-            return card;
-        }
-        
-        function loadFeaturedWatches() {
-            featuredWatches.forEach(watch => {
-                featuredGrid.appendChild(createFeaturedCard(watch));
-            });
-        }
-        
-        function filterWatches() {
-            return watches.filter(watch => {
-                const matchesSearch = currentSearch === '' || 
-                    watch.name.toLowerCase().includes(currentSearch) ||
-                    (watch.ref && watch.ref.toLowerCase().includes(currentSearch));
-                
-                const matchesBrand = currentFilter === 'all' || 
-                    getBrandFromName(watch.name) === currentFilter;
-                
-                return matchesSearch && matchesBrand;
-            });
-        }
-        
-        function renderWatches() {
-            watchGrid.innerHTML = '';
-            const filteredWatches = filterWatches();
-            
-            if (filteredWatches.length === 0) {
-                watchGrid.innerHTML = `
-                    <div class="empty-state">
-                        <h2>No watches found</h2>
-                        <p>Try adjusting your filters</p>
-                    </div>
-                `;
-                resultsCount.textContent = '';
-                return;
-            }
-            
-            resultsCount.textContent = `Showing ${filteredWatches.length} of ${watches.length} watches`;
-            
-            filteredWatches.forEach(watch => {
-                watchGrid.appendChild(createWatchCard(watch));
-            });
-        }
-        
-        searchInput.addEventListener('input', (e) => {
-            currentSearch = e.target.value.toLowerCase();
-            renderWatches();
-        });
-        
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentFilter = btn.dataset.brand;
-                renderWatches();
-                
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'filter_click', {
-                        'filter_brand': currentFilter
-                    });
-                }
-            });
-        });
-        
-        loadFeaturedWatches();
-        renderWatches();
-    </script>
+<header class="header">
+<div class="logo-container">
+<img src="https://i.imgur.com/ZgFYofO.png" alt="The Dial Archive" class="logo">
+<h1 class="brand-name">The Dial Archive</h1>
+</div>
+<p class="tagline">Watches Worth Knowing.</p>
+</header>
+<div class="hero-banner">
+<div class="hero-content">
+<h2 class="hero-title">Welcome to the Archive.</h2>
+<p class="hero-cta">Tap any watch to explore<br>on <span class="amazon-highlight">your Amazon app</span></p>
+</div>
+</div>
+<section class="featured-section">
+<div class="section-header">
+<span class="section-tag">Start Here</span>
+<h3 class="section-title">Essential Watches</h3>
+<p class="section-description">Handpicked timepieces that offer exceptional value—perfect entry points into watch collecting.</p>
+<div class="new-watches-badge">✨ New watches added weekly</div>
+</div>
+<div class="featured-scroll">
+<div class="featured-grid" id="featuredGrid"></div>
+</div>
+</section>
+<div class="controls">
+<div class="search-box">
+<svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+<circle cx="11" cy="11" r="8"></circle>
+<path d="m21 21-4.35-4.35"></path>
+</svg>
+<input type="text" class="search-input" id="searchInput" placeholder="Search watches...">
+</div>
+<div class="results-count" id="resultsCount"></div>
+<div class="filter-row">
+<select class="filter-select" id="brandFilter"><option value="">All Brands</option></select>
+<select class="filter-select" id="movementFilter"><option value="">All Movements</option></select>
+<select class="filter-select" id="colorFilter"><option value="">All Colors</option></select>
+<select class="filter-select" id="sizeFilter"><option value="">All Sizes</option></select>
+<select class="filter-select" id="wrFilter"><option value="">All WR</option></select>
+</div>
+</div>
+<div class="container">
+<div class="amazon-banner">
+<div class="amazon-banner-title">📦 Shop Safely with Amazon</div>
+<p class="amazon-banner-text">All watches open in your Amazon app. Secure checkout, fast shipping, easy returns.</p>
+</div>
+<div class="watch-grid" id="watchGrid"></div>
+</div>
+<footer class="footer">
+<p>As an Amazon Associate I earn from qualifying purchases.</p>
+</footer>
+<script>
+const TAG="thedialarchiv-20";
+const featuredWatches=[
+    {name:"Timex Waterbury Chronograph",asin:"B0FJMSFT7W",ref:"TW2Y23600",image:"https://m.media-amazon.com/images/I/71jpFTmS+GL._AC_SX679_.jpg",brand:"Timex",dialColor:"Green",movement:"Quartz",caseSize:41,waterResistance:50},
+    {name:"Timex Easy Reader",asin:"B000AYSH2E",ref:"T2H311",image:"https://m.media-amazon.com/images/I/817Ex2Pe2pL._AC_SX679_.jpg",brand:"Timex",dialColor:"White",movement:"Quartz",caseSize:35,waterResistance:30},
+    {name:"Seiko 5 Sports",asin:"B089FQ4R4X",ref:"SRPE55",image:"https://m.media-amazon.com/images/I/61msSR9jX7L._AC_SY695_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:40,waterResistance:100},
+    {name:"Seiko 5 SNK805",asin:"B000LTAY1U",ref:"SNK805",image:"https://m.media-amazon.com/images/I/61a0+4Ft07L._AC_SX679_.jpg",brand:"Seiko",dialColor:"Green",movement:"Automatic",caseSize:37,waterResistance:30},
+    {name:"Orient TriStar",asin:"B07ZL63R2D",ref:"RA-AB0F09L19A",image:"https://m.media-amazon.com/images/I/61lB1AENo-L._AC_SY695_.jpg",brand:"Orient",dialColor:"Blue",movement:"Automatic",caseSize:42,waterResistance:30},
+    {name:"Orient Bambino I",asin:"B01MXPSU8R",ref:"FAC00005W0",image:"https://m.media-amazon.com/images/I/51deKZSQ8VL._AC_SY879_.jpg",brand:"Orient",dialColor:"White",movement:"Automatic",caseSize:40,waterResistance:30},
+    {name:"Citizen Garrison Eco-Drive",asin:"B000EQS1JW",ref:"BM8180-03E",image:"https://m.media-amazon.com/images/I/81t0KQkVwpS._AC_SX679_.jpg",brand:"Citizen",dialColor:"Black",movement:"Solar",caseSize:37,waterResistance:100},
+    {name:"Casio \'Duro\' Marlin",asin:"B009KYJAJY",ref:"MDV106-1A",image:"https://m.media-amazon.com/images/I/61nHUVwR65L._AC_SY879_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:44,waterResistance:200}
+];
+const watches=[
+    {name:"Timex Q 1978",asin:"B0F4L5G3W8",ref:"TW2W44700ZV",image:"https://m.media-amazon.com/images/I/71B1hFl6n5L._AC_SX679_.jpg",brand:"Timex",dialColor:"Green",movement:"Quartz",caseSize:37,waterResistance:50},
+    {name:"Timex M79 Automatic",asin:"B08YQSP7CP",ref:"TW2U29500",image:"https://m.media-amazon.com/images/I/71idutK3LfL._AC_SX679_.jpg",brand:"Timex",dialColor:"Black",movement:"Automatic",caseSize:40,waterResistance:50},
+    {name:"Timex Expedition Solar",asin:"B09F91MVCG",ref:"TW2V00200",image:"https://m.media-amazon.com/images/I/519adKpZf-L._AC_SX679_.jpg",brand:"Timex",dialColor:"Black",movement:"Solar",caseSize:36,waterResistance:100},
+    {name:"Series 5 Automatic",asin:"B0009MYUZU",ref:"SNK381",image:"https://m.media-amazon.com/images/I/51odWYruZSL._AC_SY879_.jpg",brand:"Other",dialColor:"Black",movement:"Automatic",caseSize:37,waterResistance:30},
+    {name:"Seiko SRPD55",asin:"B07WGML3VN",ref:"SRPD55",image:"https://m.media-amazon.com/images/I/61NaZn1tzGL._AC_SY879_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:43,waterResistance:100},
+    {name:"Seiko SKX Root Beer GMT",asin:"B0DH8M1GNT",ref:"SSK036",image:"https://m.media-amazon.com/images/I/711fPDA-dwL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:42,waterResistance:100},
+    {name:"Seiko Presage \'Cocktail Time\'",asin:"B08HKPG6P3",ref:"SRPE41",image:"https://m.media-amazon.com/images/I/51uX3Vx5-HL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Red",movement:"Automatic",caseSize:38,waterResistance:50},
+    {name:"Seiko Presage \'Cocktail Time\'",asin:"B0CBVTZPCV",ref:"SSA459",image:"https://m.media-amazon.com/images/I/61GVmcoqPbL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Green",movement:"Automatic",caseSize:40,waterResistance:50},
+    {name:"Seiko Presage \'Manhattan\'",asin:"B071FB8VVR",ref:"SRPB46",image:"https://m.media-amazon.com/images/I/71x21B8d-yL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Brown",movement:"Automatic",caseSize:40,waterResistance:50},
+    {name:"Seiko Presage \'Cocktail Time\'",asin:"B074KL28XK",ref:"SRPB43",image:"https://m.media-amazon.com/images/I/61xjD+DW2HL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Blue",movement:"Automatic",caseSize:40,waterResistance:50},
+    {name:"Seiko Essentials Tank",asin:"B0954RVHB6",ref:"SWR053",image:"https://m.media-amazon.com/images/I/51wls7r9JBS._AC_SY695_.jpg",brand:"Seiko",dialColor:"White",movement:"Quartz",caseSize:18,waterResistance:30},
+    {name:"Seiko Essentials Tank",asin:"B095516GQX",ref:"SWR049",image:"https://m.media-amazon.com/images/I/51JESdWyWeL._AC_SY695_.jpg",brand:"Seiko",dialColor:"White",movement:"Quartz",caseSize:28,waterResistance:30},
+    {name:"Seiko Core \'Two-Tone\'",asin:"B09GW4GXRM",ref:"SUR460P1",image:"https://m.media-amazon.com/images/I/61jOXl-aIJL._AC_SX679_.jpg",brand:"Seiko",dialColor:"White",movement:"Quartz",caseSize:40,waterResistance:100},
+    {name:"Seiko Alpinist",asin:"B0B33H4V74",ref:"SPB121",image:"https://m.media-amazon.com/images/I/61CWhZouXiL._AC_SX679_.jpg",brand:"Seiko",dialColor:"Green",movement:"Automatic",caseSize:39,waterResistance:200},
+    {name:"Seiko 5 Yellow Gold",asin:"B00PK7I63Q",ref:"SNXS80",image:"https://m.media-amazon.com/images/I/71nk14oXWbL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Gold",movement:"Automatic",caseSize:37,waterResistance:30},
+    {name:"Seiko 5 Yellow Gold",asin:"B000ZAW3C8",ref:"SNXL72",image:"https://m.media-amazon.com/images/I/51hr4uwqYuL._AC_SX679_.jpg",brand:"Seiko",dialColor:"Gold",movement:"Automatic",caseSize:37,waterResistance:30},
+    {name:"Seiko 5 Sports \'SNXS\'",asin:"B000G12Y8O",ref:"SNXS79K",image:"https://m.media-amazon.com/images/I/71Ygbjkc7UL._AC_SX679_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:37,waterResistance:30},
+    {name:"Seiko 5 Sports \'SKX\'",asin:"B0FNDMP9K2",ref:"SRPL79",image:"https://m.media-amazon.com/images/I/71OeEcEZrrL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Brown",movement:"Automatic",caseSize:38,waterResistance:100},
+    {name:"Seiko 5 Sports \'Midi\'",asin:"B0C3W99175",ref:"SRPK31",image:"https://m.media-amazon.com/images/I/61bqI1sCwrL._AC_SX679_.jpg",brand:"Seiko",dialColor:"Beige",movement:"Automatic",caseSize:38,waterResistance:100},
+    {name:"Seiko 5 Sports GMT \'Blueberry\'",asin:"B0B6JVCYMN",ref:"SSK003",image:"https://m.media-amazon.com/images/I/61qM4fZiIaL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Blue",movement:"Automatic",caseSize:42,waterResistance:100},
+    {name:"Seiko 5 Sports GMT",asin:"B0B6KWJ4KJ",ref:"SSK001",image:"https://m.media-amazon.com/images/I/71YDpkPQk5L._AC_SY695_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:42,waterResistance:100},
+    {name:"Seiko 5 Sports",asin:"B09LRMR5VX",ref:"SRPH31",image:"https://m.media-amazon.com/images/I/6144eGZvwmL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Blue",movement:"Automatic",caseSize:39,waterResistance:100},
+    {name:"Seiko 5 Sports Automatic Silver Orange",asin:"B0CGXD25S8",ref:"SRPK09K1",image:"https://m.media-amazon.com/images/I/51TRVILsmrL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Silver",movement:"Automatic",caseSize:42,waterResistance:100},
+    {name:"Seiko 5 Sports",asin:"B07WGMTVRL",ref:"SRPL59K1",image:"https://m.media-amazon.com/images/I/61IPLbr91-S._AC_SX679_.jpg",brand:"Seiko",dialColor:"Orange",movement:"Automatic",caseSize:43,waterResistance:100},
+    {name:"Seiko 5 Sports \'Midi\' Blue",asin:"B0C73P925W",ref:"SRPK33",image:"https://m.media-amazon.com/images/I/61PjUDhhTOL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Blue",movement:"Automatic",caseSize:38,waterResistance:100},
+    {name:"Seiko 5 Sports \'Hulk\'",asin:"B07ZJTSZP1",ref:"SRPD63",image:"https://m.media-amazon.com/images/I/61+M-3bg4pL._AC_SX679_.jpg",brand:"Seiko",dialColor:"Green",movement:"Automatic",caseSize:42,waterResistance:100},
+    {name:"Seiko 5 Sports \'DressKX\'",asin:"B08BMXHR4T",ref:"SRPE51",image:"https://m.media-amazon.com/images/I/615wunwyOEL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Silver",movement:"Automatic",caseSize:40,waterResistance:100},
+    {name:"Seiko 5 Sports \'Checkerboard\'",asin:"B0D67HFHND",ref:"SRPK67K1",image:"https://m.media-amazon.com/images/I/51hQES9LXwL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:42,waterResistance:100},
+    {name:"Seiko 5 Sports",asin:"B07WFNRR69",ref:"SRPD51",image:"https://m.media-amazon.com/images/I/61ZxjQ6TpxL._AC_SX679_.jpg",brand:"Seiko",dialColor:"Blue",movement:"Automatic",caseSize:43,waterResistance:100},
+    {name:"Seiko 5 SKX White Blue",asin:"B0DNNSBCNP",ref:"SSK033",image:"https://m.media-amazon.com/images/I/61UCUu7JviL._AC_SY695_.jpg",brand:"Seiko",dialColor:"White",movement:"Automatic",caseSize:42,waterResistance:100},
+    {name:"Seiko 5",asin:"B000U3GUSS",ref:"SNK617",image:"https://m.media-amazon.com/images/I/71Gvqu9tINL._AC_SY879_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:37,waterResistance:30},
+    {name:"Seiko 5 Midfield",asin:"B0CN1KTXTP",ref:"SRPJ81",image:"https://m.media-amazon.com/images/I/7138ed4prHL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:36,waterResistance:100},
+    {name:"Seiko 5 Field",asin:"B09LRKYH46",ref:"SRPH29",image:"https://m.media-amazon.com/images/I/61wiG-mFHkL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Green",movement:"Automatic",caseSize:39,waterResistance:100},
+    {name:"Seiko 5 GMT \'Orange\'",asin:"B0B6KT1649",ref:"SSK005",image:"https://m.media-amazon.com/images/I/51BVjZr8GcL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Orange",movement:"Automatic",caseSize:42,waterResistance:100},
+    {name:"Seiko 5 Field Mechanical",asin:"B096YG529N",ref:"SRPG27",image:"https://m.media-amazon.com/images/I/61RmgTAxQtL._AC_SX679_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:39,waterResistance:100},
+    {name:"Seiko 5 Field \'Blackout\'",asin:"B0971HNK3J",ref:"SRPG41",image:"https://m.media-amazon.com/images/I/51j6c77h2cL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Black",movement:"Hand Wind & Automatic",caseSize:39,waterResistance:100},
+    {name:"Seiko 5 \'Classic Black\'",asin:"B009GCRM0Y",ref:"SNKL45",image:"https://m.media-amazon.com/images/I/71QBmclKmkL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:37,waterResistance:30},
+    {name:"Seiko 5 Blue Dial Yellow",asin:"B000NM0REE",ref:"SNK615",image:"https://m.media-amazon.com/images/I/71EIMNE8REL._AC_SY879_.jpg",brand:"Seiko",dialColor:"Blue",movement:"Automatic",caseSize:37,waterResistance:30},
+    {name:"Seiko 5 Arabic",asin:"B07RB27XT3",ref:"SNKP22J1",image:"https://m.media-amazon.com/images/I/71UzMqJrbnL._AC_SY695_.jpg",brand:"Seiko",dialColor:"White",movement:"Automatic",caseSize:42,waterResistance:50},
+    {name:"Seiko 5",asin:"B002SLBZH6",ref:"SNK607",image:"https://m.media-amazon.com/images/I/81BooF++pSL._AC_SY879_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:37,waterResistance:100},
+    {name:"Orient Symphony III",asin:"B07XSQ5W1V",ref:"RA-AC0F02S30B",image:"https://m.media-amazon.com/images/I/611ySj03V9L._AC_SX679_.jpg",brand:"Orient",dialColor:"Silver",movement:"Automatic",caseSize:41,waterResistance:30},
+    {name:"Orient Sun and Moon",asin:"B09D9L13Z9",ref:"RA-AK0011D10B",image:"https://m.media-amazon.com/images/I/51Od4cEPR0L._AC_SY879_.jpg",brand:"Orient",dialColor:"Blue",movement:"Automatic",caseSize:43,waterResistance:50},
+    {name:"Orient Ray II",asin:"B07FD7TWY8",ref:"FAA02006M9",image:"https://m.media-amazon.com/images/I/61W21+CJc7L._AC_SY879_.jpg",brand:"Orient",dialColor:"Orange",movement:"Automatic",caseSize:41,waterResistance:200},
+    {name:"Orient Neo Classic",asin:"B094DP5538",ref:"RA-AA0E03L",image:"https://m.media-amazon.com/images/I/71c0PNfbraS._AC_SY879_.jpg",brand:"Orient",dialColor:"Blue",movement:"Automatic",caseSize:43,waterResistance:200},
+    {name:"Orient Mako III",asin:"B09KYLBSJM",ref:"RA-AA0811E19B",image:"https://m.media-amazon.com/images/I/61xJeNKxVHL._AC_SX679_.jpg",brand:"Orient",dialColor:"Blue",movement:"Automatic",caseSize:41,waterResistance:200},
+    {name:"Orient Mako II",asin:"B01AK5TQRM",ref:"FAA02002D9",image:"https://m.media-amazon.com/images/I/61AwpEXc5ZL._AC_SY879_.jpg",brand:"Orient",dialColor:"Blue",movement:"Automatic",caseSize:41,waterResistance:200},
+    {name:"Orient Mako II",asin:"B01AK5TQQ8",ref:"FAA02001B9",image:"https://m.media-amazon.com/images/I/617pfLwPt8L._AC_SY879_.jpg",brand:"Orient",dialColor:"Black",movement:"Automatic",caseSize:41,waterResistance:200},
+    {name:"Orient Kano",asin:"B07JF61WNW",ref:"RA-AA0011B19B",image:"https://m.media-amazon.com/images/I/51Ha4giprmL._AC_SY879_.jpg",brand:"Orient",dialColor:"Black",movement:"Automatic",caseSize:44,waterResistance:200},
+    {name:"Orient Kamasu",asin:"B07JGMM8FC",ref:"RA-AA0004E19B",image:"https://m.media-amazon.com/images/I/61PGmxZC+mL._AC_SY879_.jpg",brand:"Orient",dialColor:"Green",movement:"Automatic",caseSize:42,waterResistance:200},
+    {name:"Orient Kamasu",asin:"B07QBBKVJ6",ref:"RA-AA0001B19A",image:"https://m.media-amazon.com/images/I/61b625f9OjL._AC_SY879_.jpg",brand:"Orient",dialColor:"Black",movement:"Automatic",caseSize:41,waterResistance:200},
+    {name:"Orient Chronograph",asin:"B0DFWQ4TJF",ref:"RATX0304L10B",image:"https://m.media-amazon.com/images/I/71ptXp378QL._AC_SY695_.jpg",brand:"Orient",dialColor:"Blue",movement:"Solar",caseSize:40,waterResistance:50},
+    {name:"Orient Bambino",asin:"B09DTPZGKN",ref:"RA-AC0020G30B",image:"https://m.media-amazon.com/images/I/61SLouV5oIL._AC_SX679_.jpg",brand:"Orient",dialColor:"Champagne",movement:"Hand Wind & Automatic",caseSize:40,waterResistance:30},
+    {name:"Orient Bambino IV",asin:"B0FPT1J9VH",ref:"FAC08003W0",image:"https://m.media-amazon.com/images/I/61H+0OunNTL._AC_SX679_.jpg",brand:"Orient",dialColor:"Silver",movement:"Hand Wind & Automatic",caseSize:42,waterResistance:30},
+    {name:"Orient Bambino I",asin:"B01NAAQLYY",ref:"TAC00004B0",image:"https://m.media-amazon.com/images/I/61EaVIDyGZL._AC_SY879_.jpg",brand:"Orient",dialColor:"Black",movement:"Automatic",caseSize:40,waterResistance:30},
+    {name:"Orient Bambino IV \'Salmon\'",asin:"B0DQYCCFZW",ref:"RA-AC0M15Y30B",image:"https://m.media-amazon.com/images/I/61da0eWd5PL._AC_SX679_.jpg",brand:"Orient",dialColor:"Orange",movement:"Automatic",caseSize:38,waterResistance:30},
+    {name:"Orient Bambino III",asin:"B082X1TQBP",ref:"FAC0000CA0",image:"https://m.media-amazon.com/images/I/81G8L6E1PmL._AC_SY879_.jpg",brand:"Orient",dialColor:"Silver",movement:"Hand Wind & Automatic",caseSize:40,waterResistance:100},
+    {name:"Orient Bambino \'Small Seconds\'",asin:"B0D7Y196MP",ref:"RA-AP0101B30B",image:"https://m.media-amazon.com/images/I/713QGN6M16L._AC_SX679_.jpg",brand:"Orient",dialColor:"Black",movement:"Hand Wind & Automatic",caseSize:38,waterResistance:30},
+    {name:"Orient Bambino \'Open Heart\'",asin:"B07B4BD9HY",ref:"RA-AG0005L30B",image:"https://m.media-amazon.com/images/I/71KQz5yc5RL._AC_SX679_.jpg",brand:"Orient",dialColor:"Blue",movement:"Automatic",caseSize:40,waterResistance:30},
+    {name:"Orient Bambino",asin:"B0DB6NPS3P",ref:"RA-AK0705R10B",image:"https://m.media-amazon.com/images/I/7162MiBf6iL._AC_SX679_.jpg",brand:"Orient",dialColor:"Red",movement:"Automatic",caseSize:40,waterResistance:30},
+    {name:"Orient Bambino \'Small Seconds\'",asin:"B0D7Y196MP",ref:"RA-AP0101B30B",image:"https://m.media-amazon.com/images/I/713QGN6M16L._AC_SX679_.jpg",brand:"Orient",dialColor:"Black",movement:"Hand Wind & Automatic",caseSize:38,waterResistance:30},
+    {name:"Orient Bambino",asin:"B01N5RFHLF",ref:"FAC08003A0",image:"https://m.media-amazon.com/images/I/71M12PUwEGL._AC_SX679_.jpg",brand:"Orient",dialColor:"Silver",movement:"Hand Wind & Automatic",caseSize:41,waterResistance:30},
+    {name:"Orient Bambino II",asin:"B01MTS5BFN",ref:"FAC00009N0",image:"https://m.media-amazon.com/images/I/71qGucjoRkL._AC_SY879_.jpg",brand:"Orient",dialColor:"Champagne",movement:"Automatic",caseSize:40,waterResistance:100},
+    {name:"Orient Bambino II",asin:"B072K5C5G1",ref:"TAC0000DD0",image:"https://m.media-amazon.com/images/I/71gShCRNEkL._AC_SX679_.jpg",brand:"Orient",dialColor:"Blue",movement:"Automatic",caseSize:40,waterResistance:30},
+    {name:"Orient Bambino II",asin:"B01N0IEGK0",ref:"FAC00002W0",image:"https://m.media-amazon.com/images/I/619HLLWVRkL._AC_SY879_.jpg",brand:"Orient",dialColor:"White",movement:"Automatic",caseSize:40,waterResistance:30},
+    {name:"Hamilton Khaki Field",asin:"B0DQST69QB",ref:"H68201143",image:"https://m.media-amazon.com/images/I/71FY5+azz6L._AC_SY879_.jpg",brand:"Hamilton",dialColor:"Black",movement:"Quartz",caseSize:38,waterResistance:50},
+    {name:"Hamilton Khaki Field Mechanical",asin:"B0982W1QSQ",ref:"H69439931",image:"https://m.media-amazon.com/images/I/71N7iGkNCWL._AC_SX679_.jpg",brand:"Hamilton",dialColor:"Black",movement:"Hand Wind",caseSize:42,waterResistance:50},
+    {name:"Citizen Tsuyosa",asin:"B0CDDDJ6H6",ref:"NJ0150-56Z",image:"https://m.media-amazon.com/images/I/71q6qW+ASSL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Yellow",movement:"Automatic",caseSize:40,waterResistance:50},
+    {name:"Citizen Quartz Blue Dial Two Tone",asin:"B09JGH1521",ref:"BI1036-57L",image:"https://m.media-amazon.com/images/I/81dr01ocIoL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Blue",movement:"Quartz",caseSize:42,waterResistance:100},
+    {name:"Citizen Promaster",asin:"B0C8L8J621",ref:"NY0120-52X",image:"https://m.media-amazon.com/images/I/810NXaDwRDL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Yellow",movement:"Automatic",caseSize:41,waterResistance:200},
+    {name:"Citizen Promaster Diver",asin:"B016R90VBK",ref:"BN0150-28E",image:"https://m.media-amazon.com/images/I/71nr0o7oZjS._AC_SX679_.jpg",brand:"Citizen",dialColor:"Black",movement:"Solar",caseSize:44,waterResistance:200},
+    {name:"Citizen Promaster \'Fugu\'",asin:"B0BTJTRDDH",ref:"NY0150-51L",image:"https://m.media-amazon.com/images/I/81w-rg1TQWL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Blue",movement:"Automatic",caseSize:44,waterResistance:200},
+    {name:"Citizen Nighthawk",asin:"B00074KYC8",ref:"BJ7000-52E",image:"https://m.media-amazon.com/images/I/81VeR0a67ES._AC_SX679_.jpg",brand:"Citizen",dialColor:"Black",movement:"Solar",caseSize:42,waterResistance:200},
+    {name:"Citizen Eco-Drive Chronograph",asin:"B0FL92P63V",ref:"CA4630-53A",image:"https://m.media-amazon.com/images/I/81+t8SKjiJL._AC_SX679_.jpg",brand:"Citizen",dialColor:"White",movement:"Solar",caseSize:43,waterResistance:100},
+    {name:"Citizen Eco-Drive Chrono Sport",asin:"B07CGPZD27",ref:"CA0648-09L",image:"https://m.media-amazon.com/images/I/81vmmmYPWyS._AC_SX679_.jpg",brand:"Citizen",dialColor:"Blue",movement:"Solar",caseSize:44,waterResistance:100},
+    {name:"Citizen Eco-Drive Axiom",asin:"B00CB9A47W",ref:"AU1065-58E",image:"https://m.media-amazon.com/images/I/71aDp3jqboL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Black",movement:"Solar",caseSize:40,waterResistance:30},
+    {name:"Citizen Diver",asin:"B0C7M3F7MB",ref:"NY0129-58L",image:"https://m.media-amazon.com/images/I/81hBD2hTWXL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Blue",movement:"Automatic",caseSize:41,waterResistance:200},
+    {name:"Citizen Corso",asin:"B07N1XKFBT",ref:"BM7100-59E",image:"https://m.media-amazon.com/images/I/71jaFMEDCYL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Silver",movement:"Quartz",caseSize:41,waterResistance:100},
+    {name:"Citizen Chandler Military",asin:"B07SKKR5CX",ref:"BM6838-17L",image:"https://m.media-amazon.com/images/I/812zrI0zprL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Blue",movement:"Solar",caseSize:42,waterResistance:100},
+    {name:"Citizen Chandler Chronograph",asin:"B01KUFIHAE",ref:"CA0621-05L",image:"https://m.media-amazon.com/images/I/81c6RQWXpDS._AC_SX679_.jpg",brand:"Citizen",dialColor:"Blue",movement:"Solar",caseSize:42,waterResistance:100},
+    {name:"Citizen Calendrier",asin:"B00PXVUMCM",ref:"BU2020-02A",image:"https://m.media-amazon.com/images/I/817yWrF9nqL._AC_SX679_.jpg",brand:"Citizen",dialColor:"White",movement:"Solar",caseSize:44,waterResistance:100},
+    {name:"Citizen Brycen Chronograph",asin:"B06XYYF4BG",ref:"CA0649-06X",image:"https://m.media-amazon.com/images/I/81-K8IkjzVL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Champagne",movement:"Solar",caseSize:49,waterResistance:100},
+    {name:"Casio Vintage",asin:"B0CVTS7LGT",ref:"MTPB145DC-3AV",image:"https://m.media-amazon.com/images/I/51Ty3vPPuzL._AC_SY695_.jpg",brand:"Casio",dialColor:"Green",movement:"Quartz",caseSize:35,waterResistance:30},
+    {name:"Casio \'Tony Soprano\'",asin:"B0CJRQ8CW6",ref:"MTPB145GC-9AV",image:"https://m.media-amazon.com/images/I/515K-JuA+8L._AC_SY695_.jpg",brand:"Casio",dialColor:"Gold",movement:"Quartz",caseSize:35,waterResistance:50},
+    {name:"Casio \'Vintage Digital\'",asin:"B000LAKYW8",ref:"A168WA-1",image:"https://m.media-amazon.com/images/I/613BThUhjoL._AC_SX679_.jpg",brand:"Casio",dialColor:"Black",movement:"Digital",caseSize:38,waterResistance:100},
+    {name:"Casio Classic IV",asin:"B015ZXPZUG",ref:"MTP-V006D-7B",image:"https://m.media-amazon.com/images/I/713jHbwyIAL._AC_SY879_.jpg",brand:"Casio",dialColor:"White",movement:"Quartz",caseSize:38,waterResistance:30},
+    {name:"Casio Illuminator",asin:"B08VNR3NRW",ref:"AE-1500WH-1AV",image:"https://m.media-amazon.com/images/I/61vAwF6wH0L._AC_SX679_.jpg",brand:"Casio",dialColor:"Black",movement:"Digital",caseSize:51,waterResistance:100},
+    {name:"Casio G-Shock ",asin:"B08X2GHL8W",ref:"GA2100-7A",image:"https://m.media-amazon.com/images/I/71982xafUmL._AC_SY695_.jpg",brand:"Casio",dialColor:"White",movement:"Digital",caseSize:42,waterResistance:200},
+    {name:"Casio G-Shock",asin:"B092BVGQ1S",ref:"GST-B400-1A",image:"https://m.media-amazon.com/images/I/61dQb+fIRiL._AC_SY695_.jpg",brand:"Casio",dialColor:"Black",movement:"Digital",caseSize:46,waterResistance:200},
+    {name:"Casio G-Shock",asin:"B000GAYQKY",ref:"DW5600E-1V",image:"https://m.media-amazon.com/images/I/6146W+Fmr5L._AC_SX679_.jpg",brand:"Casio",dialColor:"Black",movement:"Digital",caseSize:45,waterResistance:200},
+    {name:"Casio G-Shock \'Mudmaster\'",asin:"B07W43VGYC",ref:"GG-B100-1A",image:"https://m.media-amazon.com/images/I/51rzakSy61L._AC_SY695_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:53,waterResistance:200},
+    {name:"Casio G-Shock \'CasiOak\'",asin:"B07WJFS6LH",ref:"GA2100-1A1",image:"https://m.media-amazon.com/images/I/81yNV+5p3oL._AC_SY695_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:45,waterResistance:200},
+    {name:"Casio Edifice",asin:"B000GB0G1G",ref:"EF305-1AV",image:"https://m.media-amazon.com/images/I/81mSQ21jFQL._AC_SY879_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:41,waterResistance:100},
+    {name:"Casio Edifice",asin:"B0DDWH285K",ref:"EFB-730D-1AV",image:"https://m.media-amazon.com/images/I/81MnLUTcpJL._AC_SX679_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:40,waterResistance:100},
+    {name:"Casio Digi-Dial",asin:"B000J39T2S",ref:"AQ-230A",image:"https://m.media-amazon.com/images/I/71Tz2scwrHL._AC_SX679_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:27,waterResistance:30},
+    {name:"Casio Digi-Dial",asin:"B0CL2DGVL2",ref:"AQ230A-7AVT",image:"https://m.media-amazon.com/images/I/71zYI9pd3OL._AC_SY695_.jpg",brand:"Casio",dialColor:"White",movement:"Quartz",caseSize:27,waterResistance:30},
+    {name:"Casio Day-Date",asin:"B0F1WVFWLP",ref:"MTP1302D-2AVT",image:"https://m.media-amazon.com/images/I/81qAkcrMPlL._AC_SY695_.jpg",brand:"Casio",dialColor:"Blue",movement:"Quartz",caseSize:38,waterResistance:50},
+    {name:"Casio Day-Date",asin:"B0039UT5OK",ref:"MTP1302D-1A1VT",image:"https://m.media-amazon.com/images/I/61OfYLWEjcL._AC_SX679_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:38,waterResistance:50},
+    {name:"Casio \'Royale\' World Time",asin:"B0099M2IQY",ref:"AE1200WHD-1A",image:"https://m.media-amazon.com/images/I/61U3j88iDBL._AC_SX679_.jpg",brand:"Casio",dialColor:"Black",movement:"Digital",caseSize:43,waterResistance:100},
+    {name:"Bulova \'Sutton\'",asin:"B09K5NHCPT",ref:"96A268",image:"https://m.media-amazon.com/images/I/61MtiascXwL._AC_SY695_.jpg",brand:"Bulova",dialColor:"White",movement:"Automatic",caseSize:33,waterResistance:100},
+    {name:"Bulova \'Surveyor\'",asin:"B0D93VQX4R",ref:"98B422",image:"https://m.media-amazon.com/images/I/51j2Dg2h3DL._AC_SX679_.jpg",brand:"Bulova",dialColor:"Red",movement:"Automatic",caseSize:39,waterResistance:30},
+    {name:"Bulova \'Surveyor\'",asin:"B0D93RCWNT",ref:"96B427",image:"https://m.media-amazon.com/images/I/51Zu4sA8xDL._AC_SX679_.jpg",brand:"Bulova",dialColor:"Green",movement:"Automatic",caseSize:39,waterResistance:30},
+    {name:"Bulova \'Robie House\'",asin:"B09Z3957RN",ref:"96A287",image:"https://m.media-amazon.com/images/I/71sV6N879xL._AC_SX679_.jpg",brand:"Bulova",dialColor:"Blue",movement:"Quartz",caseSize:30,waterResistance:30},
+    {name:"Bulova Precisionist",asin:"B007006UA2",ref:"96B158",image:"https://m.media-amazon.com/images/I/71OU+lqSoDL._AC_SX679_.jpg",brand:"Bulova",dialColor:"Black",movement:"Quartz",caseSize:42,waterResistance:30},
+    {name:"Bulova \'My Way\' Sinatra",asin:"B08NS427DV",ref:"98A261",image:"https://m.media-amazon.com/images/I/51XbUaxxC0L._AC_SX679_.jpg",brand:"Bulova",dialColor:"Black",movement:"Quartz",caseSize:29,waterResistance:30},
+    {name:"Bulova \'My Way\' Sinatra",asin:"B08FFLJCD1",ref:"97A158",image:"https://m.media-amazon.com/images/I/51fHxA94uLL._AC_SX679_.jpg",brand:"Bulova",dialColor:"Silver",movement:"Quartz",caseSize:29,waterResistance:30},
+    {name:"Bulova Marine Star",asin:"B0733PT6VC",ref:"96B272",image:"https://m.media-amazon.com/images/I/81GbXYQRp8S._AC_SX679_.jpg",brand:"Bulova",dialColor:"Black",movement:"Quartz",caseSize:45,waterResistance:200},
+    {name:"Bulova Marine Star",asin:"B0713STW5H",ref:"98B301",image:"https://m.media-amazon.com/images/I/81io8OejSiL._AC_SX679_.jpg",brand:"Bulova",dialColor:"Blue",movement:"Quartz",caseSize:45,waterResistance:200},
+    {name:"Bulova Hack",asin:"B0BHX8DQLS",ref:"96A282",image:"https://m.media-amazon.com/images/I/71BFeBUQd-L._AC_SX679_.jpg",brand:"Bulova",dialColor:"Blue",movement:"Automatic",caseSize:37,waterResistance:50},
+    {name:"Bulova Hack Automatic",asin:"B0845X1PYX",ref:"96A246",image:"https://m.media-amazon.com/images/I/71P05qxd91L._AC_SX679_.jpg",brand:"Bulova",dialColor:"Champagne",movement:"Automatic",caseSize:38,waterResistance:30},
+    {name:"Bulova Classic Day-Date",asin:"B0716DMPM1",ref:"96C125",image:"https://m.media-amazon.com/images/I/81c+5MDbf8L._AC_SX679_.jpg",brand:"Bulova",dialColor:"Blue",movement:"Quartz",caseSize:39,waterResistance:30},
+    {name:"Citizen Classic",asin:"B00KXCU17C",ref:"BI1030-53A",image:"https://m.media-amazon.com/images/I/71UhEtxZnSL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Silver",movement:"Quartz",caseSize:42,waterResistance:30},
+    {name:"Seiko 5 Sports",asin:"B0CBQQPTF8",ref:"SRPK20",image:"https://m.media-amazon.com/images/I/71amUUAsdAL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Blue",movement:"Automatic",caseSize:42,waterResistance:100},
+    {name:"Timex Expedition Scout",asin:"B07FFDDZVQ",ref:"TW4B14000",image:"https://m.media-amazon.com/images/I/91n9pVo+V7L._AC_SY879_.jpg",brand:"Timex",dialColor:"Green",movement:"Quartz",caseSize:40,waterResistance:50},
+    {name:"Casio Classic Diver",asin:"B0CRHXTCVZ",ref:"MDV-106DD-1A2VCF",image:"https://m.media-amazon.com/images/I/61IWZg7U18L._AC_SY879_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:44,waterResistance:200},
+    {name:"Citizen Eco-Drive Weekender",asin:"B01KVVW7M6",ref:"BM8478-01L",image:"https://m.media-amazon.com/images/I/81fbhxtD4hL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Blue",movement:"Solar",caseSize:42,waterResistance:100},
+    {name:"Casio F-91W",asin:"B086RNZX13",ref:"F-91WS-7CF",image:"https://m.media-amazon.com/images/I/51bVWWw7yuL._AC_SY879_.jpg",brand:"Casio",dialColor:"White",movement:"Quartz",caseSize:30,waterResistance:30},
+    {name:"Timex Easy Reader",asin:"B08TX6TP36",ref:"TW2U850009J",image:"https://m.media-amazon.com/images/I/81QCNFII+OL._AC_SX679_.jpg",brand:"Timex",dialColor:"Black",movement:"Quartz",caseSize:35,waterResistance:30},
+    {name:"Timex Easy Reader",asin:"B0000TII3C",ref:"T20471PF",image:"https://m.media-amazon.com/images/I/51bAGnepVZL._AC_SX679_.jpg",brand:"Timex",dialColor:"White",movement:"Quartz",caseSize:35,waterResistance:30},
+    {name:"Bulova Men\'s Classic Sutton",asin:"B0F9HQPZD6",ref:"96B443",image:"https://m.media-amazon.com/images/I/71k47wp9CQL._AC_SX679_.jpg",brand:"Bulova",dialColor:"Brown",movement:"Quartz",caseSize:29,waterResistance:30},
+    {name:"Citizen Tsuyosa Sport",asin:"B0DH9SKZ21",ref:"NJ0151-53Z",image:"https://m.media-amazon.com/images/I/71HvMxdSYxL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Orange",movement:"Automatic",caseSize:40,waterResistance:50},
+    {name:"Timex Expedition Scout",asin:"B0D138Q5PK",ref:"TW4B329009J",image:"https://m.media-amazon.com/images/I/710w1djXDCL._AC_SX679_.jpg",brand:"Timex",dialColor:"Blue",movement:"Quartz",caseSize:40,waterResistance:50},
+    {name:"Timex Weekender",asin:"B008T9QG7K",ref:"T2N649",image:"https://m.media-amazon.com/images/I/81SDlwV95GL._AC_SX679_.jpg",brand:"Timex",dialColor:"Silver",movement:"Quartz",caseSize:38,waterResistance:30},
+    {name:"Bulova Marine Star",asin:"B0DQVJNCBP",ref:"96B431",image:"https://m.media-amazon.com/images/I/71DWmTin+2L._AC_SX679_.jpg",brand:"Bulova",dialColor:"Yellow",movement:"Quartz",caseSize:43,waterResistance:200},
+    {name:"Citizen Promaster Eco-Drive",asin:"B08D9SY2T2",ref:"BN0158-00X",image:"https://m.media-amazon.com/images/I/81jPf73N-uS._AC_SX679_.jpg",brand:"Citizen",dialColor:"Green",movement:"Solar",caseSize:44,waterResistance:200},
+    {name:"Bulova Two-Tone Dress",asin:"B0DCL6HMK5",ref:"98B443",image:"https://m.media-amazon.com/images/I/81sktXJhpOL._AC_SX679_.jpg",brand:"Bulova",dialColor:"Blue",movement:"Quartz",caseSize:39,waterResistance:50},
+    {name:"Bulova Aerojet",asin:"B0FNPP7LMQ",ref:"96A332",image:"https://m.media-amazon.com/images/I/71llWq1fjlL._AC_SX679_.jpg",brand:"Bulova",dialColor:"Green",movement:"Automatic",caseSize:41,waterResistance:30},
+    {name:"Timex Easy Reader",asin:"B00YTY4AI6",ref:"TW2P75900",image:"https://m.media-amazon.com/images/I/81V4YbJ-uhL._AC_SX679_.jpg",brand:"Timex",dialColor:"Navy",movement:"Quartz",caseSize:38,waterResistance:30},
+    {name:"Casio Digital Gold",asin:"B003BJFQW4",ref:"LA670WGA-1DF",image:"https://m.media-amazon.com/images/I/61CZaC8e-SL._AC_SY879_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:25,waterResistance:30},
+    {name:"Citizen Eco-Drive Promaster",asin:"B071FBZLWN",ref:"BN0191-55L",image:"https://m.media-amazon.com/images/I/81tsBpWruuL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Blue",movement:"Solar",caseSize:45,waterResistance:200},
+    {name:"Bulova Marine Star",asin:"B00I6CISFS",ref:"98B203",image:"https://m.media-amazon.com/images/I/81Hpn0pUyqL._AC_SY879_.jpg",brand:"Bulova",dialColor:"Black",movement:"Quartz",caseSize:43,waterResistance:100},
+    {name:"Seiko 5 Sport",asin:"B000KKO85S",ref:"SNXS77",image:"https://m.media-amazon.com/images/I/71+YoQ--0zL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Blue",movement:"Automatic",caseSize:38,waterResistance:30},
+    {name:"Hamilton Khaki Mechanical",asin:"B07N2P5JDR",ref:"H69439363",image:"https://m.media-amazon.com/images/I/81lG5c2zTKL._AC_SX679_.jpg",brand:"Hamilton",dialColor:"Green",movement:"Hand Wind",caseSize:38,waterResistance:50},
+    {name:"Casio \'World Time\' Bronze",asin:"B087X8X2Y2",ref:"AE1200WH",image:"https://m.media-amazon.com/images/I/712UoHy7D2L._AC_SY879_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:39,waterResistance:100},
+    {name:"Hamilton Boulton",asin:"B00264GM9G",ref:"H13431553",image:"https://m.media-amazon.com/images/I/71Z1iAspbLL._AC_SY879_.jpg",brand:"Hamilton",dialColor:"White",movement:"Quartz",caseSize:32,waterResistance:30},
+    {name:"Citizen Corso Eco-Drive",asin:"B0B6WRLJ4S",ref:"AT2149-85X",image:"https://m.media-amazon.com/images/I/81KFIl9KnGL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Green",movement:"Solar",caseSize:42,waterResistance:100},
+    {name:"Citizen Eco-Drive Brycen Sport",asin:"B0F22KDL4D",ref:"AW1840-50E",image:"https://m.media-amazon.com/images/I/71yVByM2bFL._AC_SX679_.jpg",brand:"Citizen",dialColor:"Black",movement:"Solar",caseSize:41,waterResistance:100},
+    {name:"Timex Charles Street",asin:"B000SQM5AY",ref:"T26481",image:"https://m.media-amazon.com/images/I/71tEjWc5HfL._AC_SX679_.jpg",brand:"Timex",dialColor:"Black",movement:"Quartz",caseSize:35,waterResistance:30},
+    {name:"Timex Easy Reader",asin:"B0DWGQRFV9",ref:"TW2W95500JT",image:"https://m.media-amazon.com/images/I/71Xf5MW18hL._AC_SX679_.jpg",brand:"Timex",dialColor:"White",movement:"Quartz",caseSize:35,waterResistance:30},
+    {name:"Casio Analog",asin:"B084X4P8B1",ref:"MTP-V006D-1B2",image:"https://m.media-amazon.com/images/I/61WnfwGXldL._AC_SY695_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:38,waterResistance:30},
+    {name:"Casio \'Digi-Dial\'",asin:"B006ZMLNHG",ref:"AQ230GA-9D",image:"https://m.media-amazon.com/images/I/61j5TeSbtvL._AC_SY695_.jpg",brand:"Casio",dialColor:"Gold",movement:"Quartz",caseSize:31,waterResistance:30},
+    {name:"Citizen Weekender Garrison",asin:"B00UMD8FCA",ref:"AW1430-86E",image:"https://m.media-amazon.com/images/I/81GzjH3pfwS._AC_SX679_.jpg",brand:"Citizen",dialColor:"Black",movement:"Solar",caseSize:43,waterResistance:100},
+    {name:"Casio Retro Dress",asin:"B00OI8IIS6",ref:"Mtp-v001gl-9b",image:"https://m.media-amazon.com/images/I/61Rj79nC8gL._AC_SY879_.jpg",brand:"Casio",dialColor:"Gold",movement:"Quartz",caseSize:38,waterResistance:30},
+    {name:"Timex Marlin Moon Phase",asin:"B0DFQJ7P9D",ref:"TW2Y09900VQ",image:"https://m.media-amazon.com/images/I/71xS5ItdwKL._AC_SX679_.jpg",brand:"Timex",dialColor:"Green",movement:"Quartz",caseSize:40,waterResistance:50},
+    {name:"Casio \'Day-Date\'",asin:"B003DZDX76",ref:"MTP-1302D-1A2VDF",image:"https://m.media-amazon.com/images/I/612vQXheGrL._AC_SY879_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:38,waterResistance:50},
+    {name:"Casio Retro \'Digi-Dial\'",asin:"B0DTJKFX52",ref:"AQ230A-7",image:"https://m.media-amazon.com/images/I/51-fJ7Yc2kL._AC_SY695_.jpg",brand:"Casio",dialColor:"White",movement:"Quartz",caseSize:32,waterResistance:30},
+    {name:"Bulova Chronograph",asin:"B01M8PRKIM",ref:"96D138",image:"https://m.media-amazon.com/images/I/71J6eNXSayL._AC_SY879_.jpg",brand:"Bulova",dialColor:"Blue",movement:"Quartz",caseSize:44,waterResistance:100},
+    {name:"Casio \'Quicksilver\'",asin:"B009QTQNVG",ref:"MTP-1183A-7ADF",image:"https://m.media-amazon.com/images/I/61FhmqQZ5KL._AC_SX679_.jpg",brand:"Casio",dialColor:"Silver",movement:"Quartz",caseSize:38,waterResistance:30},
+    {name:"Casio Edifice Chronograph",asin:"B0CRFQ5SM6",ref:"EFV650D",image:"https://m.media-amazon.com/images/I/81ih67nbeqL._AC_SY879_.jpg",brand:"Casio",dialColor:"Green",movement:"Quartz",caseSize:43,waterResistance:100},
+    {name:"Casio \'Mini Tank\'",asin:"B08DJ1YZPD",ref:"LTP-V007L-7B1",image:"https://m.media-amazon.com/images/I/51xLZN9DcJL._AC_SX679_.jpg",brand:"Casio",dialColor:"Silver",movement:"Quartz",caseSize:22,waterResistance:30},
+    {name:"Seiko Presage",asin:"B0CM3ZLM7N",ref:"SRPK48",image:"https://m.media-amazon.com/images/I/61VhBukkV1L._AC_SY695_.jpg",brand:"Seiko",dialColor:"Gold",movement:"Automatic",caseSize:40,waterResistance:50},
+    {name:"Casio 80\'s Style Digi-Dial",asin:"B09YMTWDXJ",ref:"AQ-800E-7A",image:"https://m.media-amazon.com/images/I/71JEaDewi4L._AC_SX679_.jpg",brand:"Casio",dialColor:"White",movement:"Digital",caseSize:32,waterResistance:30},
+    {name:"Casio Vintage Digital",asin:"B01M09CT2Q",ref:"A168WG-9VT",image:"https://m.media-amazon.com/images/I/51Ect8YQa+L._AC_SY695_.jpg",brand:"Casio",dialColor:"Gold",movement:"Digital",caseSize:38,waterResistance:30},
+    {name:"Casio Analog",asin:"B07DD25LJ8",ref:"MTP-VD01GL-1EVUDF",image:"https://m.media-amazon.com/images/I/71Mwu2wsO3L._AC_SY879_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:45,waterResistance:50},
+    {name:"Casio \'Mini Tank\'",asin:"B08DJ1C4FH",ref:"LTP-V007D-1B",image:"https://m.media-amazon.com/images/I/51V-Hag8APL._AC_SX679_.jpg",brand:"Casio",dialColor:"Black",movement:"Quartz",caseSize:23,waterResistance:30},
+    {name:"Casio \'Digi-Dial\'",asin:"B000OEDP8Q",ref:"AQ-230GA-9D",image:"https://m.media-amazon.com/images/I/510iCRmJ1SL._AC_SX679_.jpg",brand:"Casio",dialColor:"Gold",movement:"Quartz",caseSize:29,waterResistance:30},
+    {name:"Bulova \'Devil Diver\'",asin:"B08SGJGFLN",ref:"96B350",image:"https://m.media-amazon.com/images/I/61Vizo+skQL._AC_SY695_.jpg",brand:"Bulova",dialColor:"Orange",movement:"Automatic",caseSize:41,waterResistance:200}
+];
+const allWatches=[...featuredWatches,...watches];
+const brands=new Set(allWatches.map(w=>w.brand).filter(Boolean));
+const movements=new Set(allWatches.map(w=>w.movement).filter(Boolean));
+const colors=new Set(allWatches.map(w=>w.dialColor).filter(Boolean));
+document.getElementById('brandFilter').innerHTML='<option value="">All Brands</option>'+[...brands].sort().map(b=>`<option>${b}</option>`).join('');
+document.getElementById('movementFilter').innerHTML='<option value="">All Movements</option>'+[...movements].sort().map(m=>`<option>${m}</option>`).join('');
+document.getElementById('colorFilter').innerHTML='<option value="">All Colors</option>'+[...colors].sort().map(c=>`<option>${c}</option>`).join('');
+document.getElementById('sizeFilter').innerHTML='<option value="">All Sizes</option><option value="small">Under 38mm</option><option value="medium">38-42mm</option><option value="large">Over 42mm</option>';
+document.getElementById('wrFilter').innerHTML='<option value="">All WR</option><option value="low">Under 50m</option><option value="medium">50-100m</option><option value="high">Over 100m</option>';
+let currentFilter={brand:'',movement:'',color:'',size:'',wr:'',search:''};
+function createCard(w,isFeatured){
+const card=document.createElement('div');
+card.className=isFeatured?'featured-card':'watch-card';
+card.onclick=()=>{
+if(typeof gtag!=='undefined')gtag('event','watch_click',{watch_name:w.name,watch_asin:w.asin});
+window.location.href=`redirect.html?asin=${w.asin}&tag=${TAG}`;
+};
+if(isFeatured){
+card.innerHTML=`<div class="featured-image-container"><img src="${w.image}" class="featured-image" loading="lazy"></div><div class="featured-info"><div class="featured-name">${w.name}</div></div>`;
+}else{
+const ref=w.ref?`<div class="watch-ref">${w.ref}</div>`:'';
+card.innerHTML=`<div class="watch-image-container"><img src="${w.image}" class="watch-image" loading="lazy"></div><div class="watch-info"><div class="watch-name">${w.name}</div>${ref}</div>`;
+}
+return card;
+}
+function filterWatches(){
+return watches.filter(w=>{
+if(currentFilter.search&&!w.name.toLowerCase().includes(currentFilter.search)&&!w.ref.toLowerCase().includes(currentFilter.search))return false;
+if(currentFilter.brand&&w.brand!==currentFilter.brand)return false;
+if(currentFilter.movement&&w.movement!==currentFilter.movement)return false;
+if(currentFilter.color&&w.dialColor!==currentFilter.color)return false;
+if(currentFilter.size){
+if(currentFilter.size==='small'&&(!w.caseSize||w.caseSize>=38))return false;
+if(currentFilter.size==='medium'&&(!w.caseSize||w.caseSize<38||w.caseSize>42))return false;
+if(currentFilter.size==='large'&&(!w.caseSize||w.caseSize<=42))return false;
+}
+if(currentFilter.wr){
+if(currentFilter.wr==='low'&&(!w.waterResistance||w.waterResistance>=50))return false;
+if(currentFilter.wr==='medium'&&(!w.waterResistance||w.waterResistance<50||w.waterResistance>100))return false;
+if(currentFilter.wr==='high'&&(!w.waterResistance||w.waterResistance<=100))return false;
+}
+return true;
+});
+}
+function render(){
+document.getElementById('watchGrid').innerHTML='';
+const filtered=filterWatches();
+document.getElementById('resultsCount').textContent=`Showing ${filtered.length} of ${watches.length} watches`;
+filtered.forEach(w=>document.getElementById('watchGrid').appendChild(createCard(w,false)));
+}
+featuredWatches.forEach(w=>document.getElementById('featuredGrid').appendChild(createCard(w,true)));
+document.getElementById('searchInput').addEventListener('input',e=>{currentFilter.search=e.target.value.toLowerCase();render();});
+document.getElementById('brandFilter').addEventListener('change',e=>{currentFilter.brand=e.target.value;render();});
+document.getElementById('movementFilter').addEventListener('change',e=>{currentFilter.movement=e.target.value;render();});
+document.getElementById('colorFilter').addEventListener('change',e=>{currentFilter.color=e.target.value;render();});
+document.getElementById('sizeFilter').addEventListener('change',e=>{currentFilter.size=e.target.value;render();});
+document.getElementById('wrFilter').addEventListener('change',e=>{currentFilter.wr=e.target.value;render();});
+render();
+</script>
 </body>
 </html>
