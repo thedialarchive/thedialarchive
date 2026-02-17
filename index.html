@@ -33,11 +33,11 @@ font-style:normal;
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:linear-gradient(180deg,#fafafa 0%,#fff 100%);color:var(--text);-webkit-font-smoothing:antialiased}
 body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 30%,rgba(201,169,97,0.06) 0%,transparent 40%),radial-gradient(circle at 80% 70%,rgba(201,169,97,0.06) 0%,transparent 40%);pointer-events:none;z-index:0}
 .header,.hero-banner,.featured-section,.controls,.container,.footer{position:relative;z-index:1}
-.header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border);padding:16px 20px 14px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
-.logo-container{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:4px}
-.logo{width:44px;height:44px;border-radius:50%}
-.brand-name{font-size:28px;font-weight:bold;font-family:'Vera',sans-serif;letter-spacing:-1.2px;color:#1d1d1f}
-.tagline{font-size:15px;font-weight:normal;font-family:'Vera',sans-serif;color:var(--text2);letter-spacing:0.2px}
+.header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border);padding:20px 20px 16px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
+.logo-container{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:14px;margin-bottom:6px}
+.logo{width:60px;height:60px;border-radius:50%}
+.brand-name{font-size:36px;font-weight:bold;font-family:'Vera',sans-serif;letter-spacing:-1.2px;color:#1d1d1f;line-height:1;margin:0}
+.tagline{font-size:17px;font-weight:normal;font-family:'Vera',sans-serif;color:var(--text2);letter-spacing:0.2px;margin-top:6px}
 .hero-banner{background:linear-gradient(135deg,#fafafa 0%,#fff 50%,#fafafa 100%);padding:20px;text-align:center;position:relative}
 .hero-banner::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
 .hero-content{max-width:600px;margin:0 auto}
@@ -111,7 +111,7 @@ select.filter-select option{font-family:'Inter',-apple-system,BlinkMacSystemFont
 <span class="section-tag">This Week</span>
 <h3 class="section-title">Essential Watches</h3>
 <p class="section-description">Handpicked timepieces that offer exceptional value—perfect entry points into watch collecting.</p>
-<div class="new-watches-badge">✨ New watches added weekly</div>
+<div class="new-watches-badge">✨ New watches coming soon</div>
 </div>
 <div class="featured-scroll">
 <div class="featured-grid" id="featuredGrid"></div>
@@ -372,6 +372,9 @@ document.getElementById('resultsCount').textContent=`Showing ${filtered.length} 
 filtered.forEach(w=>document.getElementById('watchGrid').appendChild(createCard(w,false)));
 updateDropdowns();
 }
+// Shuffle watches once on load (consistent per session, different each visit)
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+shuffle(watches);
 featuredWatches.forEach(w=>document.getElementById('featuredGrid').appendChild(createCard(w,true)));
 document.getElementById('searchInput').addEventListener('input',e=>{currentFilter.search=e.target.value.toLowerCase();render();});
 document.getElementById('brandFilter').addEventListener('change',e=>{currentFilter.brand=e.target.value;currentFilter.movement='';currentFilter.color='';render();});
@@ -379,7 +382,7 @@ document.getElementById('movementFilter').addEventListener('change',e=>{currentF
 document.getElementById('colorFilter').addEventListener('change',e=>{currentFilter.color=e.target.value;render();});
 document.getElementById('sizeFilter').innerHTML='<option value="">All Sizes</option><option value="small">Under 38mm</option><option value="medium">38-42mm</option><option value="large">Over 42mm</option>';
 document.getElementById('sizeFilter').addEventListener('change',e=>{currentFilter.size=e.target.value;render();});
-document.getElementById('wrFilter').innerHTML='<option value="">All WR</option><option value="low">Under 50m</option><option value="medium">50-100m</option><option value="high">Over 100m</option>';
+document.getElementById('wrFilter').innerHTML='<option value="">All Water Resistance</option><option value="low">Under 50m</option><option value="medium">50-100m</option><option value="high">Over 100m</option>';
 document.getElementById('wrFilter').addEventListener('change',e=>{currentFilter.wr=e.target.value;render();});
 updateDropdowns();
 render();
