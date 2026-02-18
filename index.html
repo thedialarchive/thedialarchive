@@ -91,9 +91,20 @@ select.filter-select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 
 .watch-name{font-size:15px;font-weight:600;margin-bottom:6px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .watch-ref{font-size:13px;font-weight:600;color:var(--gold);font-family:'Monaco',monospace;letter-spacing:0.5px}
 .footer{background:linear-gradient(180deg,#fafafa 0%,#f5f5f5 100%);border-top:1px solid var(--border);padding:40px 20px;text-align:center}
-.footer p{font-size:13px;color:var(--text2);margin-bottom:12px}
+.footer-disclosure{font-size:12px;color:#999;margin-bottom:12px;font-weight:400}
 .coming-soon-banner{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(201,169,97,0.1),rgba(201,169,97,0.05));border:1px solid rgba(201,169,97,0.25);border-radius:24px;padding:10px 24px;margin-top:12px;font-size:13px;font-weight:600;color:var(--gold);box-shadow:0 2px 8px rgba(201,169,97,0.1)}
 @media (max-width:768px){.watch-grid{grid-template-columns:repeat(2,1fr);gap:14px}.featured-card{flex:0 0 140px}.featured-grid{justify-content:flex-start}}
+.disclosure-section{background:rgba(201,169,97,0.03);border-top:1px solid rgba(201,169,97,0.1);border-bottom:1px solid rgba(201,169,97,0.1);padding:12px 20px}
+.disclosure-content{max-width:800px;margin:0 auto;text-align:center}
+.disclosure-text{font-size:12px;color:#6e6e73;line-height:1.5;font-weight:500;margin:0}
+.disclosure-text a{color:#c9a961;text-decoration:none}
+.disclosure-text a:hover{text-decoration:underline}
+.footer-about{max-width:600px;margin:0 auto 24px;text-align:center}
+.footer-about-title{font-size:16px;font-weight:700;margin-bottom:8px;color:#1d1d1f}
+.footer-about-text{font-size:13px;color:#6e6e73;line-height:1.6;font-weight:400}
+.footer-contact{font-size:11px;color:#999;margin-top:16px;font-weight:400}
+.footer-contact a{color:#c9a961;text-decoration:none}
+.footer-contact a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -112,6 +123,11 @@ select.filter-select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 
 <p class="hero-cta">Tap any watch to explore on <span class="amazon-highlight">your Amazon app</span></p>
 </div>
 </div>
+<section class="disclosure-section">
+<div class="disclosure-content">
+<p class="disclosure-text">This archive contains affiliate links to Amazon. I earn a small commission from qualifying purchases at no extra cost to you. These links simply connect you to the watches I've curated—your price stays the same.</p>
+</div>
+</section>
 <section class="featured-section">
 <div class="section-header">
 <span class="section-tag">This Week</span>
@@ -145,8 +161,13 @@ select.filter-select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 
 <div class="watch-grid" id="watchGrid"></div>
 </div>
 <footer class="footer">
-<p>As an Amazon Associate I earn from qualifying purchases.</p>
+<div class="footer-about">
+<h3 class="footer-about-title">About The Dial Archive</h3>
+<p class="footer-about-text">A curated collection of 164+ watches worth knowing. I started this archive because I got tired of sifting through thousands of mediocre watches on Amazon. Every watch here is one I'd genuinely consider—affordable options with real value, not hype.</p>
+</div>
+<p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
 <div class="coming-soon-banner"><span>✨</span><span>More watches coming soon</span></div>
+<p class="footer-contact">Questions? <a href="mailto:contact@dialarchive.com">contact@dialarchive.com</a></p>
 </footer>
 <script>
 const TAG="thedialarchiv-20";
