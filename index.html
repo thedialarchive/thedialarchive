@@ -436,6 +436,135 @@ setTimeout(()=>{const g=document.getElementById('featuredGrid');if(g)g.classList
 // Initial render
 updateDropdowns();
 render();
+
+// ============ ENHANCED ANALYTICS TRACKING ============
+
+// Track filter usage
+document.getElementById('brandFilter').addEventListener('change',e=>{
+  if(e.target.value&&typeof gtag!=='undefined'){
+    gtag('event','filter_used',{
+      filter_type:'brand',
+      filter_value:e.target.value,
+      results_count:getFilteredPool().length
+    });
+  }
+});
+
+document.getElementById('movementFilter').addEventListener('change',e=>{
+  if(e.target.value&&typeof gtag!=='undefined'){
+    gtag('event','filter_used',{
+      filter_type:'movement',
+      filter_value:e.target.value,
+      results_count:getFilteredPool().length
+    });
+  }
+});
+
+document.getElementById('colorFilter').addEventListener('change',e=>{
+  if(e.target.value&&typeof gtag!=='undefined'){
+    gtag('event','filter_used',{
+      filter_type:'color',
+      filter_value:e.target.value,
+      results_count:getFilteredPool().length
+    });
+  }
+});
+
+document.getElementById('sizeFilter').addEventListener('change',e=>{
+  if(e.target.value&&typeof gtag!=='undefined'){
+    gtag('event','filter_used',{
+      filter_type:'size',
+      filter_value:e.target.value,
+      results_count:getFilteredPool().length
+    });
+  }
+});
+
+document.getElementById('wrFilter').addEventListener('change',e=>{
+  if(e.target.value&&typeof gtag!=='undefined'){
+    gtag('event','filter_used',{
+      filter_type:'water_resistance',
+      filter_value:e.target.value,
+      results_count:getFilteredPool().length
+    });
+  }
+});
+
+// Track search queries
+let searchTimeout;
+document.getElementById('searchInput').addEventListener('input',e=>{
+  clearTimeout(searchTimeout);
+  searchTimeout=setTimeout(()=>{
+    const query=e.target.value.trim();
+    if(query.length>=3&&typeof gtag!=='undefined'){
+      const results=getFilteredPool();
+      gtag('event','search',{
+        search_term:query,
+        results_count:results.length,
+        found_results:results.length>0
+      });
+    }
+  },1000); // Waits 1 second after typing stops
+});
+
+// Track featured vs catalog clicks
+const origCreateCard=createCard;
+window.createCard=function(w,isFeatured){
+  const card=origCreateCard(w,isFeatured);
+  const origOnclick=card.onclick;
+  card.onclick=function(e){
+    if(typeof gtag!=='undefined'){
+      gtag('event','watch_click',{
+        watch_name:w.name,
+        watch_asin:w.asin,
+        watch_brand:w.brand,
+        click_location:isFeatured?'featured':'catalog',
+        watch_price_range:w.caseSize?'known':'unknown' // Can expand this with actual price data
+      });
+    }
+    origOnclick.call(this,e);
+  };
+  return card;
+};
+
+// Track Amazon banner clicks
+document.querySelector('.amazon-banner')?.addEventListener('click',function(){
+  if(typeof gtag!=='undefined'){
+    gtag('event','banner_click',{
+      banner_type:'amazon_safety'
+    });
+  }
+});
+
+// Track scroll to catalog (user reaches the watch grid)
+let catalogScrollTracked=false;
+window.addEventListener('scroll',()=>{
+  if(catalogScrollTracked)return;
+  const grid=document.getElementById('watchGrid');
+  if(!grid)return;
+  const rect=grid.getBoundingClientRect();
+  if(rect.top<window.innerHeight){
+    catalogScrollTracked=true;
+    if(typeof gtag!=='undefined'){
+      gtag('event','scroll_to_catalog',{
+        scroll_depth:'reached_catalog'
+      });
+    }
+  }
+},{passive:true});
+
+// Track featured carousel interaction
+let featuredScrollTracked=false;
+document.querySelector('.featured-scroll')?.addEventListener('scroll',function(){
+  if(featuredScrollTracked)return;
+  featuredScrollTracked=true;
+  if(typeof gtag!=='undefined'){
+    gtag('event','featured_carousel_scroll',{
+      interaction_type:'manual_scroll'
+    });
+  }
+},{passive:true});
+
 </script>
 </body>
 </html>
