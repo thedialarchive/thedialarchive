@@ -95,7 +95,6 @@ select.filter-select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 
 .coming-soon-banner{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(201,169,97,0.1),rgba(201,169,97,0.05));border:1px solid rgba(201,169,97,0.25);border-radius:24px;padding:10px 24px;margin-top:12px;font-size:13px;font-weight:600;color:var(--gold);box-shadow:0 2px 8px rgba(201,169,97,0.1)}
 @media (max-width:768px){.watch-grid{grid-template-columns:repeat(2,1fr);gap:14px}.featured-card{flex:0 0 140px}.featured-grid{justify-content:flex-start}}
 .disclosure-section{background:rgba(201,169,97,0.03);border-top:1px solid rgba(201,169,97,0.1);border-bottom:1px solid rgba(201,169,97,0.1);padding:12px 20px}
-@media(max-width:768px){.disclosure-section{padding:8px 16px}.disclosure-text{font-size:10px;line-height:1.4}}
 .disclosure-content{max-width:800px;margin:0 auto;text-align:center}
 .disclosure-text{font-size:12px;color:#6e6e73;line-height:1.5;font-weight:500;margin:0}
 .disclosure-text a{color:#c9a961;text-decoration:none}
@@ -168,9 +167,9 @@ select.filter-select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 
 </div>
 <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
 <div class="coming-soon-banner"><span>✨</span><span>More watches coming soon</span></div>
-<p class="footer-contact">Questions? <a href="/cdn-cgi/l/email-protection#8ae9e5e4feebe9fecaeee3ebe6ebf8e9e2e3fcefa4e9e5e7"><span class="__cf_email__" data-cfemail="9efdf1f0eafffdeadefaf7fff2ffecfdf6f7e8fbb0fdf1f3">[email&#160;protected]</span></a></p>
+<p class="footer-contact">Questions? <a href="mailto:contact@dialarchive.com">contact@dialarchive.com</a></p>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const TAG="thedialarchiv-20";
 const featuredWatches=[{name:"Seiko Presage \'Manhattan\'",asin:"B071FB8VVR",ref:"SRPB46",image:"https://m.media-amazon.com/images/I/71x21B8d-yL._AC_SY695_.jpg",brand:"Seiko",dialColor:"Brown",movement:"Automatic",caseSize:40,waterResistance:50},
     {name:"Seiko 5 Sports \'SNXS\'",asin:"B000G12Y8O",ref:"SNXS79K",image:"https://m.media-amazon.com/images/I/71Ygbjkc7UL._AC_SX679_.jpg",brand:"Seiko",dialColor:"Black",movement:"Automatic",caseSize:37,waterResistance:30},
@@ -577,4 +576,16 @@ window.addEventListener('scroll',()=>{
 
 // Track featured carousel interaction
 let featuredScrollTracked=false;
-document.querySelector('.featured-scroll')?.addEventListener('scroll',f
+document.querySelector('.featured-scroll')?.addEventListener('scroll',function(){
+  if(featuredScrollTracked)return;
+  featuredScrollTracked=true;
+  if(typeof gtag!=='undefined'){
+    gtag('event','featured_carousel_scroll',{
+      interaction_type:'manual_scroll'
+    });
+  }
+},{passive:true});
+
+</script>
+</body>
+</html>
