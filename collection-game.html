@@ -17,82 +17,90 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #1a1d2e 0%, #2d3142 50%, #1a1d2e 100%);
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
   min-height: 100vh;
-  color: #fff;
+  color: #1d1d1f;
   overflow-x: hidden;
   padding: 20px;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(circle at 25% 25%, rgba(201,169,97,0.05) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
 .container {
-  position: relative;
-  z-index: 1;
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* Header with logo lockup */
+/* Compact header with branding */
 .game-header {
   text-align: center;
-  padding: 30px 20px 40px;
-  margin-bottom: 30px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .logo-lockup {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
-  padding: 20px 40px;
-  background: rgba(0,0,0,0.3);
-  border-radius: 20px;
-  border: 2px solid rgba(201,169,97,0.2);
+  gap: 12px;
 }
 
-.logo-watch {
-  color: #c9a961;
-  flex-shrink: 0;
+.dial-archive-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
 }
 
 .logo-text {
   text-align: left;
 }
 
+.dial-archive-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6e6e73;
+  line-height: 1;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .game-title {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 900;
-  background: linear-gradient(135deg, #c9a961 0%, #f4d03f 100%);
+  background: linear-gradient(135deg, #c9a961 0%, #d4af6a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
-  margin-bottom: 4px;
   letter-spacing: -0.5px;
 }
 
-.game-subtitle {
-  font-size: 14px;
-  color: rgba(255,255,255,0.6);
-  font-weight: 500;
-  line-height: 1.3;
+@media (max-width: 768px) {
+  .game-header {
+    padding: 12px 16px;
+    margin-bottom: 16px;
+  }
+  
+  .dial-archive-logo {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .dial-archive-name {
+    font-size: 10px;
+  }
+  
+  .game-title {
+    font-size: 18px;
+  }
 }
 
-/* Main layout - watch box on left, score on right */
+/* Layout */
 .game-layout {
   display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 30px;
-  margin-bottom: 40px;
+  grid-template-columns: 1fr 380px;
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
 @media (max-width: 1200px) {
@@ -101,57 +109,56 @@ body::before {
   }
 }
 
-/* Watch box - realistic display case */
+/* Watch box - with WHITE backgrounds */
 .watch-box-section {
   background: linear-gradient(135deg, #2a2520 0%, #3d342a 50%, #2a2520 100%);
   border: 3px solid #8b7355;
   border-radius: 16px;
-  padding: 40px;
+  padding: 30px;
   box-shadow: 
     inset 0 2px 4px rgba(0,0,0,0.3),
-    0 8px 32px rgba(0,0,0,0.4);
-  position: relative;
-}
-
-.watch-box-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60%;
-  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
-  border-radius: 16px 16px 0 0;
-  pointer-events: none;
+    0 4px 12px rgba(0,0,0,0.15);
 }
 
 .watch-box-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 800;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #c9a961;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
-/* Watch slots - 2 rows of 3 */
 .watch-box-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
-  margin-bottom: 30px;
+  gap: 16px;
+  margin-bottom: 25px;
   background: rgba(0,0,0,0.2);
-  padding: 20px;
+  padding: 16px;
   border-radius: 12px;
-  border: 1px solid rgba(139,115,85,0.3);
 }
 
+@media (max-width: 768px) {
+  .watch-box-section {
+    padding: 20px;
+  }
+  
+  .watch-box-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+}
+
+/* Watch slots with WHITE backgrounds */
 .watch-slot {
   aspect-ratio: 1;
-  background: linear-gradient(135deg, #1a1510 0%, #2d2520 100%);
+  background: #ffffff;
   border: 2px solid rgba(139,115,85,0.4);
   border-radius: 8px;
   display: flex;
@@ -162,31 +169,19 @@ body::before {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
-}
-
-.watch-slot::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.03), transparent);
-  pointer-events: none;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .watch-slot:hover {
   border-color: #c9a961;
   box-shadow: 
-    inset 0 2px 4px rgba(0,0,0,0.5),
-    0 0 20px rgba(201,169,97,0.2);
+    inset 0 1px 3px rgba(0,0,0,0.1),
+    0 0 12px rgba(201,169,97,0.3);
   transform: translateY(-2px);
 }
 
 .watch-slot.filled {
   border-color: #8b7355;
-  background: linear-gradient(135deg, #2d2520 0%, #3d342a 100%);
 }
 
 .slot-number {
@@ -195,23 +190,22 @@ body::before {
   left: 6px;
   font-size: 9px;
   font-weight: 700;
-  color: rgba(201,169,97,0.5);
-  background: rgba(0,0,0,0.4);
+  color: #c9a961;
+  background: rgba(255,255,255,0.9);
   padding: 3px 8px;
   border-radius: 4px;
   letter-spacing: 0.5px;
+  border: 1px solid rgba(201,169,97,0.2);
 }
 
 .slot-plus {
   font-size: 42px;
-  color: rgba(139,115,85,0.3);
+  color: rgba(139,115,85,0.2);
   font-weight: 300;
-  transition: all 0.3s;
 }
 
 .watch-slot:hover .slot-plus {
-  color: rgba(201,169,97,0.5);
-  transform: scale(1.1);
+  color: rgba(201,169,97,0.4);
 }
 
 .watch-slot.filled .slot-plus {
@@ -223,7 +217,6 @@ body::before {
   height: 90%;
   object-fit: contain;
   padding: 8px;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
 }
 
 .slot-watch-name {
@@ -231,40 +224,58 @@ body::before {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-  padding: 18px 6px 6px;
+  background: linear-gradient(to top, rgba(255,255,255,0.98), rgba(255,255,255,0.9));
+  padding: 16px 6px 6px;
   font-size: 9px;
   font-weight: 600;
   text-align: center;
   line-height: 1.2;
+  color: #1d1d1f;
+  border-top: 1px solid rgba(0,0,0,0.05);
 }
 
-.remove-watch {
+/* Mobile action buttons */
+.slot-actions {
+  display: none;
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 20px;
-  height: 20px;
-  background: rgba(200,50,50,0.9);
-  border-radius: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.98);
+  padding: 8px;
+  gap: 6px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.slot-actions.visible {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: bold;
+}
+
+.slot-action-btn {
+  flex: 1;
+  padding: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 6px;
+  border: none;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s;
+  transition: all 0.2s;
+}
+
+.slot-action-btn.replace {
+  background: #c9a961;
   color: #fff;
 }
 
-.watch-slot.filled:hover .remove-watch {
-  opacity: 1;
+.slot-action-btn.remove {
+  background: #e8e8e8;
+  color: #c83232;
 }
 
 .browse-btn {
   width: 100%;
-  padding: 18px;
+  padding: 16px;
   background: linear-gradient(135deg, #c9a961 0%, #d4af6a 100%);
   color: #fff;
   border: none;
@@ -280,161 +291,134 @@ body::before {
 
 .browse-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(201,169,97,0.5);
+  box-shadow: 0 6px 16px rgba(201,169,97,0.4);
 }
 
-/* Score panel - more interesting design */
+/* Score panel - cleaner design */
 .score-panel {
-  background: linear-gradient(135deg, rgba(10,14,39,0.9) 0%, rgba(26,31,58,0.9) 100%);
-  border: 2px solid rgba(201,169,97,0.3);
-  border-radius: 20px;
-  padding: 30px;
-  backdrop-filter: blur(10px);
+  background: #fff;
+  border: 2px solid rgba(201,169,97,0.2);
+  border-radius: 16px;
+  padding: 24px;
   height: fit-content;
   position: sticky;
   top: 20px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .score-display {
   text-align: center;
-  margin-bottom: 25px;
-  padding: 30px 20px;
-  background: linear-gradient(135deg, rgba(201,169,97,0.15) 0%, rgba(201,169,97,0.05) 100%);
-  border-radius: 16px;
-  border: 2px solid rgba(201,169,97,0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.score-display::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(from 0deg, transparent, rgba(201,169,97,0.1), transparent 30%);
-  animation: rotate 4s linear infinite;
-}
-
-@keyframes rotate {
-  100% { transform: rotate(360deg); }
-}
-
-.score-content {
-  position: relative;
-  z-index: 1;
+  margin-bottom: 20px;
+  padding: 24px 16px;
+  background: linear-gradient(135deg, rgba(201,169,97,0.08) 0%, rgba(201,169,97,0.02) 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(201,169,97,0.15);
 }
 
 .score-label {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 12px;
+  letter-spacing: 1px;
+  color: #6e6e73;
+  margin-bottom: 10px;
 }
 
 .score-value {
-  font-size: 72px;
+  font-size: 64px;
   font-weight: 900;
-  background: linear-gradient(135deg, #c9a961 0%, #f4d03f 50%, #c9a961 100%);
+  background: linear-gradient(135deg, #c9a961 0%, #d4af6a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
-  margin-bottom: 8px;
-  text-shadow: 0 4px 20px rgba(201,169,97,0.3);
+  margin-bottom: 6px;
 }
 
 .score-grade {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 900;
   color: #c9a961;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
+/* Metrics with custom icons */
 .metrics {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .metric {
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .metric-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .metric-name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  color: rgba(255,255,255,0.8);
+  color: #1d1d1f;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .metric-icon {
-  width: 16px;
-  height: 16px;
-  fill: #c9a961;
+  width: 14px;
+  height: 14px;
 }
 
 .metric-score {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   color: #c9a961;
 }
 
 .metric-bar {
-  height: 8px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 4px;
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 3px;
   overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
 .metric-fill {
   height: 100%;
   background: linear-gradient(90deg, #c9a961 0%, #d4af6a 100%);
-  border-radius: 4px;
-  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  box-shadow: 0 0 10px rgba(201,169,97,0.4);
+  border-radius: 3px;
+  transition: width 0.5s ease;
 }
 
 .info-box {
-  background: rgba(201,169,97,0.08);
-  border: 1px solid rgba(201,169,97,0.2);
-  border-radius: 10px;
-  padding: 14px;
-  margin-bottom: 20px;
+  background: rgba(201,169,97,0.06);
+  border: 1px solid rgba(201,169,97,0.15);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
   text-align: center;
 }
 
 .info-box-text {
   font-size: 12px;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.5;
+  color: #6e6e73;
+  line-height: 1.4;
   font-weight: 500;
 }
 
 .action-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .action-btn {
-  padding: 13px;
-  border-radius: 10px;
-  font-size: 13px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -444,12 +428,12 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .btn-icon {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .action-btn.primary {
@@ -460,22 +444,18 @@ body::before {
 
 .action-btn.primary:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(201,169,97,0.4);
+  box-shadow: 0 4px 12px rgba(201,169,97,0.3);
 }
 
 .action-btn.secondary {
-  background: transparent;
-  color: rgba(255,255,255,0.8);
-  border-color: rgba(255,255,255,0.2);
+  background: #fff;
+  color: #6e6e73;
+  border-color: #e5e5e7;
 }
 
 .action-btn.secondary:hover {
-  border-color: rgba(201,169,97,0.5);
+  border-color: #c9a961;
   color: #c9a961;
-}
-
-.action-btn.secondary .btn-icon {
-  fill: currentColor;
 }
 
 .action-btn:disabled {
@@ -487,7 +467,7 @@ body::before {
   width: 100%;
 }
 
-/* Modal */
+/* Modal with WHITE backgrounds */
 .modal {
   display: none;
   position: fixed;
@@ -495,11 +475,10 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.92);
+  background: rgba(0,0,0,0.7);
   z-index: 1000;
   overflow-y: auto;
   padding: 20px;
-  backdrop-filter: blur(4px);
 }
 
 .modal.active {
@@ -509,87 +488,124 @@ body::before {
 }
 
 .modal-content {
-  background: linear-gradient(135deg, #1a1d2e 0%, #2d3142 100%);
-  border: 2px solid rgba(201,169,97,0.3);
-  border-radius: 20px;
-  padding: 30px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
   max-width: 1200px;
   width: 100%;
   margin: 40px auto;
-  position: relative;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(201,169,97,0.2);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
 }
 
 .modal-title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
-  color: #c9a961;
+  color: #1d1d1f;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .modal-close {
-  width: 36px;
-  height: 36px;
-  background: rgba(255,255,255,0.08);
+  width: 32px;
+  height: 32px;
+  background: #f5f5f5;
   border: none;
   border-radius: 50%;
-  font-size: 24px;
-  color: rgba(255,255,255,0.6);
+  font-size: 20px;
+  color: #6e6e73;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .modal-close:hover {
-  background: rgba(200,50,50,0.8);
-  color: #fff;
+  background: #ffd5d5;
+  color: #c83232;
+}
+
+/* Filter controls */
+.modal-controls {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .modal-search {
-  width: 100%;
-  padding: 14px 20px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(201,169,97,0.2);
-  border-radius: 12px;
-  color: #fff;
-  font-size: 16px;
-  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: #f5f5f5;
+  border: 2px solid #e5e5e7;
+  border-radius: 10px;
+  color: #1d1d1f;
+  font-size: 15px;
   font-family: 'Inter', sans-serif;
+  font-weight: 500;
 }
 
 .modal-search::placeholder {
-  color: rgba(255,255,255,0.4);
+  color: #6e6e73;
 }
 
 .modal-search:focus {
   outline: none;
   border-color: #c9a961;
-  background: rgba(255,255,255,0.08);
+  background: #fff;
 }
 
+.modal-filter {
+  padding: 12px 16px;
+  background: #f5f5f5;
+  border: 2px solid #e5e5e7;
+  border-radius: 10px;
+  color: #1d1d1f;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236e6e73' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.modal-filter:focus {
+  outline: none;
+  border-color: #c9a961;
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .modal-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Watch grid with WHITE backgrounds */
 .watch-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
-  max-height: 60vh;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  max-height: 55vh;
   overflow-y: auto;
-  padding: 10px;
+  padding: 8px;
+  background: #fafafa;
+  border-radius: 12px;
 }
 
 .watch-option {
-  background: rgba(255,255,255,0.04);
-  border: 2px solid rgba(201,169,97,0.2);
-  border-radius: 12px;
-  padding: 15px;
+  background: #ffffff;
+  border: 2px solid #e5e5e7;
+  border-radius: 10px;
+  padding: 12px;
   cursor: pointer;
   transition: all 0.3s;
   text-align: center;
@@ -597,96 +613,98 @@ body::before {
 
 .watch-option:hover {
   border-color: #c9a961;
-  background: rgba(201,169,97,0.1);
-  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(201,169,97,0.15);
+  transform: translateY(-2px);
 }
 
 .watch-option.selected {
   border-color: #c9a961;
-  background: rgba(201,169,97,0.2);
+  background: rgba(201,169,97,0.05);
 }
 
 .watch-option-img {
   width: 100%;
-  height: 120px;
+  height: 110px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .watch-option-name {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  color: #fff;
+  color: #1d1d1f;
   line-height: 1.3;
 }
 
 /* Leaderboard */
 .leaderboard {
-  background: rgba(0,0,0,0.3);
-  border: 2px solid rgba(201,169,97,0.2);
-  border-radius: 20px;
-  padding: 30px;
-  margin-top: 30px;
+  background: #fff;
+  border: 2px solid #e5e5e7;
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .leaderboard-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 800;
   text-align: center;
-  margin-bottom: 20px;
-  color: #c9a961;
+  margin-bottom: 16px;
+  color: #1d1d1f;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .trophy-icon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   fill: #c9a961;
 }
 
 .leaderboard-entry {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 12px;
-  margin-bottom: 10px;
-  border: 1px solid rgba(201,169,97,0.1);
+  gap: 12px;
+  padding: 12px;
+  background: #fafafa;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #e5e5e7;
 }
 
 .entry-rank {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 900;
   color: #c9a961;
-  min-width: 40px;
+  min-width: 36px;
 }
 
 .entry-name {
   flex: 1;
   font-weight: 600;
+  color: #1d1d1f;
 }
 
 .entry-score {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 800;
   color: #c9a961;
 }
 
 .disclaimer {
   text-align: center;
-  padding: 18px 24px;
+  padding: 16px 20px;
   background: rgba(201,169,97,0.05);
-  border: 1px solid rgba(201,169,97,0.2);
+  border: 1px solid rgba(201,169,97,0.15);
   border-radius: 12px;
-  margin-top: 30px;
+  margin-top: 24px;
   font-size: 13px;
-  color: rgba(255,255,255,0.6);
+  color: #6e6e73;
   line-height: 1.5;
   max-width: 800px;
   margin-left: auto;
@@ -695,22 +713,22 @@ body::before {
 
 .scoring-info {
   background: rgba(201,169,97,0.05);
-  border: 1px solid rgba(201,169,97,0.2);
+  border: 1px solid rgba(201,169,97,0.15);
   border-radius: 12px;
-  padding: 20px;
-  margin-top: 20px;
+  padding: 18px;
+  margin-top: 16px;
   font-size: 13px;
   line-height: 1.6;
-  color: rgba(255,255,255,0.7);
+  color: #6e6e73;
 }
 
 .scoring-info h3 {
-  color: #c9a961;
-  font-size: 16px;
-  margin-bottom: 12px;
+  color: #1d1d1f;
+  font-size: 15px;
+  margin-bottom: 10px;
   text-transform: uppercase;
   font-weight: 800;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .scoring-info ul {
@@ -726,9 +744,8 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.92);
+  background: rgba(0,0,0,0.7);
   z-index: 1001;
-  backdrop-filter: blur(4px);
 }
 
 .username-modal.active {
@@ -738,94 +755,70 @@ body::before {
 }
 
 .username-content {
-  background: linear-gradient(135deg, #1a1d2e 0%, #2d3142 100%);
-  border: 2px solid rgba(201,169,97,0.3);
-  border-radius: 20px;
-  padding: 40px;
-  max-width: 500px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 460px;
   width: 90%;
   text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
 .username-content h2 {
-  font-size: 28px;
-  color: #c9a961;
-  margin-bottom: 10px;
+  font-size: 24px;
+  color: #1d1d1f;
+  margin-bottom: 8px;
   font-weight: 900;
 }
 
 .username-content .score-big {
-  font-size: 64px;
+  font-size: 56px;
   font-weight: 900;
-  background: linear-gradient(135deg, #c9a961 0%, #f4d03f 100%);
+  background: linear-gradient(135deg, #c9a961 0%, #d4af6a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 20px 0;
+  margin: 16px 0;
 }
 
 .username-content p {
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 25px;
+  color: #6e6e73;
+  margin-bottom: 20px;
   font-size: 14px;
 }
 
 .username-input {
   width: 100%;
-  padding: 16px 20px;
-  background: rgba(255,255,255,0.05);
-  border: 2px solid rgba(201,169,97,0.3);
-  border-radius: 12px;
-  color: #fff;
+  padding: 14px 18px;
+  background: #f5f5f5;
+  border: 2px solid #e5e5e7;
+  border-radius: 10px;
+  color: #1d1d1f;
   font-size: 16px;
   text-align: center;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   font-family: 'Inter', sans-serif;
 }
 
 .username-input:focus {
   outline: none;
   border-color: #c9a961;
-  background: rgba(255,255,255,0.08);
+  background: #fff;
 }
 
 .username-input::placeholder {
-  color: rgba(255,255,255,0.3);
+  color: #6e6e73;
 }
 
 .username-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 10px;
 }
 
 @media (max-width: 768px) {
-  .logo-lockup {
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
-    padding: 20px 24px;
-  }
-  
-  .logo-text {
-    text-align: center;
-  }
-  
-  .game-title {
-    font-size: 24px;
-  }
-  
-  .watch-box-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-  }
-  
   .action-buttons {
     grid-template-columns: 1fr;
-  }
-  
-  .watch-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
   
   .username-buttons {
@@ -837,58 +830,24 @@ body::before {
 <body>
 
 <div class="container">
-  <!-- Header with logo lockup -->
+  <!-- Compact header with Dial Archive branding -->
   <div class="game-header">
     <div class="logo-lockup">
-      <svg class="logo-watch" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="12" r="9"/>
-        <path d="M12 6v6l4 2"/>
-        <path d="M9 2h6"/>
-        <path d="M9 22h6"/>
-      </svg>
+      <img src="https://i.imgur.com/ZgFYofO.png" alt="The Dial Archive" class="dial-archive-logo">
       <div class="logo-text">
+        <div class="dial-archive-name">The Dial Archive</div>
         <div class="game-title">Build Your Collection</div>
-        <div class="game-subtitle">Choose 6 watches to build your perfect collection</div>
       </div>
     </div>
   </div>
 
-  <!-- Main game layout -->
+  <!-- Main layout -->
   <div class="game-layout">
-    <!-- Watch box - realistic case -->
+    <!-- Watch box -->
     <div class="watch-box-section">
       <div class="watch-box-title">Your Watch Box</div>
       <div class="watch-box-grid" id="watchBox">
-        <div class="watch-slot" data-slot="0">
-          <div class="slot-number">SLOT 1</div>
-          <div class="slot-plus">+</div>
-          <div class="remove-watch">×</div>
-        </div>
-        <div class="watch-slot" data-slot="1">
-          <div class="slot-number">SLOT 2</div>
-          <div class="slot-plus">+</div>
-          <div class="remove-watch">×</div>
-        </div>
-        <div class="watch-slot" data-slot="2">
-          <div class="slot-number">SLOT 3</div>
-          <div class="slot-plus">+</div>
-          <div class="remove-watch">×</div>
-        </div>
-        <div class="watch-slot" data-slot="3">
-          <div class="slot-number">SLOT 4</div>
-          <div class="slot-plus">+</div>
-          <div class="remove-watch">×</div>
-        </div>
-        <div class="watch-slot" data-slot="4">
-          <div class="slot-number">SLOT 5</div>
-          <div class="slot-plus">+</div>
-          <div class="remove-watch">×</div>
-        </div>
-        <div class="watch-slot" data-slot="5">
-          <div class="slot-number">SLOT 6</div>
-          <div class="slot-plus">+</div>
-          <div class="remove-watch">×</div>
-        </div>
+        <!-- Slots will be generated by JS -->
       </div>
       <button class="browse-btn" id="browseBtn">Browse Archive (164 Watches)</button>
     </div>
@@ -896,19 +855,18 @@ body::before {
     <!-- Score panel -->
     <div class="score-panel">
       <div class="score-display">
-        <div class="score-content">
-          <div class="score-label">Your Collection Score</div>
-          <div class="score-value" id="totalScore">0</div>
-          <div class="score-grade" id="scoreGrade">—</div>
-        </div>
+        <div class="score-label">Your Collection Score</div>
+        <div class="score-value" id="totalScore">0</div>
+        <div class="score-grade" id="scoreGrade">—</div>
       </div>
 
       <div class="metrics">
+        <!-- Versatility -->
         <div class="metric">
           <div class="metric-header">
             <span class="metric-name">
               <svg class="metric-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/>
+                <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/>
               </svg>
               Versatility
             </span>
@@ -919,11 +877,12 @@ body::before {
           </div>
         </div>
 
+        <!-- Complications -->
         <div class="metric">
           <div class="metric-header">
             <span class="metric-name">
               <svg class="metric-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
               </svg>
               Complications
             </span>
@@ -934,11 +893,12 @@ body::before {
           </div>
         </div>
 
+        <!-- Style Range -->
         <div class="metric">
           <div class="metric-header">
             <span class="metric-name">
               <svg class="metric-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                <path d="M20 6h-3l-2-2H9L7 6H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-3 12H7l3-4 2 3 3-4 2 2z"/>
               </svg>
               Style Range
             </span>
@@ -949,11 +909,12 @@ body::before {
           </div>
         </div>
 
+        <!-- Water Resistance -->
         <div class="metric">
           <div class="metric-header">
             <span class="metric-name">
               <svg class="metric-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
               </svg>
               Water Resistance
             </span>
@@ -964,11 +925,14 @@ body::before {
           </div>
         </div>
 
+        <!-- Movement Variety -->
         <div class="metric">
           <div class="metric-header">
             <span class="metric-name">
               <svg class="metric-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                <path d="M12 2l-5.5 9h11z"/>
+                <circle cx="17.5" cy="17.5" r="4.5"/>
+                <path d="M3 13.5h8v8H3z"/>
               </svg>
               Movement Variety
             </span>
@@ -979,11 +943,12 @@ body::before {
           </div>
         </div>
 
+        <!-- Brand Variety -->
         <div class="metric">
           <div class="metric-header">
             <span class="metric-name">
               <svg class="metric-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
+                <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
               </svg>
               Brand Variety
             </span>
@@ -993,6 +958,8 @@ body::before {
             <div class="metric-fill" id="brandBar" style="width: 0%"></div>
           </div>
         </div>
+
+
       </div>
 
       <div class="info-box">
@@ -1004,13 +971,13 @@ body::before {
           <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
           </svg>
-          Share Score
+          Share
         </button>
         <button class="action-btn secondary" id="resetBtn">
           <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
           </svg>
-          Start Over
+          Reset
         </button>
       </div>
 
@@ -1026,20 +993,17 @@ body::before {
   <!-- Scoring info -->
   <div class="scoring-info" id="scoringInfo" style="display: none;">
     <h3>How Scoring Works</h3>
-    <p><strong>Remember:</strong> This is subjective and for fun! Everyone should wear what they love.</p>
+    <p><strong>Remember:</strong> This is subjective and for fun! Wear what you love.</p>
     <ul>
-      <li><strong>Versatility:</strong> Dress + Sport + Casual styles</li>
+      <li><strong>Versatility:</strong> Dress + Sport + Casual variety</li>
       <li><strong>Complications:</strong> Chronograph + Date + Day features</li>
-      <li><strong>Style Range:</strong> Different dial colors = more variety</li>
-      <li><strong>Water Resistance:</strong> At least one 100m+ watch recommended</li>
-      <li><strong>Movement Variety:</strong> Automatic + Quartz + Solar diversity</li>
-      <li><strong>Brand Variety:</strong> All different brands = maximum points</li>
+      <li><strong>Style Range:</strong> Different dial colors</li>
+      <li><strong>Water Resistance:</strong> At least one 100m+ recommended</li>
+      <li><strong>Movement Variety:</strong> Auto + Quartz + Solar diversity</li>
+      <li><strong>Brand Variety:</strong> All different brands = max points</li>
+
     </ul>
-    <p style="margin-top: 12px;"><strong>Bonus Points:</strong></p>
-    <ul>
-      <li>All different brands: +10 points</li>
-      <li>All different dial colors: +5 points</li>
-    </ul>
+    <p style="margin-top: 12px;"><strong>Bonus:</strong> All different brands +10, all different dials +5</p>
   </div>
 
   <!-- Leaderboard -->
@@ -1050,57 +1014,66 @@ body::before {
       </svg>
       Today's Top Collections
     </div>
-    <div class="leaderboard-entry">
-      <div class="entry-rank">#1</div>
-      <div class="entry-name">@watchlover47</div>
-      <div class="entry-score">98</div>
-    </div>
-    <div class="leaderboard-entry">
-      <div class="entry-rank">#2</div>
-      <div class="entry-name">@seikofan92</div>
-      <div class="entry-score">95</div>
-    </div>
-    <div class="leaderboard-entry">
-      <div class="entry-rank">#3</div>
-      <div class="entry-name">@orientcollector</div>
-      <div class="entry-score">92</div>
+    <div id="leaderboardList">
+      <div class="leaderboard-entry">
+        <div class="entry-rank">#1</div>
+        <div class="entry-name">@watchlover47</div>
+        <div class="entry-score">98</div>
+      </div>
+      <div class="leaderboard-entry">
+        <div class="entry-rank">#2</div>
+        <div class="entry-name">@seikofan92</div>
+        <div class="entry-score">95</div>
+      </div>
+      <div class="leaderboard-entry">
+        <div class="entry-rank">#3</div>
+        <div class="entry-name">@orientcollector</div>
+        <div class="entry-score">92</div>
+      </div>
     </div>
   </div>
 
   <!-- Disclaimer -->
   <div class="disclaimer">
-    <strong>Remember:</strong> This scoring system is subjective and meant for fun. Everyone's taste in watches is different, and you should always wear what you love. This game simply suggests building a well-rounded collection with variety.
+    <strong>Remember:</strong> This scoring system is subjective and for fun. Everyone's taste in watches is different. Wear what you love.
   </div>
 </div>
 
-<!-- Modal for watch selection -->
+<!-- Watch selection modal -->
 <div class="modal" id="watchModal">
   <div class="modal-content">
     <div class="modal-header">
       <div class="modal-title">Choose a Watch</div>
       <button class="modal-close" id="closeModal">×</button>
     </div>
-    <input type="text" class="modal-search" id="watchSearch" placeholder="Search watches...">
+    <div class="modal-controls">
+      <input type="text" class="modal-search" id="watchSearch" placeholder="Search watches...">
+      <select class="modal-filter" id="brandFilter">
+        <option value="">All Brands</option>
+      </select>
+      <select class="modal-filter" id="movementFilter">
+        <option value="">All Movements</option>
+      </select>
+    </div>
     <div class="watch-grid" id="watchGrid"></div>
   </div>
 </div>
 
-<!-- Username submission modal -->
+<!-- Username modal -->
 <div class="username-modal" id="usernameModal">
   <div class="username-content">
     <h2>Great Collection!</h2>
     <div class="score-big" id="finalScore">0</div>
-    <p>Enter your TikTok username to submit your score to the leaderboard</p>
+    <p>Enter your TikTok username to submit to the leaderboard</p>
     <input type="text" class="username-input" id="usernameInput" placeholder="@yourhandle" maxlength="30">
     <div class="username-buttons">
-      <button class="action-btn primary" id="submitUsername">Submit Score</button>
+      <button class="action-btn primary" id="submitUsername">Submit</button>
       <button class="action-btn secondary" id="skipUsername">Skip</button>
     </div>
   </div>
 </div>
 
 <script>
-
 const allWatches = [
   {
     "name": "Timex Waterbury Chronograph",
@@ -2910,8 +2883,15 @@ const allWatches = [
 
 let collection = [null, null, null, null, null, null];
 let currentSlot = 0;
+let isMobile = window.innerWidth <= 768;
+
+window.addEventListener('resize', () => {
+  isMobile = window.innerWidth <= 768;
+});
 
 document.addEventListener('DOMContentLoaded', () => {
+  initializeSlots();
+  populateFilters();
   renderWatchGrid(allWatches);
   updateScore();
   
@@ -2921,24 +2901,124 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('resetBtn').addEventListener('click', resetCollection);
   document.getElementById('scoringInfoBtn').addEventListener('click', toggleScoringInfo);
   document.getElementById('watchSearch').addEventListener('input', handleSearch);
+  document.getElementById('brandFilter').addEventListener('change', handleFilter);
+  document.getElementById('movementFilter').addEventListener('change', handleFilter);
   document.getElementById('submitUsername').addEventListener('click', submitScore);
   document.getElementById('skipUsername').addEventListener('click', closeUsernameModal);
-  
-  document.querySelectorAll('.watch-slot').forEach(slot => {
-    slot.addEventListener('click', (e) => {
-      if (e.target.classList.contains('remove-watch')) {
-        removeWatch(parseInt(slot.dataset.slot));
-      } else {
-        currentSlot = parseInt(slot.dataset.slot);
-        openModal();
-      }
-    });
-  });
   
   document.getElementById('watchModal').addEventListener('click', (e) => {
     if (e.target.id === 'watchModal') closeModal();
   });
 });
+
+function initializeSlots() {
+  const box = document.getElementById('watchBox');
+  for (let i = 0; i < 6; i++) {
+    const slot = document.createElement('div');
+    slot.className = 'watch-slot';
+    slot.dataset.slot = i;
+    slot.innerHTML = `
+      <div class="slot-number">SLOT ${i + 1}</div>
+      <div class="slot-plus">+</div>
+    `;
+    
+    slot.addEventListener('click', (e) => {
+      if (collection[i] && isMobile) {
+        // Show mobile actions
+        showMobileActions(i);
+      } else {
+        currentSlot = i;
+        openModal();
+      }
+    });
+    
+    box.appendChild(slot);
+  }
+}
+
+function showMobileActions(slotIndex) {
+  const slot = document.querySelector(`[data-slot="${slotIndex}"]`);
+  
+  // Remove any existing actions
+  document.querySelectorAll('.slot-actions').forEach(el => el.remove());
+  
+  // Create action buttons
+  const actions = document.createElement('div');
+  actions.className = 'slot-actions visible';
+  actions.innerHTML = `
+    <button class="slot-action-btn replace">Replace</button>
+    <button class="slot-action-btn remove">Remove</button>
+  `;
+  
+  actions.querySelector('.replace').addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentSlot = slotIndex;
+    actions.remove();
+    openModal();
+  });
+  
+  actions.querySelector('.remove').addEventListener('click', (e) => {
+    e.stopPropagation();
+    removeWatch(slotIndex);
+    actions.remove();
+  });
+  
+  slot.appendChild(actions);
+  
+  // Remove actions if clicked outside
+  setTimeout(() => {
+    document.addEventListener('click', function removeActions(e) {
+      if (!slot.contains(e.target)) {
+        actions.remove();
+        document.removeEventListener('click', removeActions);
+      }
+    });
+  }, 100);
+}
+
+function populateFilters() {
+  const brands = [...new Set(allWatches.map(w => w.brand))].sort();
+  const movements = [...new Set(allWatches.map(w => w.movement))].sort();
+  
+  const brandFilter = document.getElementById('brandFilter');
+  const movementFilter = document.getElementById('movementFilter');
+  
+  brands.forEach(b => {
+    const opt = document.createElement('option');
+    opt.value = b;
+    opt.textContent = b;
+    brandFilter.appendChild(opt);
+  });
+  
+  movements.forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m;
+    opt.textContent = m;
+    movementFilter.appendChild(opt);
+  });
+}
+
+function handleFilter() {
+  const search = document.getElementById('watchSearch').value.toLowerCase();
+  const brand = document.getElementById('brandFilter').value;
+  const movement = document.getElementById('movementFilter').value;
+  
+  let filtered = allWatches.filter(w => {
+    const matchSearch = !search || 
+      w.name.toLowerCase().includes(search) ||
+      w.brand.toLowerCase().includes(search) ||
+      w.ref.toLowerCase().includes(search);
+    const matchBrand = !brand || w.brand === brand;
+    const matchMovement = !movement || w.movement === movement;
+    return matchSearch && matchBrand && matchMovement;
+  });
+  
+  renderWatchGrid(filtered);
+}
+
+function handleSearch(e) {
+  handleFilter();
+}
 
 function openModal() {
   document.getElementById('watchModal').classList.add('active');
@@ -2989,20 +3069,22 @@ function renderSlot(slotIndex) {
   const slot = document.querySelector(`[data-slot="${slotIndex}"]`);
   const watch = collection[slotIndex];
   
+  // Remove any existing actions
+  const existingActions = slot.querySelector('.slot-actions');
+  if (existingActions) existingActions.remove();
+  
   if (watch) {
     slot.classList.add('filled');
     slot.innerHTML = `
       <div class="slot-number">SLOT ${slotIndex + 1}</div>
       <img src="${watch.image}" class="slot-watch-img" alt="${watch.name}" loading="lazy">
       <div class="slot-watch-name">${watch.name}</div>
-      <div class="remove-watch">×</div>
     `;
   } else {
     slot.classList.remove('filled');
     slot.innerHTML = `
       <div class="slot-number">SLOT ${slotIndex + 1}</div>
       <div class="slot-plus">+</div>
-      <div class="remove-watch">×</div>
     `;
   }
 }
@@ -3036,11 +3118,12 @@ function updateScore() {
     updateMetric('wr', 0, 0);
     updateMetric('movement', 0, 0);
     updateMetric('brand', 0, 0);
+
     return;
   }
   
   if (filled.length < 6) {
-    document.getElementById('infoText').textContent = `Add ${6 - filled.length} more watch${6 - filled.length === 1 ? '' : 'es'} to complete your collection!`;
+    document.getElementById('infoText').textContent = `Add ${6 - filled.length} more watch${6 - filled.length === 1 ? '' : 'es'}!`;
     document.getElementById('shareBtn').disabled = true;
   } else {
     document.getElementById('shareBtn').disabled = false;
@@ -3077,8 +3160,13 @@ function updateScore() {
   updateMetric('movement', scores.movement, scores.movement);
   updateMetric('brand', scores.brand, scores.brand);
   
+
+  
   if (filled.length === 6) {
-    document.getElementById('infoText').textContent = total >= 80 ? 'Excellent collection!' : total >= 60 ? 'Solid collection!' : 'Keep building!';
+    document.getElementById('infoText').textContent = 
+      total >= 80 ? 'Excellent collection!' : 
+      total >= 60 ? 'Solid collection!' : 
+      'Keep building!';
   }
 }
 
@@ -3151,29 +3239,14 @@ function submitScore() {
     return;
   }
   
-  // Clean username
   const cleanUsername = username.startsWith('@') ? username : '@' + username;
   const score = document.getElementById('totalScore').textContent;
   
-  // In future: send to backend API
-  // For now: just show confirmation
   alert(`Score submitted! ${cleanUsername}: ${score}/100
-  
-Check back to see where you rank on the leaderboard!`);
+
+Check back to see where you rank!`);
   
   closeUsernameModal();
-  
-  // Could also trigger share functionality here
-}
-
-function handleSearch(e) {
-  const query = e.target.value.toLowerCase();
-  const filtered = allWatches.filter(w => 
-    w.name.toLowerCase().includes(query) ||
-    w.brand.toLowerCase().includes(query) ||
-    w.ref.toLowerCase().includes(query)
-  );
-  renderWatchGrid(filtered);
 }
 
 function toggleScoringInfo() {
