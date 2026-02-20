@@ -513,7 +513,7 @@ function render(){
   const grid=document.getElementById('watchGrid');
   grid.innerHTML='';
   const filtered=getFilteredPool();
-  document.getElementById('resultsCount').textContent=`Showing ${filtered.length} of ${watches.length} watches`;
+  document.getElementById('resultsCount').textContent=`Showing ${filtered.length} of ${regularWatches.length} watches`;
   filtered.forEach((w,i)=>{
     const card=createCard(w,false);
     grid.appendChild(card);
