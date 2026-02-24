@@ -56,7 +56,8 @@
             font-size: 13px;
             color: #6e6e73;
             font-weight: 500;
-            margin-top: 0;
+            margin-top: -2px;
+            line-height: 1;
         }
         .container {
             max-width: 1200px;
@@ -134,55 +135,6 @@
         .article-card:hover .read-more {
             text-decoration: underline;
         }
-        .coming-soon-card {
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-            border: 2px dashed #c9a961;
-            border-radius: 12px;
-            padding: 48px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 300px;
-        }
-        .coming-soon-content {
-            text-align: center;
-        }
-        .coming-soon-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, #c9a961 0%, #d4b76e 50%, #c9a961 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 4px 16px rgba(201,169,97,0.3);
-        }
-        .coming-soon-icon::before {
-            content: '';
-            width: 24px;
-            height: 24px;
-            border: 3px solid #ffffff;
-            border-radius: 50%;
-            border-top-color: transparent;
-            border-right-color: transparent;
-            animation: spin 2s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .coming-soon-title {
-            font-size: 22px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-        }
-        .coming-soon-text {
-            font-size: 16px;
-            color: #6e6e73;
-            line-height: 1.5;
         }
         @media (max-width: 768px) {
             .articles-grid {
@@ -222,16 +174,55 @@
                 </div>
             </a>
 
-            <!-- Coming Soon Badge -->
-            <div class="coming-soon-card">
-                <div class="coming-soon-content">
-                    <div class="coming-soon-icon"></div>
-                    <h3 class="coming-soon-title">More Reviews Coming Soon</h3>
-                    <p class="coming-soon-text">New watch reviews, buying guides, and comparisons dropping weekly.</p>
+            <!-- Article 2: Seiko 5 SNXS -->
+            <a href="seiko-5-snxs-review.html" class="article-card">
+                <div class="article-image">
+                    <img src="https://m.media-amazon.com/images/I/71Yby8EwKdL._AC_SY879_.jpg" alt="Seiko 5 Sports SNXS">
                 </div>
-            </div>
+                <div class="article-content">
+                    <h2 class="article-title">Seiko 5 Sports SNXS Review: The Perfect Gateway Automatic</h2>
+                    <p class="article-excerpt">My first automatic watch. Why this 37mm classic is still the best place to start with mechanical watches in 2026.</p>
+                    <span class="read-more">Read Review →</span>
+                </div>
+            </a>
 
-            <!-- Placeholder for future articles -->
+            <!-- Article 3: Orient Bambino -->
+            <a href="orient-bambino-review.html" class="article-card">
+                <div class="article-image">
+                    <img src="https://m.media-amazon.com/images/I/71qYbLln8OL._AC_SY879_.jpg" alt="Orient Bambino">
+                </div>
+                <div class="article-content">
+                    <h2 class="article-title">Orient Bambino Review: Affordable Luxury That Actually Delivers</h2>
+                    <p class="article-excerpt">This dress watch looks like it costs three times its price. Why the Bambino punches above its weight and whether it's wearable every day.</p>
+                    <span class="read-more">Read Review →</span>
+                </div>
+            </a>
+
+            <!-- Article 4: Citizen Tsuyosa -->
+            <a href="citizen-tsuyosa-review.html" class="article-card">
+                <div class="article-image">
+                    <img src="https://m.media-amazon.com/images/I/71yInxY95NL._AC_SY879_.jpg" alt="Citizen Tsuyosa">
+                </div>
+                <div class="article-content">
+                    <h2 class="article-title">Citizen Tsuyosa Review: Premium Finishing at Any Price</h2>
+                    <p class="article-excerpt">Bold dial colors, integrated bracelet, and box sapphire crystal. Why this automatic competes with watches twice its price.</p>
+                    <span class="read-more">Read Review →</span>
+                </div>
+            </a>
+
+            <!-- Article 5: Timex Marlin -->
+            <a href="timex-marlin-review.html" class="article-card">
+                <div class="article-image">
+                    <img src="https://m.media-amazon.com/images/I/71te3AJ+kQL._AC_SY879_.jpg" alt="Timex Marlin">
+                </div>
+                <div class="article-content">
+                    <h2 class="article-title">Timex Marlin Review: Vintage Style Without Vintage Problems</h2>
+                    <p class="article-excerpt">34mm, hand-wound, and unapologetically vintage. Who's buying this tiny watch in 2026 and why it works.</p>
+                    <span class="read-more">Read Review →</span>
+                </div>
+            </a>
+
+        </div>
             <!-- <a href="seiko-vs-orient.html" class="article-card">
                 <div class="article-image">
                     <img src="IMAGE_URL" alt="Article title">
