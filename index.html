@@ -544,16 +544,59 @@
             }
             
             .crystal-ball-mini {
-                padding: 20px 15px;
-                margin: 20px;
+                padding: 12px 15px;
+                margin: 5px 20px 20px 20px;
+            }
+            
+            .crystal-ball-content {
+                display: grid;
+                grid-template-columns: 50px 1fr 50px;
+                gap: 10px;
+                align-items: center;
+                text-align: left;
+            }
+            
+            .crystal-ball-icon {
+                width: 35px;
+                height: 35px;
+                grid-column: 1;
+            }
+            
+            .crystal-ball-text {
+                grid-column: 2;
             }
             
             .crystal-ball-title {
-                font-size: 20px;
+                font-size: 16px;
+                margin-bottom: 3px;
+                line-height: 1.1;
             }
             
             .crystal-ball-subtitle {
+                font-size: 11px;
+                line-height: 1.3;
+            }
+            
+            .crystal-ball-arrow {
+                grid-column: 3;
+                font-size: 32px;
+                text-align: right;
+            }
+            
+            .hero {
+                padding: 20px 15px;
+            }
+            
+            .hero h2 {
+                font-size: 24px;
+                white-space: nowrap;
+                line-height: 1.1;
+                letter-spacing: -0.5px;
+            }
+            
+            .hero p {
                 font-size: 13px;
+                margin-top: 8px;
             }
             
             .crystal-ball-mini {
